@@ -35,7 +35,7 @@ Ya tenemos prototipos funcionales de varios componentes del ecosistema:
 
 ### 🌐 Ver la Infografía
 
-Puedes ver la infografía completa en: https://countercorehazardav.com
+Puedes ver la infografía completa en: https://infografia-opennexus.pages.dev
 
 ### 📱 Tecnologías Utilizadas
 

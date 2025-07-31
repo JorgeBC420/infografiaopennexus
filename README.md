@@ -24,9 +24,18 @@ OpenNexus es un ecosistema de cinco unidades de negocio sinérgicas:
 - **Retorno proyectado**: $93M+
 - **ROI**: 656% en 5 años
 
+### 💻 Productos en Desarrollo
+
+Ya tenemos prototipos funcionales de varios componentes del ecosistema:
+
+- **🎮 [Caminos de la Fe](https://github.com/JorgeBC420/caminos_de_la_fe)** - RPG histórico (en migración de Python/Ursina a Unity/C#)
+- **🛒 [CajaCentral POS](https://github.com/JorgeBC420/Caja_Central_POS)** - Sistema de punto de venta (MVP funcional en Python)
+
+*Nota: Estos son prototipos en desarrollo activo que demuestran la viabilidad técnica del proyecto.*
+
 ### 🌐 Ver la Infografía
 
-Puedes ver la infografía completa en: https://jorgebc420.github.io/infografia_OpenNexus/
+Puedes ver la infografía completa en: https://countercorehazardav.com
 
 ### 📱 Tecnologías Utilizadas
 

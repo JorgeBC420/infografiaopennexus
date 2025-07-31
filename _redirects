@@ -1,0 +1,12 @@
+# Cloudflare Pages Configuration
+
+compatibility_date = "2024-07-31"
+
+[build]
+command = ""
+destination = "."
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

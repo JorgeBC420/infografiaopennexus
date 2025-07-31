@@ -35,7 +35,7 @@ Ya tenemos prototipos funcionales de varios componentes del ecosistema:
 
 ### 🌐 Ver la Infografía
 
-Puedes ver la infografía completa en: https://infografia-opennexus.pages.dev
+Puedes ver la infografía completa en: https://jorgebc420.github.io/infografia_OpenNexus/
 
 ### 📱 Tecnologías Utilizadas
 

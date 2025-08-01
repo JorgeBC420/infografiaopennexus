@@ -311,15 +311,205 @@
                     <p class="text-xl text-purple-200 font-semibold">Caminos de la Fe - RPG Medieval Revolucionario</p>
                 </div>
 
-                <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="height: 80vh;">
-                    <iframe id="gameslab-iframe" 
-                            src="games_lab_page.html" 
-                            class="w-full h-full border-0"
-                            loading="lazy">
-                    </iframe>
+                <!-- Games Lab Content Inline -->
+                <div class="games-lab-content" style="background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 50%, #2a0a3a 100%); border-radius: 20px; padding: 40px; margin: 20px 0;">
+                    
+                    <!-- Header del Juego -->
+                    <div class="text-center mb-12">
+                        <div style="width: 200px; height: 120px; margin: 0 auto 20px; background: linear-gradient(45deg, #00ffff, #ff00ff); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; color: #000;">
+                            OPENNEXUS<br>GAMES LAB
+                        </div>
+                        <h1 class="text-4xl font-bold mb-4" style="background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                            Caminos de la Fe
+                        </h1>
+                        <p class="text-xl text-blue-200">Cruzada y Conquista - El RPG que Revoluciona la Monetización</p>
+                    </div>
+
+                    <!-- Características del Juego -->
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">🏰 Un RPG Medieval Revolucionario</h2>
+                        <p class="text-lg text-center mb-8 text-gray-300">
+                            Sumérgete en las Cruzadas como nunca antes. Un RPG de acción en tiempo real que combina historia, fantasía y una economía justa para todos los jugadores.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">⚔️ Combate en Tiempo Real</h4>
+                                <p class="text-gray-300">Acción 3D fluida con combate estratégico y habilidades únicas por facción.</p>
+                            </div>
+                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🎯 Sistema de Facciones</h4>
+                                <p class="text-gray-300">Elige entre Cruzados, Sarracenos o Antiguos, cada uno con ventajas únicas.</p>
+                            </div>
+                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">📈 Progresión Inteligente</h4>
+                                <p class="text-gray-300">Sistema de stats con costo cuadrático que recompensa la dedicación.</p>
+                            </div>
+                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🏆 Armas Legendarias</h4>
+                                <p class="text-gray-300">Ítems únicos por servidor con efectos visuales espectaculares.</p>
+                            </div>
+                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">⚡ PvP Asíncrono</h4>
+                                <p class="text-gray-300">Combates justos con simulación de servidor y matchmaking por nivel.</p>
+                            </div>
+                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🌍 Guerras de Facciones</h4>
+                                <p class="text-gray-300">Participa en conflictos globales que afectan a todos los jugadores.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Facciones -->
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">⚔️ Elige Tu Destino</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-yellow-600/20 to-orange-600/10 p-6 rounded-lg border-2 border-yellow-500 text-center">
+                                <h3 class="text-2xl font-bold mb-4 text-yellow-400">🛡️ Cruzados</h3>
+                                <p class="font-bold text-yellow-300 mb-2">Ventaja: +30% daño vs Antiguos, -10% vs Sarracenos</p>
+                                <p class="text-gray-300">Los guerreros de la fe, expertos en combate defensivo y formaciones tácticas.</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-600/20 to-green-800/10 p-6 rounded-lg border-2 border-green-500 text-center">
+                                <h3 class="text-2xl font-bold mb-4 text-green-400">🏹 Sarracenos</h3>
+                                <p class="font-bold text-green-300 mb-2">Ventaja: +20% daño vs Cruzados, neutro vs Antiguos</p>
+                                <p class="text-gray-300">Maestros de la velocidad y la precisión, dominan el combate a distancia.</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-600/20 to-indigo-800/10 p-6 rounded-lg border-2 border-purple-500 text-center">
+                                <h3 class="text-2xl font-bold mb-4 text-purple-400">🔮 Antiguos</h3>
+                                <p class="font-bold text-purple-300 mb-2">Ventaja: +10% daño vs Sarracenos, -20% vs Cruzados</p>
+                                <p class="text-gray-300">Poseedores de conocimientos arcanos y tecnologías perdidas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monetización -->
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">💰 Monetización Ética y Sostenible</h2>
+                        <p class="text-center mb-8 text-gray-300">
+                            Nuestro modelo respeta el tiempo de los jugadores y crea una economía justa para todos.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
+                                <h3 class="text-xl font-bold mb-3 text-cyan-400">🎮 Juego Gratuito</h3>
+                                <p class="text-gray-300 mb-4">Acceso completo sin restricciones de contenido.</p>
+                                <div class="text-3xl font-bold text-yellow-400">GRATIS</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
+                                <h3 class="text-xl font-bold mb-3 text-cyan-400">💎 Oro Premium</h3>
+                                <p class="text-gray-300 mb-4">$1 USD = 1000 oro (Nivel 1-10)<br>
+                                Escala: +100 oro por nivel adicional</p>
+                                <div class="text-3xl font-bold text-yellow-400">$1+</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
+                                <h3 class="text-xl font-bold mb-3 text-cyan-400">✨ Faith Pass</h3>
+                                <p class="text-gray-300 mb-4">Sin anuncios por 6 meses<br>
+                                Misiones adicionales<br>
+                                Gear exclusivo</p>
+                                <div class="text-3xl font-bold text-yellow-400">$10/mes</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
+                                <h3 class="text-xl font-bold mb-3 text-cyan-400">🔥 NFTs Únicos</h3>
+                                <p class="text-gray-300 mb-4">Activos de juego reales<br>
+                                Experiencias del mundo real<br>
+                                Blockchain Polygon</p>
+                                <div class="text-3xl font-bold text-yellow-400">Variable</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-600/20 p-6 rounded-lg border border-green-400/30">
+                            <h3 class="text-xl font-bold mb-4 text-green-400">🌟 Características Anti-Pay-to-Win</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Costo cuadrático de mejoras: (nivel+1)²</span></div>
+                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Límites diarios de farming para equilibrio</span></div>
+                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Matchmaking por nivel en PvP</span></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Moneda de evento para jugadores F2P</span></div>
+                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Economía con mecanismos anti-inflación</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Impacto Estratégico -->
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">📊 Impacto Estratégico</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">💰 Proyección Financiera</h4>
+                                <p class="text-white"><strong>Año 1:</strong> $170,000+ en ingresos<br>
+                                <strong>100K jugadores</strong> generan <strong>5K+ leads</strong> para otros productos OpenNexus</p>
+                            </div>
+                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🎯 Adquisición de Usuarios</h4>
+                                <p class="text-gray-300">Canal de costo casi cero para adquirir usuarios de CounterCore HazardAV y CajaCentral POS</p>
+                            </div>
+                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🏗️ Vitrina Tecnológica</h4>
+                                <p class="text-gray-300">Demuestra las capacidades de Edge AI y optimización de nuestros chips OpenChip CR</p>
+                            </div>
+                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
+                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🇨🇷 Impacto Nacional</h4>
+                                <p class="text-gray-300">Promociona el turismo costarricense y posiciona a OpenNexus como marca de innovación</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roadmap -->
+                    <div class="mb-12">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">🗺️ Roadmap de Desarrollo</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
+                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q1 2026</div>
+                                <div>
+                                    <strong class="text-cyan-400">Lanzamiento Alpha:</strong> 
+                                    <span class="text-gray-300">Sistema de facciones, combate básico, economía de oro, Faith Pass MVP</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
+                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q2 2026</div>
+                                <div>
+                                    <strong class="text-cyan-400">Beta Cerrada:</strong> 
+                                    <span class="text-gray-300">PvP asíncrono, guerras de facciones, sistema de misiones completo</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
+                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q3 2026</div>
+                                <div>
+                                    <strong class="text-cyan-400">Lanzamiento Global:</strong> 
+                                    <span class="text-gray-300">NFTs en Polygon, integración con ecosistema OpenNexus</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
+                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q4 2026</div>
+                                <div>
+                                    <strong class="text-cyan-400">Expansión:</strong> 
+                                    <span class="text-gray-300">Nuevas regiones, alianzas turísticas, 100K+ usuarios activos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-lg p-8 border border-purple-400/50">
+                        <h2 class="text-3xl font-bold text-cyan-400 mb-4">🚀 Únete a la Revolución</h2>
+                        <p class="text-xl text-gray-300 mb-6">
+                            Sé parte del futuro de los videojuegos y la soberanía tecnológica de Costa Rica
+                        </p>
+                        <div class="space-x-4">
+                            <a href="mailto:jorgebravo92@gmail.com" class="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 text-black px-6 py-3 rounded-lg font-bold hover:scale-105 transition-transform">
+                                📧 Contactar Equipo
+                            </a>
+                            <a href="https://www.countercorehazardav.com" target="_blank" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition-transform">
+                                🌐 Visitar CounterCore
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="text-center mt-6">
+                <div class="text-center mt-8">
                     <button onclick="hideGamesLab()" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
                         ⬆️ Volver al Ecosistema OpenNexus
                     </button>
@@ -346,7 +536,7 @@
                 </div>
             </section>
 
-            <section id="games-lab" class="mb-16 card rounded-2xl p-6 md:p-8 cursor-pointer hover:scale-105 transition-transform duration-300" onclick="openGamesLab()">
+            <section id="games-lab" class="mb-16 card rounded-2xl p-6 md:p-8 cursor-pointer hover:scale-105 transition-transform duration-300 border-2 border-transparent hover:border-purple-400" onclick="openGamesLab()">
                 <h2 class="text-3xl font-bold text-center mb-8">🎮 El Motor Estratégico: OpenNexus Games Lab</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div>
@@ -357,8 +547,9 @@
                             <div class="flex items-center"><span class="text-2xl mr-4">🛡️</span><div><span class="font-bold">Antivirus</span> promociona Juego y aliados turísticos.</div></div>
                              <div class="flex items-center"><span class="text-2xl mr-4">🤝</span><div><span class="font-bold">Aliados</span> patrocinan contenido en el juego, generando ingresos.</div></div>
                         </div>
-                        <div class="mt-6">
-                            <p class="text-center text-cyan-400 font-bold">🖱️ Click para ver Caminos de la Fe RPG</p>
+                        <div class="mt-6 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-lg p-4 border border-purple-400/50">
+                            <p class="text-center text-cyan-400 font-bold text-lg">🖱️ ¡CLICK AQUÍ! → Ver Caminos de la Fe RPG</p>
+                            <p class="text-center text-purple-300 text-sm mt-2">Experiencia completa del juego medieval</p>
                         </div>
                     </div>
                     <div>
@@ -594,18 +785,38 @@
             };
 
             window.openGamesLab = function() {
+                console.log('🎮 Intentando abrir Games Lab...');
                 const gamesLabSection = document.getElementById('gameslab-details');
+                
+                if (!gamesLabSection) {
+                    console.error('❌ No se encontró la sección gameslab-details');
+                    alert('Error: Sección Games Lab no encontrada');
+                    return;
+                }
+                
+                console.log('✅ Sección encontrada, removiendo clase hidden...');
                 gamesLabSection.classList.remove('hidden');
+                
+                console.log('📍 Haciendo scroll a la sección...');
                 gamesLabSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                console.log('🎮 Games Lab abierto exitosamente');
             };
 
             window.hideGamesLab = function() {
+                console.log('🔙 Cerrando Games Lab...');
                 const gamesLabSection = document.getElementById('gameslab-details');
-                gamesLabSection.classList.add('hidden');
+                
+                if (gamesLabSection) {
+                    gamesLabSection.classList.add('hidden');
+                }
                 
                 // Scroll back to the games lab section in main page
                 const gamesLabMainSection = document.getElementById('games-lab');
-                gamesLabMainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (gamesLabMainSection) {
+                    gamesLabMainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                console.log('✅ Games Lab cerrado');
             };
         });
     </script>

@@ -223,32 +223,30 @@
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Documentos HTML -->
                     <div class="bg-[#003554]/70 rounded-xl p-6 border border-cyan-700/50">
                         <h3 class="text-xl font-bold mb-4 text-cyan-300">📋 Documentación Ejecutiva</h3>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between p-3 bg-[#051923]/50 rounded-lg">
                                 <div>
                                     <p class="font-semibold">📊 Pitch Deck Completo</p>
-                                    <p class="text-sm text-gray-400">Presentación estratégica actualizada (HTML)</p>
+                                    <p class="text-sm text-gray-400">Presentación estratégica actualizada</p>
                                 </div>
                                 <button onclick="downloadSecureFile('pitch-deck')" class="bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-                                    Descargar
+                                    Solicitar
                                 </button>
                             </div>
                             <div class="flex items-center justify-between p-3 bg-[#051923]/50 rounded-lg">
                                 <div>
                                     <p class="font-semibold">📈 Plan de Negocio</p>
-                                    <p class="text-sm text-gray-400">Análisis financiero con tablas detalladas (HTML)</p>
+                                    <p class="text-sm text-gray-400">Análisis financiero con tablas detalladas</p>
                                 </div>
                                 <button onclick="downloadSecureFile('business-plan')" class="bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-                                    Descargar
+                                    Solicitar
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Repositorios GitHub -->
                     <div class="bg-[#003554]/70 rounded-xl p-6 border border-cyan-700/50">
                         <h3 class="text-xl font-bold mb-4 text-cyan-300">💻 Repositorios GitHub</h3>
                         <div class="space-y-4">
@@ -283,17 +281,16 @@
                     </div>
                 </div>
 
-                <!-- Generador de Contraseña -->
                 <div class="mt-8 bg-gradient-to-br from-[#003554] to-[#006494] rounded-xl p-6 text-center border-2 border-cyan-400/50">
                     <h3 class="text-xl font-bold mb-4">🔑 Acceso Seguro a Documentos</h3>
-                    <p class="text-gray-300 mb-4">Para referencia de acceso y autenticación de documentos:</p>
+                    <p class="text-gray-300 mb-4">Para acceso y autenticación de documentos ejecutivos:</p>
                     <div class="bg-[#051923]/70 rounded-lg p-4 mb-4">
                         <p class="text-sm text-gray-400 mb-2">Contraseña generada automáticamente:</p>
                         <p id="dynamic-password" class="text-2xl font-mono font-bold text-cyan-300 bg-black/30 px-4 py-2 rounded-lg inline-block">
                             Generando...
                         </p>
                     </div>
-                    <p class="text-xs text-gray-400">La contraseña se actualiza cada 24 horas • Los documentos HTML se pueden convertir a PDF desde el navegador</p>
+                    <p class="text-xs text-gray-400">La contraseña se actualiza cada 24 horas</p>
                 </div>
             </section>
 
@@ -475,24 +472,20 @@
             createDistributionChart();
             createGamesLabChart();
 
-            // Sistema de contraseña dinámica
             function generateDynamicPassword() {
                 const today = new Date();
-                const dateString = today.toISOString().slice(0, 10); // YYYY-MM-DD
+                const dateString = today.toISOString().slice(0, 10);
                 const seed = "OpenNexus" + dateString + "2025";
-                // Crear hash simple basado en la fecha
                 let hash = 0;
                 for (let i = 0; i < seed.length; i++) {
                     const char = seed.charCodeAt(i);
                     hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash; // Convertir a 32bit
+                    hash = hash & hash;
                 }
-                // Convertir a contraseña legible
                 const password = "ONX" + Math.abs(hash).toString().slice(0, 6) + "Tech";
                 return password;
             }
 
-            // Mostrar contraseña dinámica
             function updatePassword() {
                 const passwordElement = document.getElementById('dynamic-password');
                 if (passwordElement) {
@@ -500,53 +493,22 @@
                 }
             }
 
-            // Función de descarga segura
             window.downloadSecureFile = function(fileType) {
                 const password = generateDynamicPassword();
-                let fileName = '';
                 let message = '';
-                let fileUrl = '';
                 
                 switch(fileType) {
                     case 'pitch-deck':
-                        fileName = 'OpenNexus_PitchDeck_2025.html';
-                        message = 'Pitch Deck con presentación estratégica actualizada (HTML)';
-                        fileUrl = './OpenNexus_PitchDeck_2025.html';
+                        message = 'Pitch Deck con presentación estratégica completa';
                         break;
                     case 'business-plan':
-                        fileName = 'OpenNexus_BusinessPlan_2025.html';
-                        message = 'Plan de negocio con análisis financiero detallado (HTML)';
-                        fileUrl = './OpenNexus_BusinessPlan_2025.html';
+                        message = 'Plan de negocio con análisis financiero detallado';
                         break;
                 }
                 
-                // Función de descarga
-                const downloadFile = () => {
-                    const link = document.createElement('a');
-                    link.href = fileUrl;
-                    link.download = fileName;
-                    link.target = '_blank';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                };
-                
-                // Mostrar información y descargar
-                const userConfirm = confirm(`📁 Archivo: ${fileName}\n🔑 Contraseña dinámica: ${password}\n📋 Contenido: ${message}\n\n💡 El archivo HTML se puede convertir a PDF desde el navegador\n(Archivo → Imprimir → Guardar como PDF)\n\n¿Proceder con la descarga?`);
-                
-                if (userConfirm) {
-                    try {
-                        downloadFile();
-                        alert(`✅ Descarga iniciada!\n\n� Archivo HTML profesional descargado\n🔑 Contraseña del día: ${password}\n�️ Para PDF: Abrir archivo → Imprimir → Guardar como PDF`);
-                    } catch (error) {
-                        // Si falla la descarga, abrir en nueva pestaña
-                        window.open(fileUrl, '_blank');
-                        alert(`� Documento abierto en nueva pestaña\n🔑 Contraseña del día: ${password}\n� Para guardar: Ctrl+S o Archivo → Guardar`);
-                    }
-                }
+                alert('📊 ' + message + '\n\n🔑 Contraseña del día: ' + password + '\n\n📧 Solicita el documento completo:\n📱 WhatsApp/SINPE: +506 71880297\n📧 Email: disponible bajo solicitud\n\n💡 Los documentos se envían en formato PDF profesional.');
             };
 
-            // Función para mostrar info de repositorios
             window.showRepoInfo = function(repoType) {
                 let repoUrl = '';
                 let description = '';
@@ -562,25 +524,20 @@
                         break;
                 }
                 
-                if (confirm(`🔗 ${description}\n\n¿Deseas abrir el repositorio en GitHub?`)) {
+                if (confirm('🔗 ' + description + '\n\n¿Deseas abrir el repositorio en GitHub?')) {
                     window.open(repoUrl, '_blank');
                 }
             };
 
-            // Función para abrir NexusOptimIA
             window.openNexusOptimIA = function() {
-                // Crear ventana modal o redirección a la plataforma Smart Cities
-                const userChoice = confirm(`🌟 ¡Bienvenido a NexusOptimIA! 🌟\n\n🏙️ Plataforma Smart Cities de Costa Rica\n💡 Optimización IA para infraestructura nacional\n\n¿Deseas acceder a la demostración de la plataforma?`);
+                const userChoice = confirm('🌟 ¡Bienvenido a NexusOptimIA! 🌟\n\n🏙️ Plataforma Smart Cities de Costa Rica\n💡 Optimización IA para infraestructura nacional\n\n¿Deseas acceder a la demostración de la plataforma?');
                 
                 if (userChoice) {
-                    // Mostrar información de la plataforma
-                    alert(`🎯 NexusOptimIA - Smart Cities Platform\n\n📊 Cobertura Nacional:\n• ICE - Optimización eléctrica ($15M ahorros)\n• AyA - Gestión hídrica (25% reducción pérdidas)\n• MINAE - Monitoreo calidad del aire\n• MOPT - Optimización tráfico (30% reducción congestión)\n• SENASA - Agricultura inteligente (50% ahorro agua)\n\n🔧 Tecnología:\n• Edge AI con LoRa 915MHz\n• Análisis predictivo en tiempo real\n• Integración IoT nacional\n\n🚀 ¡Próximamente: Demo interactiva completa!`);
+                    alert('🎯 NexusOptimIA - Smart Cities Platform\n\n📊 Cobertura Nacional:\n• ICE - Optimización eléctrica ($15M ahorros)\n• AyA - Gestión hídrica (25% reducción pérdidas)\n• MINAE - Monitoreo calidad del aire\n• MOPT - Optimización tráfico (30% reducción congestión)\n• SENASA - Agricultura inteligente (50% ahorro agua)\n\n🔧 Tecnología:\n• Edge AI con LoRa 915MHz\n• Análisis predictivo en tiempo real\n• Integración IoT nacional\n\n🚀 ¡Próximamente: Demo interactiva completa!');
                 }
             };
 
-            // Inicializar contraseña
             updatePassword();
-            // Actualizar contraseña cada hora (para demo)
             setInterval(updatePassword, 3600000);
         });
     </script>

@@ -128,7 +128,7 @@
                             <p class="text-xl font-bold text-cyan-300">💡 NexusOptimIA</p><p class="text-sm text-cyan-200 font-semibold">⭐ Producto Estrella ⭐</p>
                             <p class="text-xs text-cyan-100 mt-2 opacity-75">🖱️ Click para acceder</p>
                         </div>
-                        <div class="md:col-start-2 lg:col-start-4 md:-mt-16 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50">
+                        <div class="md:col-start-2 lg:col-start-4 md:-mt-16 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-blue-400/80" onclick="document.getElementById('cajacentral-details').classList.remove('hidden'); document.getElementById('cajacentral-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CajaCentral POS abierto');">
                             <div class="mb-2">
                                 <img src="images/cajacentralpos-logo.png" alt="CajaCentralPOS" class="mx-auto h-10 w-auto">
                             </div>
@@ -510,7 +510,29 @@
                 </div>
 
                 <div class="text-center mt-8">
-                    <button onclick="hideGamesLab()" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
+                    <button onclick="document.getElementById('gameslab-details').classList.add('hidden'); document.getElementById('games-lab').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('Games Lab cerrado');" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
+                        ⬆️ Volver al Ecosistema OpenNexus
+                    </button>
+                </div>
+            </section>
+
+            <!-- CajaCentral POS Detailed Section -->
+            <section id="cajacentral-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">🏪 CajaCentralPOS</h2>
+                    <p class="text-xl text-blue-200 font-semibold">Sistema Integral de Punto de Venta para Costa Rica</p>
+                </div>
+
+                <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="height: 80vh;">
+                    <iframe id="cajacentral-iframe" 
+                            src="cajacentral_pos_combined.html" 
+                            class="w-full h-full border-0"
+                            loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button onclick="document.getElementById('cajacentral-details').classList.add('hidden'); document.getElementById('solution').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CajaCentral POS cerrado');" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
                         ⬆️ Volver al Ecosistema OpenNexus
                     </button>
                 </div>
@@ -536,7 +558,7 @@
                 </div>
             </section>
 
-            <section id="games-lab" class="mb-16 card rounded-2xl p-6 md:p-8 cursor-pointer hover:scale-105 transition-transform duration-300 border-2 border-transparent hover:border-purple-400" onclick="openGamesLab()">
+            <section id="games-lab" class="mb-16 card rounded-2xl p-6 md:p-8 cursor-pointer hover:scale-105 transition-transform duration-300 border-2 border-transparent hover:border-purple-400" onclick="document.getElementById('gameslab-details').classList.remove('hidden'); document.getElementById('gameslab-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('Games Lab abierto');">
                 <h2 class="text-3xl font-bold text-center mb-8">🎮 El Motor Estratégico: OpenNexus Games Lab</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div>
@@ -550,6 +572,12 @@
                         <div class="mt-6 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-lg p-4 border border-purple-400/50">
                             <p class="text-center text-cyan-400 font-bold text-lg">🖱️ ¡CLICK AQUÍ! → Ver Caminos de la Fe RPG</p>
                             <p class="text-center text-purple-300 text-sm mt-2">Experiencia completa del juego medieval</p>
+                            <!-- Backup method -->
+                            <div class="text-center mt-4">
+                                <a href="#gameslab-details" onclick="document.getElementById('gameslab-details').classList.remove('hidden');" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded text-white font-bold transition-colors">
+                                    🎮 Abrir Games Lab
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -818,6 +846,23 @@
                 }
                 console.log('✅ Games Lab cerrado');
             };
+
+            // Event listener para mensajes de iframes
+            window.addEventListener('message', function(event) {
+                if (event.data === 'hideCajaCentral') {
+                    console.log('🏪 Cerrando CajaCentral POS desde iframe...');
+                    const cajacentralSection = document.getElementById('cajacentral-details');
+                    if (cajacentralSection) {
+                        cajacentralSection.classList.add('hidden');
+                    }
+                    // Scroll back to ecosystem section
+                    const ecosystemSection = document.getElementById('solution');
+                    if (ecosystemSection) {
+                        ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    console.log('✅ CajaCentral POS cerrado');
+                }
+            });
         });
     </script>
 </body>

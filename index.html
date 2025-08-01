@@ -115,12 +115,12 @@
                             </div>
                             <p class="text-lg font-bold">⚙️ OpenChipCR</p><p class="text-xs text-gray-400">Hardware & Consultoría</p>
                         </div>
-                        <div class="md:col-start-2 lg:col-start-2 md:-mt-16 text-center p-2 border border-cyan-700/50 rounded-lg bg-[#003554]/50 hover:border-red-400/50 transition-colors duration-300">
+                        <div class="md:col-start-2 lg:col-start-2 md:-mt-16 text-center p-2 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-red-400/80" onclick="document.getElementById('countercore-details').classList.remove('hidden'); document.getElementById('countercore-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CounterCore HazardAV abierto');">
                             <div class="mb-1">
                                 <img src="images/countercorehazardav-logo.png" alt="CounterCoreHazardAV" class="mx-auto h-8 w-auto">
                             </div>
                              <p class="text-sm font-bold leading-tight">🛡️ CounterCore<br>HazardAV</p><p class="text-xs text-gray-400">Ciberseguridad</p>
-                             <p class="text-xs text-red-300 mt-1 opacity-60">Próximamente</p>
+                             <p class="text-xs text-red-300 mt-1 opacity-75">🖱️ Click para acceder</p>
                         </div>
                         <div class="md:col-start-1 lg:col-start-3 md:mt-0 text-center p-4 border-2 border-cyan-400/80 rounded-lg bg-gradient-to-br from-[#003554] to-[#006494] shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300" onclick="openNexusOptimIA()">
                             <div class="mb-3">
@@ -541,6 +541,28 @@
                 </div>
             </section>
 
+            <!-- CounterCore HazardAV Detailed Section -->
+            <section id="countercore-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">🛡️ CounterCore HazardAV</h2>
+                    <p class="text-xl text-red-200 font-semibold">Antivirus Inteligente con IA para Costa Rica</p>
+                </div>
+
+                <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="height: 80vh;">
+                    <iframe id="countercore-iframe" 
+                            src="countercorehazardav.html" 
+                            class="w-full h-full border-0"
+                            loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button onclick="document.getElementById('countercore-details').classList.add('hidden'); document.getElementById('solution').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CounterCore HazardAV cerrado');" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
+                        ⬆️ Volver al Ecosistema OpenNexus
+                    </button>
+                </div>
+            </section>
+
             <section id="impact" class="mb-16">
                 <h2 class="text-3xl font-bold text-center mb-8">📈 Impacto y Proyecciones Financieras</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -806,6 +828,18 @@
                         ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                     console.log('✅ CajaCentral POS cerrado');
+                } else if (event.data === 'hideCounterCore') {
+                    console.log('🛡️ Cerrando CounterCore HazardAV desde iframe...');
+                    const countercoreSection = document.getElementById('countercore-details');
+                    if (countercoreSection) {
+                        countercoreSection.classList.add('hidden');
+                    }
+                    // Scroll back to ecosystem section
+                    const ecosystemSection = document.getElementById('solution');
+                    if (ecosystemSection) {
+                        ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    console.log('✅ CounterCore HazardAV cerrado');
                 }
             });
         });

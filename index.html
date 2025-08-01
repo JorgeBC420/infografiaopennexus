@@ -115,11 +115,12 @@
                             </div>
                             <p class="text-lg font-bold">⚙️ OpenChipCR</p><p class="text-xs text-gray-400">Hardware & Consultoría</p>
                         </div>
-                        <div class="md:col-start-2 lg:col-start-2 md:-mt-16 text-center p-2 border border-cyan-700/50 rounded-lg bg-[#003554]/50">
+                        <div class="md:col-start-2 lg:col-start-2 md:-mt-16 text-center p-2 border border-cyan-700/50 rounded-lg bg-[#003554]/50 hover:border-red-400/50 transition-colors duration-300">
                             <div class="mb-1">
                                 <img src="images/countercorehazardav-logo.png" alt="CounterCoreHazardAV" class="mx-auto h-8 w-auto">
                             </div>
                              <p class="text-sm font-bold leading-tight">🛡️ CounterCore<br>HazardAV</p><p class="text-xs text-gray-400">Ciberseguridad</p>
+                             <p class="text-xs text-red-300 mt-1 opacity-60">Próximamente</p>
                         </div>
                         <div class="md:col-start-1 lg:col-start-3 md:mt-0 text-center p-4 border-2 border-cyan-400/80 rounded-lg bg-gradient-to-br from-[#003554] to-[#006494] shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300" onclick="openNexusOptimIA()">
                             <div class="mb-3">
@@ -133,12 +134,14 @@
                                 <img src="images/cajacentralpos-logo.png" alt="CajaCentralPOS" class="mx-auto h-10 w-auto">
                             </div>
                              <p class="text-lg font-bold">🛒 CajaCentralPOS</p><p class="text-xs text-gray-400">Fintech Empresarial</p>
+                             <p class="text-xs text-blue-300 mt-1 opacity-75">🖱️ Click para acceder</p>
                         </div>
-                        <div class="md:col-span-2 lg:col-start-5 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50">
+                        <div class="md:col-span-2 lg:col-start-5 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-purple-400/80" onclick="document.getElementById('gameslab-details').classList.remove('hidden'); document.getElementById('gameslab-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('Games Lab abierto');">
                             <div class="mb-2">
                                 <img src="images/gameslab-logo.png" alt="Games Lab" class="mx-auto h-10 w-auto">
                             </div>
                             <p class="text-lg font-bold">🎮 GamesLab</p><p class="text-xs text-gray-400">Motor de Crecimiento</p>
+                            <p class="text-xs text-purple-300 mt-1 opacity-75">🖱️ Click para acceder</p>
                         </div>
                     </div>
                 </div>
@@ -558,37 +561,7 @@
                 </div>
             </section>
 
-            <section id="games-lab" class="mb-16 card rounded-2xl p-6 md:p-8 cursor-pointer hover:scale-105 transition-transform duration-300 border-2 border-transparent hover:border-purple-400" onclick="document.getElementById('gameslab-details').classList.remove('hidden'); document.getElementById('gameslab-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('Games Lab abierto');">
-                <h2 class="text-3xl font-bold text-center mb-8">🎮 El Motor Estratégico: OpenNexus Games Lab</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h3 class="text-xl font-bold mb-2">Una Economía Circular Virtuosa</h3>
-                        <p class="text-gray-300 mb-4">El Games Lab no es un "hobby", es el caballo de Troya que financia nuestra I+D y construye nuestra base de usuarios. Creamos un canal de adquisición de costo casi cero para nuestras unidades de negocio principales.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center"><span class="text-2xl mr-4">🕹️</span><div><span class="font-bold">Juego</span> promociona Antivirus/POS con anuncios y recompensas.</div></div>
-                            <div class="flex items-center"><span class="text-2xl mr-4">🛡️</span><div><span class="font-bold">Antivirus</span> promociona Juego y aliados turísticos.</div></div>
-                             <div class="flex items-center"><span class="text-2xl mr-4">🤝</span><div><span class="font-bold">Aliados</span> patrocinan contenido en el juego, generando ingresos.</div></div>
-                        </div>
-                        <div class="mt-6 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-lg p-4 border border-purple-400/50">
-                            <p class="text-center text-cyan-400 font-bold text-lg">🖱️ ¡CLICK AQUÍ! → Ver Caminos de la Fe RPG</p>
-                            <p class="text-center text-purple-300 text-sm mt-2">Experiencia completa del juego medieval</p>
-                            <!-- Backup method -->
-                            <div class="text-center mt-4">
-                                <a href="#gameslab-details" onclick="document.getElementById('gameslab-details').classList.remove('hidden');" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded text-white font-bold transition-colors">
-                                    🎮 Abrir Games Lab
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-4">Proyección de Ingresos (Año 1)</h3>
-                        <div class="chart-container" style="height: 300px;">
-                             <canvas id="gamesLabChart"></canvas>
-                        </div>
-                        <p class="text-sm text-gray-400 mt-4">Estas cifras corresponden únicamente a ingresos por alianzas y publicidad, sin contar las ventas directas del juego, demostrando el alto potencial del modelo.</p>
-                    </div>
-                </div>
-            </section>
+
             
             <section id="roadmap" class="mb-16">
                 <h2 class="text-3xl font-bold text-center mb-12">🗺️ Hoja de Ruta Estratégica</h2>
@@ -766,36 +739,8 @@
                 });
             }
 
-            function createGamesLabChart() {
-                const ctx = document.getElementById('gamesLabChart').getContext('2d');
-                 new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Aliados Turísticos', 'Comisiones', 'NFTs'],
-                        datasets: [{
-                            label: 'Ingresos (en miles de USD)',
-                            data: [900, 200, 50],
-                            backgroundColor: ['#0582CA', '#00A6FB', '#00F5D4'],
-                            borderWidth: 0
-                        }]
-                    },
-                    options: {
-                        ...commonOptions,
-                        indexAxis: 'y',
-                        scales: {
-                            y: { ticks: { color: '#9CA3AF' }, grid: { display: false } },
-                            x: { ticks: { color: '#9CA3AF' }, grid: { color: 'rgba(156, 163, 175, 0.1)' } }
-                        },
-                        plugins: {
-                            legend: { display: false }
-                        }
-                    }
-                });
-            }
-
             createInvestmentChart();
             createDistributionChart();
-            createGamesLabChart();
 
             window.openNexusOptimIA = function() {
                 const nexusSection = document.getElementById('nexusoptim-details');

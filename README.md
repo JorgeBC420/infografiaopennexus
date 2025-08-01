@@ -80,6 +80,17 @@ Este repositorio incluye scripts para generar documentación ejecutiva:
 
 - **Pitch Deck 2025**: Presentación ejecutiva completa
 - **Business Plan 2025**: Plan de negocio detallado con análisis financiero
+- **Schneider Electric Partnership**: Propuesta estratégica para asociación con Schneider Electric
+
+#### 🏢 Script Especializado Schneider Electric:
+
+```bash
+python generate_schneider_proposal.py
+```
+- 🎯 Documento corporativo optimizado para Schneider Electric
+- 💼 Estilos profesionales con colores corporativos
+- 📊 Métricas financieras y técnicas detalladas
+- 🌎 Enfoque en expansión LATAM y partnership estratégico
 
 ### �📱 Tecnologías Utilizadas
 

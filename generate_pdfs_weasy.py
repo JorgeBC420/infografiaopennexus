@@ -209,6 +209,16 @@ def main():
         create_protected_zip('OpenNexus_BusinessPlan_2025.pdf', 'OpenNexus_BusinessPlan_2025_PDF')
         print("✅ Business Plan PDF generado exitosamente")
     
+    # Generar Propuesta Schneider Electric
+    if os.path.exists('OpenNexus_SchneiderPartnership_2025.md'):
+        print("🏢 Generando Propuesta Schneider Electric PDF...")
+        html_content = markdown_to_html_pdf('OpenNexus_SchneiderPartnership_2025.md', 'NexusOptim IA - Schneider Electric Partnership')
+        
+        # Crear PDF con WeasyPrint
+        HTML(string=html_content).write_pdf('OpenNexus_SchneiderPartnership_2025.pdf')
+        create_protected_zip('OpenNexus_SchneiderPartnership_2025.pdf', 'OpenNexus_SchneiderPartnership_2025_PDF')
+        print("✅ Propuesta Schneider Electric PDF generada exitosamente")
+    
     print(f"\n🔑 Contraseña dinámica actual: {generate_dynamic_password()}")
     print("📁 Archivos ZIP con PDF creados con contraseña de protección")
     print("🌐 PDFs listos para distribución profesional")

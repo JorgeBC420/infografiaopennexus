@@ -252,6 +252,18 @@ def main():
         create_protected_zip(html_filename, 'OpenNexus_BusinessPlan_2025')
         print("✅ Business Plan HTML generado exitosamente")
     
+    # Generar Propuesta Schneider Electric
+    if os.path.exists('OpenNexus_SchneiderPartnership_2025.md'):
+        print("🏢 Generando Propuesta Schneider Electric...")
+        html_content = markdown_to_html('OpenNexus_SchneiderPartnership_2025.md', 'NexusOptim IA - Schneider Electric Partnership')
+        
+        html_filename = 'OpenNexus_SchneiderPartnership_2025.html'
+        with open(html_filename, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        create_protected_zip(html_filename, 'OpenNexus_SchneiderPartnership_2025')
+        print("✅ Propuesta Schneider Electric HTML generada exitosamente")
+    
     print(f"\n🔑 Contraseña dinámica actual: {generate_dynamic_password()}")
     print("📁 Archivos ZIP con HTML creados con contraseña de protección")
     print("🌐 Los archivos HTML se pueden abrir en cualquier navegador")

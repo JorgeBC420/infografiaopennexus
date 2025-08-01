@@ -1,12 +1,3 @@
-# Cloudflare Pages Configuration
-
-compatibility_date = "2024-07-31"
-
-[build]
-command = ""
-destination = "."
-
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+# Cloudflare Pages redirects
+# Redirect all requests to index.html for SPA routing
+/*    /index.html   200

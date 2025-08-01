@@ -304,6 +304,28 @@
                 </div>
             </section>
 
+            <!-- Games Lab Detailed Section -->
+            <section id="gameslab-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">🎮 OpenNexus Games Lab</h2>
+                    <p class="text-xl text-purple-200 font-semibold">Caminos de la Fe - RPG Medieval Revolucionario</p>
+                </div>
+
+                <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="height: 80vh;">
+                    <iframe id="gameslab-iframe" 
+                            src="games_lab_page.html" 
+                            class="w-full h-full border-0"
+                            loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button onclick="hideGamesLab()" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
+                        ⬆️ Volver al Ecosistema OpenNexus
+                    </button>
+                </div>
+            </section>
+
             <section id="impact" class="mb-16">
                 <h2 class="text-3xl font-bold text-center mb-8">📈 Impacto y Proyecciones Financieras</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -324,7 +346,7 @@
                 </div>
             </section>
 
-            <section id="games-lab" class="mb-16 card rounded-2xl p-6 md:p-8">
+            <section id="games-lab" class="mb-16 card rounded-2xl p-6 md:p-8 cursor-pointer hover:scale-105 transition-transform duration-300" onclick="openGamesLab()">
                 <h2 class="text-3xl font-bold text-center mb-8">🎮 El Motor Estratégico: OpenNexus Games Lab</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div>
@@ -334,6 +356,9 @@
                             <div class="flex items-center"><span class="text-2xl mr-4">🕹️</span><div><span class="font-bold">Juego</span> promociona Antivirus/POS con anuncios y recompensas.</div></div>
                             <div class="flex items-center"><span class="text-2xl mr-4">🛡️</span><div><span class="font-bold">Antivirus</span> promociona Juego y aliados turísticos.</div></div>
                              <div class="flex items-center"><span class="text-2xl mr-4">🤝</span><div><span class="font-bold">Aliados</span> patrocinan contenido en el juego, generando ingresos.</div></div>
+                        </div>
+                        <div class="mt-6">
+                            <p class="text-center text-cyan-400 font-bold">🖱️ Click para ver Caminos de la Fe RPG</p>
                         </div>
                     </div>
                     <div>
@@ -566,6 +591,21 @@
                 // Scroll back to the ecosystem section
                 const ecosystemSection = document.getElementById('solution');
                 ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            window.openGamesLab = function() {
+                const gamesLabSection = document.getElementById('gameslab-details');
+                gamesLabSection.classList.remove('hidden');
+                gamesLabSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            window.hideGamesLab = function() {
+                const gamesLabSection = document.getElementById('gameslab-details');
+                gamesLabSection.classList.add('hidden');
+                
+                // Scroll back to the games lab section in main page
+                const gamesLabMainSection = document.getElementById('games-lab');
+                gamesLabMainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             };
         });
     </script>

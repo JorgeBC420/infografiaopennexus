@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenNexus Games Lab - Caminos de la Fe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 50%, #2a0a3a 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Fondo animado de circuitos */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, #00ffff11 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, #ff00ff11 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, #ffff0011 0%, transparent 50%);
+            z-index: -1;
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 300px;
+            height: auto;
+            filter: drop-shadow(0 0 20px #00ffff);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 20px #00ffff); }
+            100% { filter: drop-shadow(0 0 30px #ff00ff); }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #b8b8ff;
+            margin-bottom: 30px;
+        }
+
+        /* Secciones principales */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin: 80px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #00ffff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 1.8rem;
+            color: #ff00ff;
+            margin: 30px 0 15px 0;
+        }
+
+        .game-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .feature-card h4 {
+            color: #ffff00;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Modelo de monetización */
+        .monetization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .monetization-card {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 0, 255, 0.4);
+            text-align: center;
+        }
+
+        .price-highlight {
+            font-size: 2rem;
+            color: #ffff00;
+            font-weight: bold;
+        }
+
+        /* Facciones */
+        .factions {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .faction {
+            flex: 1;
+            min-width: 250px;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .faction:hover {
+            transform: scale(1.05);
+        }
+
+        .faction.cruzados {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.1));
+            border: 2px solid #ffd700;
+        }
+
+        .faction.sarracenos {
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.2), rgba(0, 128, 0, 0.1));
+            border: 2px solid #00ff00;
+        }
+
+        .faction.antiguos {
+            background: linear-gradient(135deg, rgba(128, 0, 128, 0.2), rgba(75, 0, 130, 0.1));
+            border: 2px solid #8000ff;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 255, 255, 0.05);
+            border-left: 4px solid #00ffff;
+            border-radius: 10px;
+        }
+
+        .roadmap-phase {
+            background: #00ffff;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 20px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        /* Call to Action */
+        .cta {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+            border-radius: 20px;
+            margin: 50px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                margin: 40px 0;
+                padding: 20px;
+            }
+            
+            .factions {
+                flex-direction: column;
+            }
+        }
+
+        /* Botón para volver */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #00A6FB, #00F5D4);
+            color: #051923;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 166, 251, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <a href="#" onclick="hideGamesLab()" class="back-button">⬅️ Volver al Ecosistema</a>
+    
+    <header>
+        <div class="logo-container">
+            <!-- El logo de OpenNexus Games Lab debería ir aquí -->
+            <div style="width: 300px; height: 200px; margin: 0 auto; background: linear-gradient(45deg, #00ffff, #ff00ff); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: #000;">OPENNEXUS<br>GAMES LAB</div>
+        </div>
+        <h1 class="hero-title">Caminos de la Fe</h1>
+        <p class="hero-subtitle">Cruzada y Conquista - El RPG que Revoluciona la Monetización</p>
+    </header>
+
+    <div class="container">
+        <!-- Sobre el Juego -->
+        <section class="section">
+            <h2>🏰 Un RPG Medieval Revolucionario</h2>
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 30px;">
+                Sumérgete en las Cruzadas como nunca antes. Un RPG de acción en tiempo real que combina historia, fantasía y una economía justa para todos los jugadores.
+            </p>
+            
+            <div class="game-features">
+                <div class="feature-card">
+                    <h4>⚔️ Combate en Tiempo Real</h4>
+                    <p>Acción 3D fluida con combate estratégico y habilidades únicas por facción.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎯 Sistema de Facciones</h4>
+                    <p>Elige entre Cruzados, Sarracenos o Antiguos, cada uno con ventajas únicas.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📈 Progresión Inteligente</h4>
+                    <p>Sistema de stats con costo cuadrático que recompensa la dedicación.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏆 Armas Legendarias</h4>
+                    <p>Ítems únicos por servidor con efectos visuales espectaculares.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ PvP Asíncrono</h4>
+                    <p>Combates justos con simulación de servidor y matchmaking por nivel.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌍 Guerras de Facciones</h4>
+                    <p>Participa en conflictos globales que afectan a todos los jugadores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facciones -->
+        <section class="section">
+            <h2>⚔️ Elige Tu Destino</h2>
+            <div class="factions">
+                <div class="faction cruzados">
+                    <h3>🛡️ Cruzados</h3>
+                    <p><strong>Ventaja:</strong> +30% daño vs Antiguos, -10% vs Sarracenos</p>
+                    <p>Los guerreros de la fe, expertos en combate defensivo y formaciones tácticas.</p>
+                </div>
+                <div class="faction sarracenos">
+                    <h3>🏹 Sarracenos</h3>
+                    <p><strong>Ventaja:</strong> +20% daño vs Cruzados, neutro vs Antiguos</p>
+                    <p>Maestros de la velocidad y la precisión, dominan el combate a distancia.</p>
+                </div>
+                <div class="faction antiguos">
+                    <h3>🔮 Antiguos</h3>
+                    <p><strong>Ventaja:</strong> +10% daño vs Sarracenos, -20% vs Cruzados</p>
+                    <p>Poseedores de conocimientos arcanos y tecnologías perdidas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modelo de Monetización -->
+        <section class="section">
+            <h2>💰 Monetización Ética y Sostenible</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                Nuestro modelo respeta el tiempo de los jugadores y crea una economía justa para todos.
+            </p>
+            
+            <div class="monetization-grid">
+                <div class="monetization-card">
+                    <h3>🎮 Juego Gratuito</h3>
+                    <p>Acceso completo sin restricciones de contenido.</p>
+                    <div class="price-highlight">GRATIS</div>
+                </div>
+                <div class="monetization-card">
+                    <h3>💎 Oro Premium</h3>
+                    <p>$1 USD = 1000 oro (Nivel 1-10)<br>
+                    Escala: +100 oro por nivel adicional</p>
+                    <div class="price-highlight">$1+</div>
+                </div>
+                <div class="monetization-card">
+                    <h3>✨ Faith Pass</h3>
+                    <p>Sin anuncios por 6 meses<br>
+                    Misiones adicionales<br>
+                    Gear exclusivo</p>
+                    <div class="price-highlight">$10/mes</div>
+                </div>
+                <div class="monetization-card">
+                    <h3>🔥 NFTs Únicos</h3>
+                    <p>Activos de juego reales<br>
+                    Experiencias del mundo real<br>
+                    Blockchain Polygon</p>
+                    <div class="price-highlight">Variable</div>
+                </div>
+            </div>
+
+            <h3>🌟 Características Anti-Pay-to-Win</h3>
+            <ul style="list-style: none; padding: 20px;">
+                <li>✅ Costo cuadrático de mejoras: (nivel+1)²</li>
+                <li>✅ Límites diarios de farming para equilibrio</li>
+                <li>✅ Matchmaking por nivel en PvP</li>
+                <li>✅ Moneda de evento para jugadores F2P</li>
+                <li>✅ Economía con mecanismos anti-inflación</li>
+            </ul>
+        </section>
+
+        <!-- Ecosistema OpenNexus -->
+        <section class="section">
+            <h2>🚀 Parte del Ecosistema OpenNexus</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">
+                Caminos de la Fe es el motor de adquisición masiva para todo el ecosistema OpenNexus
+            </p>
+            
+            <div class="game-features">
+                <div class="feature-card">
+                    <h4>🔒 CounterCore HazardAV</h4>
+                    <p>Anuncios integrados del antivirus con IA. Recompensas en el juego por probar la seguridad.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>💳 CajaCentral POS</h4>
+                    <p>Sistema de punto de venta para PYMES. Marketing cruzado con descuentos especiales.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ NexusOptim IA</h4>
+                    <p>Optimización de redes con IA. El juego demuestra nuestras capacidades tecnológicas.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏛️ Turismo Nacional</h4>
+                    <p>NFTs canjeables por experiencias reales en Costa Rica. Alianzas con ICT.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section class="section">
+            <h2>🗺️ Roadmap de Desarrollo</h2>
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <div class="roadmap-phase">Q1 2026</div>
+                    <div>
+                        <strong>Lanzamiento Alpha:</strong> Sistema de facciones, combate básico, economía de oro, Faith Pass MVP
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-phase">Q2 2026</div>
+                    <div>
+                        <strong>Beta Cerrada:</strong> PvP asíncrono, guerras de facciones, sistema de misiones completo
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-phase">Q3 2026</div>
+                    <div>
+                        <strong>Lanzamiento Global:</strong> NFTs en Polygon, integración con ecosistema OpenNexus
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-phase">Q4 2026</div>
+                    <div>
+                        <strong>Expansión:</strong> Nuevas regiones, alianzas turísticas, 100K+ usuarios activos
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impacto Estratégico -->
+        <section class="section">
+            <h2>📊 Impacto Estratégico</h2>
+            <div class="game-features">
+                <div class="feature-card">
+                    <h4>💰 Proyección Financiera</h4>
+                    <p><strong>Año 1:</strong> $170,000+ en ingresos<br>
+                    <strong>100K jugadores</strong> generan <strong>5K+ leads</strong> para otros productos OpenNexus</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎯 Adquisición de Usuarios</h4>
+                    <p>Canal de costo casi cero para adquirir usuarios de CounterCore HazardAV y CajaCentral POS</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏗️ Vitrina Tecnológica</h4>
+                    <p>Demuestra las capacidades de Edge AI y optimización de nuestros chips OpenChip CR</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🇨🇷 Impacto Nacional</h4>
+                    <p>Promociona el turismo costarricense y posiciona a OpenNexus como marca de innovación</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <div class="cta">
+            <h2 style="color: #00ffff; margin-bottom: 20px;">🚀 Únete a la Revolución</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 30px;">
+                Sé parte del futuro de los videojuegos y la soberanía tecnológica de Costa Rica
+            </p>
+            <a href="mailto:jorgebravo92@gmail.com" class="cta-button">📧 Contactar Equipo</a>
+            <a href="#" class="cta-button" onclick="window.open('https://www.countercorehazardav.com', '_blank')">🌐 Visitar CounterCore</a>
+            <a href="#" class="cta-button">💼 Inversión & Alianzas</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 OpenNexus Hardware & Software - Games Lab Division</p>
+        <p>Transformando la Crisis Tecnológica en Soberanía Nacional</p>
+        <p style="margin-top: 10px;">
+            <strong>Contacto:</strong> Jorge Eduardo Bravo Chaves - jorgebravo92@gmail.com - Tel: 71880297
+        </p>
+        <p style="margin-top: 5px;">
+            <a href="https://www.linkedin.com/in/jorge-bravo-chaves-037421377/" style="color: #00ffff;">LinkedIn</a> | 
+            <a href="https://www.countercorehazardav.com" style="color: #00ffff;">CounterCore HazardAV</a>
+        </p>
+    </footer>
+
+    <script>
+        // Efectos interactivos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación de las cards al hacer scroll
+            const cards = document.querySelectorAll('.feature-card, .monetization-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Efecto de parallax suave
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                document.querySelector('.bg-animation').style.transform = `translateY(${rate}px)`;
+            });
+        });
+
+        // Función para volver al ecosistema principal
+        function hideGamesLab() {
+            // Comunica con la página principal si estamos en un iframe
+            if (window.parent && window.parent !== window) {
+                window.parent.hideGamesLab();
+            } else {
+                // Fallback para testing independiente
+                window.history.back();
+            }
+        }
+
+        // Función para redireccionar a CounterCore
+        function redirectToCounterCore() {
+            window.open('https://www.countercorehazardav.com', '_blank');
+        }
+    </script>
+</body>
+</html>

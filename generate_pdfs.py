@@ -264,6 +264,18 @@ def main():
         create_protected_zip(html_filename, 'OpenNexus_SchneiderPartnership_2025')
         print("✅ Propuesta Schneider Electric HTML generada exitosamente")
     
+    # Generar Documentación Games Lab
+    if os.path.exists('OpenNexus_GamesLab_CaminosFe.md'):
+        print("🎮 Generando Documentación Games Lab - Caminos de la Fe...")
+        html_content = markdown_to_html('OpenNexus_GamesLab_CaminosFe.md', 'OpenNexus Games Lab - Caminos de la Fe RPG')
+        
+        html_filename = 'OpenNexus_GamesLab_CaminosFe.html'
+        with open(html_filename, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        create_protected_zip(html_filename, 'OpenNexus_GamesLab_CaminosFe')
+        print("✅ Documentación Games Lab HTML generada exitosamente")
+    
     print(f"\n🔑 Contraseña dinámica actual: {generate_dynamic_password()}")
     print("📁 Archivos ZIP con HTML creados con contraseña de protección")
     print("🌐 Los archivos HTML se pueden abrir en cualquier navegador")

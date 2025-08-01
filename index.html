@@ -223,14 +223,14 @@
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Documentos PDF -->
+                    <!-- Documentos HTML -->
                     <div class="bg-[#003554]/70 rounded-xl p-6 border border-cyan-700/50">
                         <h3 class="text-xl font-bold mb-4 text-cyan-300">📋 Documentación Ejecutiva</h3>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between p-3 bg-[#051923]/50 rounded-lg">
                                 <div>
                                     <p class="font-semibold">📊 Pitch Deck Completo</p>
-                                    <p class="text-sm text-gray-400">Presentación estratégica actualizada</p>
+                                    <p class="text-sm text-gray-400">Presentación estratégica actualizada (HTML)</p>
                                 </div>
                                 <button onclick="downloadSecureFile('pitch-deck')" class="bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
                                     Descargar
@@ -239,7 +239,7 @@
                             <div class="flex items-center justify-between p-3 bg-[#051923]/50 rounded-lg">
                                 <div>
                                     <p class="font-semibold">📈 Plan de Negocio</p>
-                                    <p class="text-sm text-gray-400">Análisis financiero con tablas detalladas</p>
+                                    <p class="text-sm text-gray-400">Análisis financiero con tablas detalladas (HTML)</p>
                                 </div>
                                 <button onclick="downloadSecureFile('business-plan')" class="bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
                                     Descargar
@@ -286,14 +286,14 @@
                 <!-- Generador de Contraseña -->
                 <div class="mt-8 bg-gradient-to-br from-[#003554] to-[#006494] rounded-xl p-6 text-center border-2 border-cyan-400/50">
                     <h3 class="text-xl font-bold mb-4">🔑 Acceso Seguro a Documentos</h3>
-                    <p class="text-gray-300 mb-4">Para acceder a los documentos PDF, necesitas la contraseña dinámica:</p>
+                    <p class="text-gray-300 mb-4">Para referencia de acceso y autenticación de documentos:</p>
                     <div class="bg-[#051923]/70 rounded-lg p-4 mb-4">
                         <p class="text-sm text-gray-400 mb-2">Contraseña generada automáticamente:</p>
                         <p id="dynamic-password" class="text-2xl font-mono font-bold text-cyan-300 bg-black/30 px-4 py-2 rounded-lg inline-block">
                             Generando...
                         </p>
                     </div>
-                    <p class="text-xs text-gray-400">La contraseña se actualiza cada 24 horas basada en algoritmos de la fecha actual</p>
+                    <p class="text-xs text-gray-400">La contraseña se actualiza cada 24 horas • Los documentos HTML se pueden convertir a PDF desde el navegador</p>
                 </div>
             </section>
 
@@ -509,37 +509,39 @@
                 
                 switch(fileType) {
                     case 'pitch-deck':
-                        fileName = 'OpenNexus_PitchDeck_2025.zip';
-                        message = 'Pitch Deck con presentación estratégica actualizada';
-                        fileUrl = './OpenNexus_PitchDeck_2025.zip';
+                        fileName = 'OpenNexus_PitchDeck_2025.html';
+                        message = 'Pitch Deck con presentación estratégica actualizada (HTML)';
+                        fileUrl = './OpenNexus_PitchDeck_2025.html';
                         break;
                     case 'business-plan':
-                        fileName = 'OpenNexus_BusinessPlan_2025.zip';
-                        message = 'Plan de negocio con análisis financiero detallado';
-                        fileUrl = './OpenNexus_BusinessPlan_2025.zip';
+                        fileName = 'OpenNexus_BusinessPlan_2025.html';
+                        message = 'Plan de negocio con análisis financiero detallado (HTML)';
+                        fileUrl = './OpenNexus_BusinessPlan_2025.html';
                         break;
                 }
                 
-                // Verificar si el archivo existe (simulado)
+                // Función de descarga
                 const downloadFile = () => {
                     const link = document.createElement('a');
                     link.href = fileUrl;
                     link.download = fileName;
+                    link.target = '_blank';
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                 };
                 
-                // Mostrar información y intentar descarga
-                const userConfirm = confirm(`📁 Archivo: ${fileName}\n🔑 Contraseña: ${password}\n📋 Contenido: ${message}\n\n¿Proceder con la descarga?`);
+                // Mostrar información y descargar
+                const userConfirm = confirm(`📁 Archivo: ${fileName}\n🔑 Contraseña dinámica: ${password}\n📋 Contenido: ${message}\n\n💡 El archivo HTML se puede convertir a PDF desde el navegador\n(Archivo → Imprimir → Guardar como PDF)\n\n¿Proceder con la descarga?`);
                 
                 if (userConfirm) {
-                    // Intentar descarga directa
                     try {
                         downloadFile();
-                        alert(`✅ Descarga iniciada!\n\n🔐 Usa esta contraseña para abrir el archivo:\n${password}\n\n💡 La contraseña se actualiza diariamente.`);
+                        alert(`✅ Descarga iniciada!\n\n� Archivo HTML profesional descargado\n🔑 Contraseña del día: ${password}\n�️ Para PDF: Abrir archivo → Imprimir → Guardar como PDF`);
                     } catch (error) {
-                        alert(`⚠️ Archivo no disponible localmente.\n\n📧 Contacta para obtener el archivo:\n🔑 Contraseña: ${password}\n📱 SINPE: +506 71880297`);
+                        // Si falla la descarga, abrir en nueva pestaña
+                        window.open(fileUrl, '_blank');
+                        alert(`� Documento abierto en nueva pestaña\n🔑 Contraseña del día: ${password}\n� Para guardar: Ctrl+S o Archivo → Guardar`);
                     }
                 }
             };

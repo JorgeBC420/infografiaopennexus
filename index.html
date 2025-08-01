@@ -109,11 +109,12 @@
                         <div class="absolute top-1/2 left-1/2 w-[2px] h-[70%] bg-cyan-500/30 -rotate-45 -translate-x-1/2 -translate-y-1/2"></div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-8 md:mt-0">
-                        <div class="md:col-start-1 lg:col-start-1 md:mt-0 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50">
+                        <div class="md:col-start-1 lg:col-start-1 md:mt-0 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-orange-400/80" onclick="document.getElementById('openchip-details').classList.remove('hidden'); document.getElementById('openchip-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('OpenChipCR abierto');">
                             <div class="mb-2">
                                 <img src="images/openchip-logo.png" alt="OpenChipCR" class="mx-auto h-10 w-auto">
                             </div>
                             <p class="text-lg font-bold">⚙️ OpenChipCR</p><p class="text-xs text-gray-400">Hardware & Consultoría</p>
+                            <p class="text-xs text-orange-300 mt-1 opacity-75">🖱️ Click para acceder</p>
                         </div>
                         <div class="md:col-start-2 lg:col-start-2 md:-mt-16 text-center p-2 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-red-400/80" onclick="document.getElementById('countercore-details').classList.remove('hidden'); document.getElementById('countercore-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CounterCore HazardAV abierto');">
                             <div class="mb-1">
@@ -303,6 +304,194 @@
                 <div class="text-center">
                     <button onclick="hideNexusOptimIA()" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
                         ⬆️ Volver al Ecosistema OpenNexus
+                    </button>
+                </div>
+            </section>
+
+            <!-- OpenChipCR Detailed Section -->
+            <section id="openchip-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
+                <div class="text-center mb-8">
+                    <div class="mb-6">
+                        <img src="images/openchip-logo.png" alt="OpenChipCR Logo" class="mx-auto h-20 w-auto">
+                    </div>
+                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">⚙️ OpenChipCR</h2>
+                    <p class="text-xl text-orange-200 font-semibold">Hardware & Consultoría Especializada</p>
+                    <p class="text-gray-300 mt-4 max-w-4xl mx-auto">Consultora especializada en semiconductores y hardware que capitaliza el talento de élite liberado por Intel y Qorvo para crear soberanía tecnológica costarricense.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <!-- Consultoría en Semiconductores -->
+                    <div class="bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-xl p-6 border border-orange-400/30">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🔬</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Semiconductores</h3>
+                                <p class="text-orange-200 text-sm">Consultoría Especializada</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold">🎯 Servicios de Élite</p>
+                            <p class="text-orange-200 text-sm">• Diseño de circuitos integrados</p>
+                            <p class="text-orange-200 text-sm">• Validación y testing avanzado</p>
+                            <p class="text-orange-200 text-sm">• Optimización de procesos</p>
+                            <p class="text-orange-200 text-sm">• Transfer de tecnología</p>
+                            <div class="mt-4 bg-orange-900/50 rounded-lg p-3">
+                                <p class="text-green-300 font-bold text-lg">150+ ex-Intel/Qorvo</p>
+                                <p class="text-orange-200 text-xs">Ingenieros de élite disponibles</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fabricación Local -->
+                    <div class="bg-gradient-to-br from-[#7c2d12] to-[#451a03] rounded-xl p-6 border border-amber-400/30">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🏭</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Fabricación</h3>
+                                <p class="text-amber-200 text-sm">Producción Nacional</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold">🎯 Soberanía Tecnológica</p>
+                            <p class="text-amber-200 text-sm">• Aprovechamiento infraestructura ociosa</p>
+                            <p class="text-amber-200 text-sm">• Fabricación de PCBs especializados</p>
+                            <p class="text-amber-200 text-sm">• Ensamblaje de dispositivos IoT</p>
+                            <p class="text-amber-200 text-sm">• Prototipado rápido</p>
+                            <div class="mt-4 bg-amber-900/50 rounded-lg p-3">
+                                <p class="text-green-300 font-bold text-lg">$25M ahorro</p>
+                                <p class="text-amber-200 text-xs">vs. importación directa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- I+D Aplicado -->
+                    <div class="bg-gradient-to-br from-[#92400e] to-[#78350f] rounded-xl p-6 border border-yellow-400/30">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🧪</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">I+D</h3>
+                                <p class="text-yellow-200 text-sm">Investigación Aplicada</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold">🎯 Innovación Nacional</p>
+                            <p class="text-yellow-200 text-sm">• Alianzas con universidades (TEC, UCR)</p>
+                            <p class="text-yellow-200 text-sm">• Proyectos de investigación aplicada</p>
+                            <p class="text-yellow-200 text-sm">• Desarrollo de IP nacional</p>
+                            <p class="text-yellow-200 text-sm">• Incubación de startups tech</p>
+                            <div class="mt-4 bg-yellow-900/50 rounded-lg p-3">
+                                <p class="text-green-300 font-bold text-lg">5 patentes/año</p>
+                                <p class="text-yellow-200 text-xs">Meta inicial IP nacional</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capacitación Técnica -->
+                    <div class="bg-gradient-to-br from-[#b45309] to-[#92400e] rounded-xl p-6 border border-orange-600/30">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🎓</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Capacitación</h3>
+                                <p class="text-orange-300 text-sm">Formación Especializada</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold">🎯 Desarrollo Talento</p>
+                            <p class="text-orange-300 text-sm">• Programas de upskilling</p>
+                            <p class="text-orange-300 text-sm">• Certificaciones internacionales</p>
+                            <p class="text-orange-300 text-sm">• Mentorías por ex-Intel/Qorvo</p>
+                            <p class="text-orange-300 text-sm">• Bootcamps hardware especializados</p>
+                            <div class="mt-4 bg-orange-800/50 rounded-lg p-3">
+                                <p class="text-green-300 font-bold text-lg">500+ técnicos</p>
+                                <p class="text-orange-300 text-xs">Formación anual proyectada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consultoría Internacional -->
+                    <div class="bg-gradient-to-br from-[#a16207] to-[#854d0e] rounded-xl p-6 border border-yellow-600/30">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🌎</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Global</h3>
+                                <p class="text-yellow-300 text-sm">Consultoría Internacional</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold">🎯 Expansión Regional</p>
+                            <p class="text-yellow-300 text-sm">• Servicios a multinacionales</p>
+                            <p class="text-yellow-300 text-sm">• Consultoría en nearshoring</p>
+                            <p class="text-yellow-300 text-sm">• Due diligence técnico</p>
+                            <p class="text-yellow-300 text-sm">• Auditorías de calidad ISO</p>
+                            <div class="mt-4 bg-yellow-800/50 rounded-lg p-3">
+                                <p class="text-green-300 font-bold text-lg">$18M revenue</p>
+                                <p class="text-yellow-300 text-xs">Proyección año 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ecosistema Hardware -->
+                    <div class="bg-gradient-to-br from-[#9a3412] to-[#7c2d12] rounded-xl p-6 border border-red-600/30">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🔗</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Ecosistema</h3>
+                                <p class="text-red-300 text-sm">Integración OpenNexus</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white font-semibold">🎯 Sinergia Total</p>
+                            <p class="text-red-300 text-sm">• Hardware para NexusOptimIA</p>
+                            <p class="text-red-300 text-sm">• Dispositivos IoT Edge</p>
+                            <p class="text-red-300 text-sm">• Sensores especializados</p>
+                            <p class="text-red-300 text-sm">• Integración con toda la suite</p>
+                            <div class="mt-4 bg-red-800/50 rounded-lg p-3">
+                                <p class="text-green-300 font-bold text-lg">100% sinergia</p>
+                                <p class="text-red-300 text-xs">Con productos OpenNexus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oportunidad Estratégica -->
+                <div class="bg-gradient-to-r from-[#7c2d12]/20 to-[#ea580c]/20 rounded-xl p-6 mb-8 border border-orange-400/30">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-orange-300 mb-4">📈 Oportunidad Histórica</h3>
+                        <p class="text-gray-300 max-w-4xl mx-auto">El vacío dejado por Intel y Qorvo representa una oportunidad única de capitalizar el talento liberado, la infraestructura disponible y el ecosistema maduro para crear una consultora de clase mundial desde Costa Rica.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-orange-400 mb-2">1,500+</div>
+                            <div class="text-sm text-orange-200">Ingenieros disponibles</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-orange-400 mb-2">$93M+</div>
+                            <div class="text-sm text-orange-200">ROI proyectado 5 años</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-orange-400 mb-2">25%</div>
+                            <div class="text-sm text-orange-200">Market share regional objetivo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón para volver -->
+                <div class="text-center">
+                    <button onclick="hideOpenChipCR()" class="bg-gradient-to-r from-[#ea580c] to-[#f97316] text-white px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
+                        ← Volver al Ecosistema OpenNexus
                     </button>
                 </div>
             </section>
@@ -812,6 +1001,34 @@
                     gamesLabMainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
                 console.log('✅ Games Lab cerrado');
+            };
+
+            // OpenChipCR Navigation Functions
+            window.openOpenChipCR = function() {
+                console.log('⚙️ Abriendo OpenChipCR...');
+                const openChipSection = document.getElementById('openchip-details');
+                
+                if (openChipSection) {
+                    openChipSection.classList.remove('hidden');
+                    openChipSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                console.log('✅ OpenChipCR abierto');
+            };
+
+            window.hideOpenChipCR = function() {
+                console.log('🔙 Cerrando OpenChipCR...');
+                const openChipSection = document.getElementById('openchip-details');
+                
+                if (openChipSection) {
+                    openChipSection.classList.add('hidden');
+                }
+                
+                // Scroll back to the ecosystem section
+                const ecosystemSection = document.getElementById('solution');
+                if (ecosystemSection) {
+                    ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                console.log('✅ OpenChipCR cerrado');
             };
 
             // Event listener para mensajes de iframes

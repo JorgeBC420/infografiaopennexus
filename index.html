@@ -1,2044 +1,1266 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía Estratégica: OpenNexus Hardware & Software</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>CounterCoreHazardAV - Antivirus Freemium con Llama AI + Gaming Intelligence</title>
+    <meta name="description" content="Antivirus inteligente con IA Llama, optimizado para gamers y empresas. Modelo freemium con detección avanzada de phishing y malware.">
+    <meta name="keywords" content="antivirus, llama ai, gaming, freemium, phishing, malware, costa rica">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #051923;
-            color: #E0E0E0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
         }
-        .brand-gradient-text {
-            background: linear-gradient(to right, #00A6FB, #00F5D4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .card {
-            background-color: rgba(0, 53, 84, 0.5);
-            border: 1px solid rgba(0, 166, 251, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .chart-container {
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             position: relative;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            max-height: 400px;
-            height: 40vh;
+            color: white;
         }
-        @media (max-width: 768px) {
-            .chart-container {
-                height: 50vh;
-            }
-        }
-        .timeline-item::before {
+
+        .hero::before {
             content: '';
             position: absolute;
-            left: -30px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #00A6FB;
-            border: 3px solid #003554;
-        }
-        .timeline-line {
-            position: absolute;
-            left: -21px;
             top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
-            width: 4px;
-            background-color: #003554;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .protection-shield {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .shield-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .scanning-rings {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ring {
+            position: absolute;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 50%;
+            border-top-color: #00ff88;
+            animation: rotate 3s linear infinite;
+        }
+
+        .ring-1 {
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .ring-2 {
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            bottom: 40px;
+            animation-delay: -1s;
+        }
+
+        .ring-3 {
+            top: 60px;
+            left: 60px;
+            right: 60px;
+            bottom: 60px;
+            animation-delay: -2s;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Programs Download Section */
+        .programs-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            position: relative;
+        }
+
+        .programs-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="rgba(0,255,136,0.05)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .programs-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .programs-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .programs-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .programs-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .program-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+        }
+
+        .program-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .program-card p {
+            opacity: 0.8;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .program-features li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .program-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-download {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .btn-info {
+            background: transparent;
+            color: white;
+            padding: 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .btn-info:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: white;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #00ff88;
+        }
+
+        .modal h3 {
+            color: #00ff88;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .modal-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-features li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-features li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Sections (keeping original styles) */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .feature-card ul {
+            list-style: none;
+        }
+
+        .feature-card ul li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 25px;
+            color: #00ff88;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 8px 0;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #00ff88;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .protection-shield {
+                width: 250px;
+                height: 250px;
+            }
+
+            .shield-core {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-header h2,
+            .programs-header h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 30px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Llama AI Badge */
+        .llama-badge {
+            background: linear-gradient(45deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .freemium-highlight {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <div class="container mx-auto p-4 md:p-8">
-
-        <header class="text-center my-12">
-            <div class="mb-6">
-                <img src="images/opennexus-logo.png" alt="OpenNexus Logo" class="mx-auto h-24 md:h-32 w-auto">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="llama-badge">
+                        <span>🦙</span> Powered by Llama AI
+                    </div>
+                    <h1>CounterCoreHazardAV</h1>
+                    <p class="hero-subtitle">Antivirus Inteligente de Nueva Generación</p>
+                    <p class="hero-description">
+                        El primer antivirus <strong>freemium</strong> con inteligencia artificial Llama, optimizado para 
+                        <strong>gamers</strong> y <strong>empresas</strong>. Protección avanzada contra phishing, malware y amenazas zero-day.
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <i class="fas fa-brain"></i>
+                            <span>🦙 Llama AI</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Gaming Mode</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-building"></i>
+                            <span>Enterprise Ready</span>
+                        </div>
+                        <div class="feature-badge">
+                            <span class="freemium-highlight">Freemium</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#programas" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Descargar Programas
+                        </a>
+                        <a href="#caracteristicas" class="btn btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Ver Características
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="protection-shield">
+                        <div class="shield-core">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="scanning-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-6xl font-black brand-gradient-text">OpenNexus</h1>
-            <p class="text-xl md:text-2xl font-semibold mt-2 text-gray-300">Transformando una Amenaza Nacional en una Oportunidad Global</p>
-        </header>
+        </div>
+    </section>
 
-        <main>
-            <section id="opportunity" class="mb-16">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card rounded-2xl p-6 md:p-8 text-center">
-                        <h2 class="text-2xl font-bold mb-4">❌ El Problema: Un Vacío Estratégico</h2>
-                        <p class="text-7xl font-black text-red-400">1,500</p>
-                        <p class="text-lg font-semibold text-gray-300">Empleos críticos en riesgo por la reestructuración de Intel y Qorvo.</p>
-                        <p class="mt-4 text-gray-400">La salida de operaciones clave amenaza con un desmantelamiento de la capacidad productiva del país en el sector de semiconductores.</p>
-                    </div>
-                    <div class="card rounded-2xl p-6 md:p-8 text-center">
-                        <h2 class="text-2xl font-bold mb-4">✅ La Oportunidad: Soberanía Tecnológica</h2>
-                        <p class="text-7xl font-black text-green-400">$93M+</p>
-                        <p class="text-lg font-semibold text-gray-300">Retorno de inversión proyectado en 5 años.</p>
-                        <p class="mt-4 text-gray-400">Capitalizando el talento de élite disponible, la infraestructura ociosa y el ecosistema maduro de Costa Rica para crear valor local.</p>
-                    </div>
+    <!-- Programs Download Section -->
+    <section id="programas" class="programs-section">
+        <div class="container">
+            <div class="programs-content">
+                <div class="programs-header">
+                    <h2>Descargar Programas</h2>
+                    <p>Suite completa de herramientas desarrolladas por CounterCoreHazardAV</p>
                 </div>
-            </section>
-
-            <section id="solution" class="mb-16 card rounded-2xl p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-center mb-8">💡 La Solución: Un Ecosistema Integrado</h2>
-                <div class="relative p-8">
-                    <div class="flex justify-center items-center">
-                        <div class="bg-[#003554] rounded-full p-6 shadow-2xl z-10">
-                            <h3 class="text-2xl font-black text-white">OpenNexus</h3>
+                <div class="programs-grid">
+                    <!-- CounterCoreHazardAV -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                    </div>
-                    <div class="hidden md:block absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2">
-                        <div class="absolute top-1/2 left-1/2 w-1/2 h-[2px] bg-cyan-500/30 -translate-x-full"></div>
-                        <div class="absolute top-1/2 right-1/2 w-1/2 h-[2px] bg-cyan-500/30 -translate-x-0"></div>
-                        <div class="absolute top-1/2 left-1/2 h-1/2 w-[2px] bg-cyan-500/30 -translate-y-full"></div>
-                        <div class="absolute bottom-1/2 left-1/2 h-1/2 w-[2px] bg-cyan-500/30 -translate-y-0"></div>
-                        <div class="absolute top-1/2 left-1/2 w-[2px] h-[70%] bg-cyan-500/30 rotate-45 -translate-x-1/2 -translate-y-1/2"></div>
-                        <div class="absolute top-1/2 left-1/2 w-[2px] h-[70%] bg-cyan-500/30 -rotate-45 -translate-x-1/2 -translate-y-1/2"></div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-8 md:mt-0">
-                        <div class="md:col-start-1 lg:col-start-1 md:mt-0 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-orange-400/80" onclick="document.getElementById('openchip-details').classList.remove('hidden'); document.getElementById('openchip-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('OpenChipCR abierto');">
-                            <div class="mb-2">
-                                <img src="images/openchip-logo.png" alt="OpenChipCR" class="mx-auto h-10 w-auto">
-                            </div>
-                            <p class="text-lg font-bold">⚙️ OpenChipCR</p><p class="text-xs text-gray-400">Hardware & Consultoría</p>
-                            <p class="text-xs text-orange-300 mt-1 opacity-75">🖱️ Click para acceder</p>
-                        </div>
-                        <div class="md:col-start-2 lg:col-start-2 md:-mt-16 text-center p-2 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-red-400/80" onclick="document.getElementById('countercore-details').classList.remove('hidden'); document.getElementById('countercore-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CounterCore HazardAV abierto');">
-                            <div class="mb-1">
-                                <img src="images/countercorehazardav-logo.png" alt="CounterCoreHazardAV" class="mx-auto h-8 w-auto">
-                            </div>
-                             <p class="text-sm font-bold leading-tight">🛡️ CounterCore<br>HazardAV</p><p class="text-xs text-gray-400">Ciberseguridad</p>
-                             <p class="text-xs text-red-300 mt-1 opacity-75">🖱️ Click para acceder</p>
-                        </div>
-                        <div class="md:col-start-1 lg:col-start-3 md:mt-0 text-center p-4 border-2 border-cyan-400/80 rounded-lg bg-gradient-to-br from-[#003554] to-[#006494] shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300" onclick="openNexusOptimIA()">
-                            <div class="mb-3">
-                                <img src="images/nexusoptim-logo.png" alt="NexusOptimIA" class="mx-auto h-12 w-auto">
-                            </div>
-                            <p class="text-xl font-bold text-cyan-300">💡 NexusOptimIA</p><p class="text-sm text-cyan-200 font-semibold">⭐ Producto Estrella ⭐</p>
-                            <p class="text-xs text-cyan-100 mt-2 opacity-75">🖱️ Click para acceder</p>
-                        </div>
-                        <div class="md:col-start-2 lg:col-start-4 md:-mt-16 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-blue-400/80" onclick="document.getElementById('cajacentral-details').classList.remove('hidden'); document.getElementById('cajacentral-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CajaCentral POS abierto');">
-                            <div class="mb-2">
-                                <img src="images/cajacentralpos-logo.png" alt="CajaCentralPOS" class="mx-auto h-10 w-auto">
-                            </div>
-                             <p class="text-lg font-bold">🛒 CajaCentralPOS</p><p class="text-xs text-gray-400">Fintech Empresarial</p>
-                             <p class="text-xs text-blue-300 mt-1 opacity-75">🖱️ Click para acceder</p>
-                        </div>
-                        <div class="md:col-span-2 lg:col-start-5 text-center p-3 border border-cyan-700/50 rounded-lg bg-[#003554]/50 cursor-pointer hover:scale-105 transition-transform duration-300 hover:border-purple-400/80" onclick="document.getElementById('gameslab-details').classList.remove('hidden'); document.getElementById('gameslab-details').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('Games Lab abierto');">
-                            <div class="mb-2">
-                                <img src="images/gameslab-logo.png" alt="Games Lab" class="mx-auto h-10 w-auto">
-                            </div>
-                            <p class="text-lg font-bold">🎮 GamesLab</p><p class="text-xs text-gray-400">Motor de Crecimiento</p>
-                            <p class="text-xs text-purple-300 mt-1 opacity-75">🖱️ Click para acceder</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-center mt-6 text-gray-300 max-w-3xl mx-auto">Un ecosistema de unidades de negocio sinérgicas donde el hardware potencia el software, el software genera datos para mejorar el hardware, y el Games Lab actúa como un motor de marketing y financiamiento para todo el conjunto.</p>
-            </section>
-
-            <!-- Sección de Empleos por Provincia -->
-            <section id="empleos-provincias" class="mb-16 card rounded-2xl p-6 md:p-8">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold brand-gradient-text mb-4">🗺️ Oportunidades de Empleo por Provincia</h2>
-                    <p class="text-xl text-cyan-200 font-semibold">Distribución Estratégica del Talento OpenNexus</p>
-                    <p class="text-gray-300 mt-4 max-w-4xl mx-auto">
-                        Aprovechamiento de la liberación de talento post-Intel/Qorvo y creación de nuevas oportunidades 
-                        de empleo de alta calidad en todo el territorio nacional costarricense.
-                    </p>
-                </div>
-
-                <!-- Métricas Generales -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-gradient-to-br from-[#1e40af] to-[#3730a3] rounded-xl p-6 border border-blue-400/30 text-center">
-                        <div class="text-4xl font-bold text-blue-300 mb-2">1,850+</div>
-                        <div class="text-sm text-blue-200">Total Empleos Proyectados</div>
-                        <div class="text-xs text-blue-100 mt-1">Directos e Indirectos 5 años</div>
-                    </div>
-                    <div class="bg-gradient-to-br from-[#059669] to-[#047857] rounded-xl p-6 border border-green-400/30 text-center">
-                        <div class="text-4xl font-bold text-green-300 mb-2">$93M+</div>
-                        <div class="text-sm text-green-200">Impacto Económico</div>
-                        <div class="text-xs text-green-100 mt-1">Retorno inversión 5 años</div>
-                    </div>
-                    <div class="bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-xl p-6 border border-orange-400/30 text-center">
-                        <div class="text-4xl font-bold text-orange-300 mb-2">7</div>
-                        <div class="text-sm text-orange-200">Provincias Cubiertas</div>
-                        <div class="text-xs text-orange-100 mt-1">Cobertura nacional completa</div>
-                    </div>
-                </div>
-
-                <!-- Distribución por Provincia -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    
-                    <!-- San José -->
-                    <div class="bg-gradient-to-br from-[#1e40af] to-[#3730a3] rounded-xl p-6 border border-blue-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🏛️</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">San José</h3>
-                                <p class="text-blue-200 text-sm">Centro Operativo Principal</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 745 Empleos (40.3%)</p>
-                            <p class="text-blue-200 text-sm">• Sede central OpenNexus (120)</p>
-                            <p class="text-blue-200 text-sm">• Ex-Intel/Qorvo integrados (350)</p>
-                            <p class="text-blue-200 text-sm">• Desarrollo NexusOptimIA (180)</p>
-                            <p class="text-blue-200 text-sm">• CounterCore HazardAV (95)</p>
-                            <div class="mt-4 bg-blue-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Hub Principal</p>
-                                <p class="text-blue-200 text-xs">Headquarters & R&D Center</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cartago -->
-                    <div class="bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-xl p-6 border border-cyan-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🏭</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Cartago</h3>
-                                <p class="text-cyan-200 text-sm">Centro de Manufactura</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 285 Empleos (15.4%)</p>
-                            <p class="text-cyan-200 text-sm">• OpenChipCR fabricación (180)</p>
-                            <p class="text-cyan-200 text-sm">• Alianza con TEC (45)</p>
-                            <p class="text-cyan-200 text-sm">• IoT device assembly (35)</p>
-                            <p class="text-cyan-200 text-sm">• Control de calidad (25)</p>
-                            <div class="mt-4 bg-cyan-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Manufactura Avanzada</p>
-                                <p class="text-cyan-200 text-xs">Hardware & Assembly</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Zona de Los Santos / Dota -->
-                    <div class="bg-gradient-to-br from-[#059669] to-[#047857] rounded-xl p-6 border border-green-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🌾</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Zona de Los Santos / Dota</h3>
-                                <p class="text-green-200 text-sm">Hub AgriTech Inteligente</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 195 Empleos (10.5%)</p>
-                            <p class="text-green-200 text-sm">• AgriTech & IoT rural (85)</p>
-                            <p class="text-green-200 text-sm">• Integración COOPEDOTA (45)</p>
-                            <p class="text-green-200 text-sm">• Smart agriculture sensors (35)</p>
-                            <p class="text-green-200 text-sm">• Coffee sector digitalization (30)</p>
-                            <div class="mt-4 bg-green-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Agricultura 4.0</p>
-                                <p class="text-green-200 text-xs">Smart Coffee & Rural IoT</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Alajuela -->
-                    <div class="bg-gradient-to-br from-[#dc2626] to-[#b91c1c] rounded-xl p-6 border border-red-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">✈️</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Alajuela</h3>
-                                <p class="text-red-200 text-sm">Logística & Infraestructura</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 240 Empleos (13.0%)</p>
-                            <p class="text-red-200 text-sm">• Smart infrastructure (95)</p>
-                            <p class="text-red-200 text-sm">• Airport tech integration (65)</p>
-                            <p class="text-red-200 text-sm">• Logistics optimization (45)</p>
-                            <p class="text-red-200 text-sm">• Supply chain IoT (35)</p>
-                            <div class="mt-4 bg-red-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Smart Logistics</p>
-                                <p class="text-red-200 text-xs">Infrastructure & Transport</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Heredia -->
-                    <div class="bg-gradient-to-br from-[#7c3aed] to-[#6d28d9] rounded-xl p-6 border border-purple-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🎓</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Heredia</h3>
-                                <p class="text-purple-200 text-sm">Educación & Capacitación</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 185 Empleos (10.0%)</p>
-                            <p class="text-purple-200 text-sm">• Alianza con UNA (75)</p>
-                            <p class="text-purple-200 text-sm">• Training & certification (55)</p>
-                            <p class="text-purple-200 text-sm">• EdTech development (35)</p>
-                            <p class="text-purple-200 text-sm">• Research partnerships (20)</p>
-                            <div class="mt-4 bg-purple-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Talent Development</p>
-                                <p class="text-purple-200 text-xs">Education & Training Hub</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Guanacaste -->
-                    <div class="bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-xl p-6 border border-orange-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🏖️</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Guanacaste</h3>
-                                <p class="text-orange-200 text-sm">Turismo Tecnológico</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 125 Empleos (6.8%)</p>
-                            <p class="text-orange-200 text-sm">• Smart tourism solutions (55)</p>
-                            <p class="text-orange-200 text-sm">• Solar IoT monitoring (35)</p>
-                            <p class="text-orange-200 text-sm">• Environmental sensors (25)</p>
-                            <p class="text-orange-200 text-sm">• Remote work hubs (10)</p>
-                            <div class="mt-4 bg-orange-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Smart Tourism</p>
-                                <p class="text-orange-200 text-xs">Tech-enabled experiences</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Puntarenas -->
-                    <div class="bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-xl p-6 border border-cyan-600/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">⚓</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Puntarenas</h3>
-                                <p class="text-cyan-300 text-sm">Puerto Inteligente</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 85 Empleos (4.6%)</p>
-                            <p class="text-cyan-300 text-sm">• Smart port technology (40)</p>
-                            <p class="text-cyan-300 text-sm">• Marine IoT systems (25)</p>
-                            <p class="text-cyan-300 text-sm">• Logistics optimization (15)</p>
-                            <p class="text-cyan-300 text-sm">• Environmental monitoring (5)</p>
-                            <div class="mt-4 bg-cyan-800/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Smart Port</p>
-                                <p class="text-cyan-300 text-xs">Maritime technology</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Limón -->
-                    <div class="bg-gradient-to-br from-[#059669] to-[#047857] rounded-xl p-6 border border-green-600/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🌴</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Limón</h3>
-                                <p class="text-green-300 text-sm">Biodiversidad Digital</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 110 Empleos (5.9%)</p>
-                            <p class="text-green-300 text-sm">• Environmental monitoring (45)</p>
-                            <p class="text-green-300 text-sm">• Biodiversity sensors (30)</p>
-                            <p class="text-green-300 text-sm">• Carbon tracking IoT (20)</p>
-                            <p class="text-green-300 text-sm">• Eco-tourism tech (15)</p>
-                            <div class="mt-4 bg-green-800/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">Bio-Tech</p>
-                                <p class="text-green-300 text-xs">Environmental intelligence</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline de Implementación -->
-                <div class="bg-gradient-to-r from-[#1e40af]/20 to-[#059669]/20 rounded-xl p-6 mb-8 border border-cyan-400/30">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold text-cyan-300 mb-4">📅 Timeline de Creación de Empleos</h3>
-                        <p class="text-gray-300 max-w-4xl mx-auto">Distribución temporal del crecimiento del empleo según las fases de desarrollo e implementación del ecosistema OpenNexus.</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-cyan-400 mb-2">2025</div>
-                            <div class="text-lg font-semibold text-cyan-300 mb-1">185 empleos</div>
-                            <div class="text-sm text-cyan-200">Fundación & MVPs</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-cyan-400 mb-2">2026</div>
-                            <div class="text-lg font-semibold text-cyan-300 mb-1">425 empleos</div>
-                            <div class="text-sm text-cyan-200">Escalamiento inicial</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-cyan-400 mb-2">2027-2028</div>
-                            <div class="text-lg font-semibold text-cyan-300 mb-1">920 empleos</div>
-                            <div class="text-sm text-cyan-200">Expansión regional</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-cyan-400 mb-2">2029</div>
-                            <div class="text-lg font-semibold text-cyan-300 mb-1">1,850+ empleos</div>
-                            <div class="text-sm text-cyan-200">Madurez del ecosistema</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Impacto Estratégico -->
-                <div class="bg-gradient-to-r from-[#7c3aed]/20 to-[#059669]/20 rounded-xl p-6 border border-purple-400/30">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold text-purple-300 mb-4">🚀 Impacto Estratégico Nacional</h3>
-                        <p class="text-gray-300 max-w-4xl mx-auto">La distribución geográfica de empleos OpenNexus fortalece la descentralización, aprovecha infraestructura existente y crea clústeres tecnológicos especializados en cada provincia.</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-400 mb-2">75%</div>
-                            <div class="text-sm text-purple-200">Retención talento Intel/Qorvo</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-400 mb-2">$12.3M</div>
-                            <div class="text-sm text-purple-200">Inversión escalonada 5 años</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-400 mb-2">500+</div>
-                            <div class="text-sm text-purple-200">Empleos indirectos adicionales</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección NexusOptimIA - Inicialmente oculta -->
-            <section id="nexusoptim-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
-                <div class="text-center mb-8">
-                    <div class="mb-6">
-                        <img src="images/nexusoptim-logo.png" alt="NexusOptimIA Logo" class="mx-auto h-20 w-auto">
-                    </div>
-                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">🌟 NexusOptimIA</h2>
-                    <p class="text-xl text-cyan-200 font-semibold">Smart Cities Platform para Costa Rica</p>
-                    <p class="text-gray-300 mt-4 max-w-4xl mx-auto">Plataforma de optimización con IA para infraestructura nacional que integra IoT, Edge AI y análisis predictivo para revolucionar la gestión de servicios públicos costarricenses.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    <!-- ICE - Electricidad -->
-                    <div class="bg-gradient-to-br from-[#1e40af] to-[#3730a3] rounded-xl p-6 border border-blue-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                                <img src="assets/gov-logos/ice-logo.png" alt="ICE Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <span class="text-2xl hidden">⚡</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">ICE</h3>
-                                <p class="text-blue-200 text-sm">Instituto Costarricense de Electricidad</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Optimización Eléctrica</p>
-                            <p class="text-blue-200 text-sm">• Predicción de demanda energética</p>
-                            <p class="text-blue-200 text-sm">• Gestión inteligente de la red</p>
-                            <p class="text-blue-200 text-sm">• Detección de pérdidas técnicas</p>
-                            <div class="mt-4 bg-blue-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">$15M ahorros anuales</p>
-                                <p class="text-blue-200 text-xs">Reducción 12% pérdidas técnicas</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AyA - Agua -->
-                    <div class="bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-xl p-6 border border-cyan-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mr-4">
-                                <img src="assets/gov-logos/aya-logo.png" alt="AyA Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <span class="text-2xl hidden">💧</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">AyA</h3>
-                                <p class="text-cyan-200 text-sm">Acueductos y Alcantarillados</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Gestión Hídrica</p>
-                            <p class="text-cyan-200 text-sm">• Monitoreo en tiempo real</p>
-                            <p class="text-cyan-200 text-sm">• Detección de fugas automática</p>
-                            <p class="text-cyan-200 text-sm">• Optimización de presión</p>
-                            <div class="mt-4 bg-cyan-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">25% reducción pérdidas</p>
-                                <p class="text-cyan-200 text-xs">Ahorro 45M litros/día</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MINAE - Aire -->
-                    <div class="bg-gradient-to-br from-[#059669] to-[#047857] rounded-xl p-6 border border-green-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
-                                <img src="assets/gov-logos/minae-logo.png" alt="MINAE Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <span class="text-2xl hidden">🌱</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">MINAE</h3>
-                                <p class="text-green-200 text-sm">Ministerio de Ambiente y Energía</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Calidad del Aire</p>
-                            <p class="text-green-200 text-sm">• Red de sensores IoT</p>
-                            <p class="text-green-200 text-sm">• Predicción de contaminación</p>
-                            <p class="text-green-200 text-sm">• Alertas tempranas</p>
-                            <div class="mt-4 bg-green-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">200+ estaciones</p>
-                                <p class="text-green-200 text-xs">Cobertura nacional 85%</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MOPT - Tráfico -->
-                    <div class="bg-gradient-to-br from-[#dc2626] to-[#b91c1c] rounded-xl p-6 border border-red-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mr-4">
-                                <img src="assets/gov-logos/mopt-logo.png" alt="MOPT Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <span class="text-2xl hidden">🚗</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">MOPT</h3>
-                                <p class="text-red-200 text-sm">Ministerio de Obras Públicas</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Optimización Tráfico</p>
-                            <p class="text-red-200 text-sm">• Semáforos inteligentes</p>
-                            <p class="text-red-200 text-sm">• Rutas dinámicas</p>
-                            <p class="text-red-200 text-sm">• Análisis de flujo vehicular</p>
-                            <div class="mt-4 bg-red-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">30% menos congestión</p>
-                                <p class="text-red-200 text-xs">GAM y rutas principales</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SENASA - Agricultura -->
-                    <div class="bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-xl p-6 border border-orange-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4">
-                                <img src="assets/gov-logos/senasa-logo.png" alt="SENASA Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <span class="text-2xl hidden">🌾</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">SENASA</h3>
-                                <p class="text-orange-200 text-sm">Servicio Nacional de Sanidad</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Agricultura Inteligente</p>
-                            <p class="text-orange-200 text-sm">• Monitoreo de cultivos</p>
-                            <p class="text-orange-200 text-sm">• Predicción de plagas</p>
-                            <p class="text-orange-200 text-sm">• Optimización de riego</p>
-                            <div class="mt-4 bg-orange-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">50% ahorro agua</p>
-                                <p class="text-orange-200 text-xs">20% aumento rendimiento</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tecnología Central -->
-                    <div class="bg-gradient-to-br from-[#7c3aed] to-[#6d28d9] rounded-xl p-6 border border-purple-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🧠</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Edge AI</h3>
-                                <p class="text-purple-200 text-sm">Arquitectura Tecnológica</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Tecnología Core</p>
-                            <p class="text-purple-200 text-sm">• LoRa 915MHz nacional</p>
-                            <p class="text-purple-200 text-sm">• Edge AI distribuido</p>
-                            <p class="text-purple-200 text-sm">• Análisis predictivo</p>
-                            <div class="mt-4 bg-purple-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">5000+ sensores</p>
-                                <p class="text-purple-200 text-xs">Latencia <100ms</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Botón para volver -->
-                <div class="text-center">
-                    <button onclick="hideNexusOptimIA()" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
-                        ⬆️ Volver al Ecosistema OpenNexus
-                    </button>
-                </div>
-            </section>
-
-            <!-- OpenChipCR Detailed Section -->
-            <section id="openchip-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
-                <div class="text-center mb-8">
-                    <div class="mb-6">
-                        <img src="images/openchip-logo.png" alt="OpenChipCR Logo" class="mx-auto h-20 w-auto">
-                    </div>
-                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">⚙️ OpenChipCR</h2>
-                    <p class="text-xl text-orange-200 font-semibold">Hardware & Consultoría Especializada</p>
-                    <p class="text-gray-300 mt-4 max-w-4xl mx-auto">Consultora especializada en semiconductores y hardware que capitaliza el talento de élite liberado por Intel y Qorvo para crear soberanía tecnológica costarricense.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    <!-- Consultoría en Semiconductores -->
-                    <div class="bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-xl p-6 border border-orange-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🔬</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Semiconductores</h3>
-                                <p class="text-orange-200 text-sm">Consultoría Especializada</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Servicios de Élite</p>
-                            <p class="text-orange-200 text-sm">• Diseño de circuitos integrados</p>
-                            <p class="text-orange-200 text-sm">• Validación y testing avanzado</p>
-                            <p class="text-orange-200 text-sm">• Optimización de procesos</p>
-                            <p class="text-orange-200 text-sm">• Transfer de tecnología</p>
-                            <div class="mt-4 bg-orange-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">150+ ex-Intel/Qorvo</p>
-                                <p class="text-orange-200 text-xs">Ingenieros de élite disponibles</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Fabricación Local -->
-                    <div class="bg-gradient-to-br from-[#7c2d12] to-[#451a03] rounded-xl p-6 border border-amber-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🏭</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Fabricación</h3>
-                                <p class="text-amber-200 text-sm">Producción Nacional</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Soberanía Tecnológica</p>
-                            <p class="text-amber-200 text-sm">• Aprovechamiento infraestructura ociosa</p>
-                            <p class="text-amber-200 text-sm">• Fabricación de PCBs especializados</p>
-                            <p class="text-amber-200 text-sm">• Ensamblaje de dispositivos IoT</p>
-                            <p class="text-amber-200 text-sm">• Prototipado rápido</p>
-                            <div class="mt-4 bg-amber-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">$25M ahorro</p>
-                                <p class="text-amber-200 text-xs">vs. importación directa</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- I+D Aplicado -->
-                    <div class="bg-gradient-to-br from-[#92400e] to-[#78350f] rounded-xl p-6 border border-yellow-400/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🧪</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">I+D</h3>
-                                <p class="text-yellow-200 text-sm">Investigación Aplicada</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Innovación Nacional</p>
-                            <p class="text-yellow-200 text-sm">• Alianzas con universidades (TEC, UCR)</p>
-                            <p class="text-yellow-200 text-sm">• Proyectos de investigación aplicada</p>
-                            <p class="text-yellow-200 text-sm">• Desarrollo de IP nacional</p>
-                            <p class="text-yellow-200 text-sm">• Incubación de startups tech</p>
-                            <div class="mt-4 bg-yellow-900/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">5 patentes/año</p>
-                                <p class="text-yellow-200 text-xs">Meta inicial IP nacional</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Capacitación Técnica -->
-                    <div class="bg-gradient-to-br from-[#b45309] to-[#92400e] rounded-xl p-6 border border-orange-600/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🎓</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Capacitación</h3>
-                                <p class="text-orange-300 text-sm">Formación Especializada</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Desarrollo Talento</p>
-                            <p class="text-orange-300 text-sm">• Programas de upskilling</p>
-                            <p class="text-orange-300 text-sm">• Certificaciones internacionales</p>
-                            <p class="text-orange-300 text-sm">• Mentorías por ex-Intel/Qorvo</p>
-                            <p class="text-orange-300 text-sm">• Bootcamps hardware especializados</p>
-                            <div class="mt-4 bg-orange-800/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">500+ técnicos</p>
-                                <p class="text-orange-300 text-xs">Formación anual proyectada</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Consultoría Internacional -->
-                    <div class="bg-gradient-to-br from-[#a16207] to-[#854d0e] rounded-xl p-6 border border-yellow-600/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🌎</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Global</h3>
-                                <p class="text-yellow-300 text-sm">Consultoría Internacional</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Expansión Regional</p>
-                            <p class="text-yellow-300 text-sm">• Servicios a multinacionales</p>
-                            <p class="text-yellow-300 text-sm">• Consultoría en nearshoring</p>
-                            <p class="text-yellow-300 text-sm">• Due diligence técnico</p>
-                            <p class="text-yellow-300 text-sm">• Auditorías de calidad ISO</p>
-                            <div class="mt-4 bg-yellow-800/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">$18M revenue</p>
-                                <p class="text-yellow-300 text-xs">Proyección año 3</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ecosistema Hardware -->
-                    <div class="bg-gradient-to-br from-[#9a3412] to-[#7c2d12] rounded-xl p-6 border border-red-600/30">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-2xl">🔗</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Ecosistema</h3>
-                                <p class="text-red-300 text-sm">Integración OpenNexus</p>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="text-white font-semibold">🎯 Sinergia Total</p>
-                            <p class="text-red-300 text-sm">• Hardware para NexusOptimIA</p>
-                            <p class="text-red-300 text-sm">• Dispositivos IoT Edge</p>
-                            <p class="text-red-300 text-sm">• Sensores especializados</p>
-                            <p class="text-red-300 text-sm">• Integración con toda la suite</p>
-                            <div class="mt-4 bg-red-800/50 rounded-lg p-3">
-                                <p class="text-green-300 font-bold text-lg">100% sinergia</p>
-                                <p class="text-red-300 text-xs">Con productos OpenNexus</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Oportunidad Estratégica -->
-                <div class="bg-gradient-to-r from-[#7c2d12]/20 to-[#ea580c]/20 rounded-xl p-6 mb-8 border border-orange-400/30">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold text-orange-300 mb-4">📈 Oportunidad Histórica</h3>
-                        <p class="text-gray-300 max-w-4xl mx-auto">El vacío dejado por Intel y Qorvo representa una oportunidad única de capitalizar el talento liberado, la infraestructura disponible y el ecosistema maduro para crear una consultora de clase mundial desde Costa Rica.</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-orange-400 mb-2">1,500+</div>
-                            <div class="text-sm text-orange-200">Ingenieros disponibles</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-orange-400 mb-2">$93M+</div>
-                            <div class="text-sm text-orange-200">ROI proyectado 5 años</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-orange-400 mb-2">25%</div>
-                            <div class="text-sm text-orange-200">Market share regional objetivo</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Botón para volver -->
-                <div class="text-center">
-                    <button onclick="hideOpenChipCR()" class="bg-gradient-to-r from-[#ea580c] to-[#f97316] text-white px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
-                        ← Volver al Ecosistema OpenNexus
-                    </button>
-                </div>
-            </section>
-
-            <!-- Games Lab Detailed Section -->
-            <section id="gameslab-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
-                <div class="text-center mb-8">
-                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">🎮 OpenNexus Games Lab</h2>
-                    <p class="text-xl text-purple-200 font-semibold">Caminos de la Fe - RPG Medieval Revolucionario</p>
-                </div>
-
-                <!-- Games Lab Content Inline -->
-                <div class="games-lab-content" style="background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 50%, #2a0a3a 100%); border-radius: 20px; padding: 40px; margin: 20px 0;">
-                    
-                    <!-- Header del Juego -->
-                    <div class="text-center mb-12">
-                        <div style="width: 200px; height: 120px; margin: 0 auto 20px; background: linear-gradient(45deg, #00ffff, #ff00ff); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; color: #000;">
-                            OPENNEXUS<br>GAMES LAB
-                        </div>
-                        <h1 class="text-4xl font-bold mb-4" style="background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                            Caminos de la Fe
-                        </h1>
-                        <p class="text-xl text-blue-200">Cruzada y Conquista - El RPG que Revoluciona la Monetización</p>
-                    </div>
-
-                    <!-- Características del Juego -->
-                    <div class="mb-12">
-                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">🏰 Un RPG Medieval Revolucionario</h2>
-                        <p class="text-lg text-center mb-8 text-gray-300">
-                            Sumérgete en las Cruzadas como nunca antes. Un RPG de acción en tiempo real que combina historia, fantasía y una economía justa para todos los jugadores.
-                        </p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">⚔️ Combate en Tiempo Real</h4>
-                                <p class="text-gray-300">Acción 3D fluida con combate estratégico y habilidades únicas por facción.</p>
-                            </div>
-                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🎯 Sistema de Facciones</h4>
-                                <p class="text-gray-300">Elige entre Cruzados, Sarracenos o Antiguos, cada uno con ventajas únicas.</p>
-                            </div>
-                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">📈 Progresión Inteligente</h4>
-                                <p class="text-gray-300">Sistema de stats con costo cuadrático que recompensa la dedicación.</p>
-                            </div>
-                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🏆 Armas Legendarias</h4>
-                                <p class="text-gray-300">Ítems únicos por servidor con efectos visuales espectaculares.</p>
-                            </div>
-                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">⚡ PvP Asíncrono</h4>
-                                <p class="text-gray-300">Combates justos con simulación de servidor y matchmaking por nivel.</p>
-                            </div>
-                            <div class="bg-cyan-600/20 p-6 rounded-lg border border-cyan-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🌍 Guerras de Facciones</h4>
-                                <p class="text-gray-300">Participa en conflictos globales que afectan a todos los jugadores.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Facciones -->
-                    <div class="mb-12">
-                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">⚔️ Elige Tu Destino</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-gradient-to-br from-yellow-600/20 to-orange-600/10 p-6 rounded-lg border-2 border-yellow-500 text-center">
-                                <h3 class="text-2xl font-bold mb-4 text-yellow-400">🛡️ Cruzados</h3>
-                                <p class="font-bold text-yellow-300 mb-2">Ventaja: +30% daño vs Antiguos, -10% vs Sarracenos</p>
-                                <p class="text-gray-300">Los guerreros de la fe, expertos en combate defensivo y formaciones tácticas.</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-green-600/20 to-green-800/10 p-6 rounded-lg border-2 border-green-500 text-center">
-                                <h3 class="text-2xl font-bold mb-4 text-green-400">🏹 Sarracenos</h3>
-                                <p class="font-bold text-green-300 mb-2">Ventaja: +20% daño vs Cruzados, neutro vs Antiguos</p>
-                                <p class="text-gray-300">Maestros de la velocidad y la precisión, dominan el combate a distancia.</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-purple-600/20 to-indigo-800/10 p-6 rounded-lg border-2 border-purple-500 text-center">
-                                <h3 class="text-2xl font-bold mb-4 text-purple-400">🔮 Antiguos</h3>
-                                <p class="font-bold text-purple-300 mb-2">Ventaja: +10% daño vs Sarracenos, -20% vs Cruzados</p>
-                                <p class="text-gray-300">Poseedores de conocimientos arcanos y tecnologías perdidas.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Monetización -->
-                    <div class="mb-12">
-                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">💰 Monetización Ética y Sostenible</h2>
-                        <p class="text-center mb-8 text-gray-300">
-                            Nuestro modelo respeta el tiempo de los jugadores y crea una economía justa para todos.
-                        </p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
-                                <h3 class="text-xl font-bold mb-3 text-cyan-400">🎮 Juego Gratuito</h3>
-                                <p class="text-gray-300 mb-4">Acceso completo sin restricciones de contenido.</p>
-                                <div class="text-3xl font-bold text-yellow-400">GRATIS</div>
-                            </div>
-                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
-                                <h3 class="text-xl font-bold mb-3 text-cyan-400">💎 Oro Premium</h3>
-                                <p class="text-gray-300 mb-4">$1 USD = 1000 oro (Nivel 1-10)<br>
-                                Escala: +100 oro por nivel adicional</p>
-                                <div class="text-3xl font-bold text-yellow-400">$1+</div>
-                            </div>
-                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
-                                <h3 class="text-xl font-bold mb-3 text-cyan-400">✨ Faith Pass</h3>
-                                <p class="text-gray-300 mb-4">Sin anuncios por 6 meses<br>
-                                Misiones adicionales<br>
-                                Gear exclusivo</p>
-                                <div class="text-3xl font-bold text-yellow-400">$10/mes</div>
-                            </div>
-                            <div class="bg-gradient-to-br from-cyan-600/10 to-purple-600/10 p-6 rounded-lg border border-purple-400/40 text-center">
-                                <h3 class="text-xl font-bold mb-3 text-cyan-400">🔥 NFTs Únicos</h3>
-                                <p class="text-gray-300 mb-4">Activos de juego reales<br>
-                                Experiencias del mundo real<br>
-                                Blockchain Polygon</p>
-                                <div class="text-3xl font-bold text-yellow-400">Variable</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-green-600/20 p-6 rounded-lg border border-green-400/30">
-                            <h3 class="text-xl font-bold mb-4 text-green-400">🌟 Características Anti-Pay-to-Win</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="space-y-2">
-                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Costo cuadrático de mejoras: (nivel+1)²</span></div>
-                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Límites diarios de farming para equilibrio</span></div>
-                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Matchmaking por nivel en PvP</span></div>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Moneda de evento para jugadores F2P</span></div>
-                                    <div class="flex items-center"><span class="text-green-400 mr-2">✅</span><span>Economía con mecanismos anti-inflación</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Impacto Estratégico -->
-                    <div class="mb-12">
-                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">📊 Impacto Estratégico</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">💰 Proyección Financiera</h4>
-                                <p class="text-white"><strong>Año 1:</strong> $170,000+ en ingresos<br>
-                                <strong>100K jugadores</strong> generan <strong>5K+ leads</strong> para otros productos OpenNexus</p>
-                            </div>
-                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🎯 Adquisición de Usuarios</h4>
-                                <p class="text-gray-300">Canal de costo casi cero para adquirir usuarios de CounterCore HazardAV y CajaCentral POS</p>
-                            </div>
-                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🏗️ Vitrina Tecnológica</h4>
-                                <p class="text-gray-300">Demuestra las capacidades de Edge AI y optimización de nuestros chips OpenChip CR</p>
-                            </div>
-                            <div class="bg-blue-600/20 p-6 rounded-lg border border-blue-400/30">
-                                <h4 class="text-yellow-400 text-lg font-bold mb-3">🇨🇷 Impacto Nacional</h4>
-                                <p class="text-gray-300">Promociona el turismo costarricense y posiciona a OpenNexus como marca de innovación</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Roadmap -->
-                    <div class="mb-12">
-                        <h2 class="text-3xl font-bold text-center mb-8 text-cyan-400">🗺️ Roadmap de Desarrollo</h2>
-                        <div class="space-y-4">
-                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
-                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q1 2026</div>
-                                <div>
-                                    <strong class="text-cyan-400">Lanzamiento Alpha:</strong> 
-                                    <span class="text-gray-300">Sistema de facciones, combate básico, economía de oro, Faith Pass MVP</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
-                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q2 2026</div>
-                                <div>
-                                    <strong class="text-cyan-400">Beta Cerrada:</strong> 
-                                    <span class="text-gray-300">PvP asíncrono, guerras de facciones, sistema de misiones completo</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
-                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q3 2026</div>
-                                <div>
-                                    <strong class="text-cyan-400">Lanzamiento Global:</strong> 
-                                    <span class="text-gray-300">NFTs en Polygon, integración con ecosistema OpenNexus</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center bg-cyan-600/10 p-4 rounded-lg border-l-4 border-cyan-400">
-                                <div class="bg-cyan-400 text-black px-4 py-2 rounded-full font-bold mr-6 min-w-fit">Q4 2026</div>
-                                <div>
-                                    <strong class="text-cyan-400">Expansión:</strong> 
-                                    <span class="text-gray-300">Nuevas regiones, alianzas turísticas, 100K+ usuarios activos</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Call to Action -->
-                    <div class="text-center bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-lg p-8 border border-purple-400/50">
-                        <h2 class="text-3xl font-bold text-cyan-400 mb-4">🚀 Únete a la Revolución</h2>
-                        <p class="text-xl text-gray-300 mb-6">
-                            Sé parte del futuro de los videojuegos y la soberanía tecnológica de Costa Rica
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                            <a href="mailto:jorgebravo92@gmail.com" class="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 text-black px-4 py-3 rounded-lg font-bold hover:scale-105 transition-transform text-center">
-                                📧 Email
+                        <h3>CounterCoreHazardAV</h3>
+                        <p>Antivirus inteligente con IA Llama, optimizado para gamers y empresas.</p>
+                        <ul class="program-features">
+                            <li>🦙 Llama AI Anti-Phishing</li>
+                            <li>🎮 Gaming Intelligence</li>
+                            <li>🛡️ Triple Motor de Detección</li>
+                            <li>📱 Multiplataforma</li>
+                            <li>💰 Modelo Freemium</li>
+                        </ul>
+                        <div class="download-buttons">
+                            <a href="/downloads/countercorehazardav/CounterCoreHazardAV_Installer.exe" class="btn-download" download>
+                                <i class="fas fa-download"></i>
+                                Descargar Antivirus (16.6 MB)
                             </a>
-                            <a href="https://www.linkedin.com/in/jorge-bravo-chaves-037421377/" target="_blank" class="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-3 rounded-lg font-bold hover:scale-105 transition-transform text-center">
-                                💼 LinkedIn
+                            <a href="#" class="btn-info" onclick="openModal('countercoreModal')">
+                                <i class="fas fa-info-circle"></i>
+                                Más Información
                             </a>
-                            <a href="https://github.com/JorgeBC420" target="_blank" class="inline-block bg-gradient-to-r from-gray-700 to-gray-900 text-white px-4 py-3 rounded-lg font-bold hover:scale-105 transition-transform text-center">
-                                🔗 GitHub
+                        </div>
+                    </div>
+
+                    <!-- Caja Central POS -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-cash-register"></i>
+                        </div>
+                        <h3>Caja Central POS v2.5</h3>
+                        <p>Sistema integral de punto de venta para empresas costarricenses con instalación automática.</p>
+                        <ul class="program-features">
+                            <li>🏪 Multi-tienda conectada</li>
+                            <li>🍽️ Sistema de restaurante</li>
+                            <li>🧾 Facturación electrónica CR</li>
+                            <li>📊 Análisis administrativo</li>
+                            <li>🤖 Asistente IA integrado</li>
+                        </ul>
+                        <div class="download-buttons">
+                            <a href="/downloads/cajacentral/Instalar_CajaCentralPOS.bat" class="btn-download" download>
+                                <i class="fas fa-download"></i>
+                                Descargar Instalador .BAT
                             </a>
-                            <a href="https://www.countercorehazardav.com" target="_blank" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-3 rounded-lg font-bold hover:scale-105 transition-transform text-center">
-                                🌐 CounterCore
+                            <a href="/downloads/cajacentral/CajaCentralPOS_Installer.py" class="btn-download" download style="background: rgba(0,255,136,0.8); margin-top: 8px;">
+                                <i class="fas fa-download"></i>
+                                Descargar Instalador .PY  
+                            </a>
+                            <a href="#" class="btn-info" onclick="openModal('cajacentralModal')">
+                                <i class="fas fa-info-circle"></i>
+                                Más Información
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- OpenNexus -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>NexusOptima - Smart Cities</h3>
+                        <p>Plataforma integral para ciudades inteligentes y gestión urbana avanzada.</p>
+                        <ul class="program-features">
+                            <li>🌆 Gestión de infraestructura urbana</li>
+                            <li>🌐 IoT y sensores inteligentes</li>
+                            <li>� Análisis de tráfico y movilidad</li>
+                            <li>⚡ Gestión energética optimizada</li>
+                            <li>📊 Dashboard ejecutivo municipal</li>
+                        </ul>
+                        <div class="download-buttons">
+                            <a href="/downloads/nexusoptima/NexusOptima_Installer.exe" class="btn-download" download>
+                                <i class="fas fa-download"></i>
+                                Descargar NexusOptima
+                            </a>
+                            <a href="#" class="btn-info" onclick="openModal('opennexusModal')">
+                                <i class="fas fa-info-circle"></i>
+                                Más Información
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="text-center mt-8">
-                    <button onclick="document.getElementById('gameslab-details').classList.add('hidden'); document.getElementById('games-lab').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('Games Lab cerrado');" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
-                        ⬆️ Volver al Ecosistema OpenNexus
-                    </button>
-                </div>
-            </section>
-
-            <!-- CajaCentral POS Detailed Section -->
-            <section id="cajacentral-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
-                <div class="text-center mb-8">
-                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">🏪 CajaCentralPOS</h2>
-                    <p class="text-xl text-blue-200 font-semibold">Sistema Integral de Punto de Venta para Costa Rica</p>
-                </div>
-
-                <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="height: 80vh;">
-                    <iframe id="cajacentral-iframe" 
-                            src="cajacentral_pos_combined.html" 
-                            class="w-full h-full border-0"
-                            loading="lazy">
-                    </iframe>
-                </div>
-
-                <div class="text-center mt-6">
-                    <button onclick="document.getElementById('cajacentral-details').classList.add('hidden'); document.getElementById('solution').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CajaCentral POS cerrado');" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
-                        ⬆️ Volver al Ecosistema OpenNexus
-                    </button>
-                </div>
-            </section>
-
-            <!-- CounterCore HazardAV Detailed Section -->
-            <section id="countercore-details" class="mb-16 card rounded-2xl p-6 md:p-8 hidden">
-                <div class="text-center mb-8">
-                    <h2 class="text-4xl font-bold brand-gradient-text mb-4">🛡️ CounterCore HazardAV</h2>
-                    <p class="text-xl text-red-200 font-semibold">Antivirus Inteligente con IA para Costa Rica</p>
-                </div>
-
-                <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl" style="height: 80vh;">
-                    <iframe id="countercore-iframe" 
-                            src="countercorehazardav.html" 
-                            class="w-full h-full border-0"
-                            loading="lazy">
-                    </iframe>
-                </div>
-
-                <div class="text-center mt-6">
-                    <button onclick="document.getElementById('countercore-details').classList.add('hidden'); document.getElementById('solution').scrollIntoView({ behavior: 'smooth', block: 'start' }); console.log('CounterCore HazardAV cerrado');" class="bg-gradient-to-r from-[#00A6FB] to-[#00F5D4] text-[#051923] px-8 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300">
-                        ⬆️ Volver al Ecosistema OpenNexus
-                    </button>
-                </div>
-            </section>
-
-            <section id="impact" class="mb-16">
-                <h2 class="text-3xl font-bold text-center mb-8">📈 Impacto y Proyecciones Financieras</h2>
-                
-                <!-- Métricas de Alto Nivel -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="card rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-green-400 mb-2">756%</div>
-                        <div class="text-sm text-green-200 font-semibold">ROI Proyectado</div>
-                        <div class="text-xs text-gray-400">5 años</div>
-                    </div>
-                    <div class="card rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-cyan-400 mb-2">$48.7M</div>
-                        <div class="text-sm text-cyan-200 font-semibold">ARR Meta 2029</div>
-                        <div class="text-xs text-gray-400">Annual Recurring Revenue</div>
-                    </div>
-                    <div class="card rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-orange-400 mb-2">67%</div>
-                        <div class="text-sm text-orange-200 font-semibold">TIR Anual</div>
-                        <div class="text-xs text-gray-400">Tasa Interna de Retorno</div>
-                    </div>
-                    <div class="card rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-purple-400 mb-2">Año 3</div>
-                        <div class="text-sm text-purple-200 font-semibold">Punto de Equilibrio</div>
-                        <div class="text-xs text-gray-400">Break-even</div>
-                    </div>
-                </div>
-
-                <!-- Gráficos de Inversión -->
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8">
-                    <div class="lg:col-span-3 card rounded-2xl p-6 md:p-8">
-                        <h3 class="text-xl font-bold mb-4">Inversión vs. Retorno Proyectado (5 Años)</h3>
-                        <div class="chart-container">
-                            <canvas id="investmentChart"></canvas>
-                        </div>
-                        <p class="text-sm text-gray-400 mt-4">Se busca una inversión escalonada de $12.3M durante 5 años para capturar una porción significativa del mercado tecnológico, con un retorno de inversión (ROI) proyectado superior a los $93M.</p>
-                    </div>
-                    <div class="lg:col-span-2 card rounded-2xl p-6 md:p-8">
-                        <h3 class="text-xl font-bold mb-4">Distribución de la Inversión</h3>
-                        <div class="chart-container">
-                            <canvas id="distributionChart"></canvas>
-                        </div>
-                        <p class="text-sm text-gray-400 mt-4">La inversión se distribuye estratégicamente para mitigar riesgos, enfocándose inicialmente en las áreas de mayor potencial de ingresos y soberanía tecnológica.</p>
-                    </div>
-                </div>
-
-                <!-- Proyección de Ingresos por Unidad de Negocio -->
-                <div class="card rounded-2xl p-6 md:p-8 mb-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center">💰 Proyección de Ingresos por Unidad de Negocio (5 Años)</h3>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="border-b border-cyan-700/50">
-                                    <th class="text-left p-3 text-cyan-300 font-bold">Unidad de Negocio</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 1</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 2</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 3</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 4</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 5</th>
-                                    <th class="text-right p-3 text-green-300 font-bold">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-300">
-                                <tr class="border-b border-gray-700/30 hover:bg-orange-500/10">
-                                    <td class="p-3 font-semibold">🔧 OpenChipCR</td>
-                                    <td class="p-3 text-right">$0.5M</td>
-                                    <td class="p-3 text-right">$2.1M</td>
-                                    <td class="p-3 text-right">$4.8M</td>
-                                    <td class="p-3 text-right">$8.2M</td>
-                                    <td class="p-3 text-right">$12.5M</td>
-                                    <td class="p-3 text-right font-bold text-green-400">$28.1M</td>
-                                </tr>
-                                <tr class="border-b border-gray-700/30 hover:bg-red-500/10">
-                                    <td class="p-3 font-semibold">🛡️ CounterCore HazardAV</td>
-                                    <td class="p-3 text-right">$0.2M</td>
-                                    <td class="p-3 text-right">$1.3M</td>
-                                    <td class="p-3 text-right">$3.6M</td>
-                                    <td class="p-3 text-right">$6.8M</td>
-                                    <td class="p-3 text-right">$11.2M</td>
-                                    <td class="p-3 text-right font-bold text-green-400">$23.1M</td>
-                                </tr>
-                                <tr class="border-b border-gray-700/30 hover:bg-cyan-500/10">
-                                    <td class="p-3 font-semibold">💡 NexusOptimIA</td>
-                                    <td class="p-3 text-right">$0.3M</td>
-                                    <td class="p-3 text-right">$1.8M</td>
-                                    <td class="p-3 text-right">$5.2M</td>
-                                    <td class="p-3 text-right">$9.8M</td>
-                                    <td class="p-3 text-right">$16.4M</td>
-                                    <td class="p-3 text-right font-bold text-green-400">$33.5M</td>
-                                </tr>
-                                <tr class="border-b border-gray-700/30 hover:bg-blue-500/10">
-                                    <td class="p-3 font-semibold">🛒 CajaCentralPOS</td>
-                                    <td class="p-3 text-right">$0.1M</td>
-                                    <td class="p-3 text-right">$0.8M</td>
-                                    <td class="p-3 text-right">$2.1M</td>
-                                    <td class="p-3 text-right">$3.9M</td>
-                                    <td class="p-3 text-right">$6.2M</td>
-                                    <td class="p-3 text-right font-bold text-green-400">$13.1M</td>
-                                </tr>
-                                <tr class="border-b border-gray-700/30 hover:bg-purple-500/10">
-                                    <td class="p-3 font-semibold">🎮 GamesLab</td>
-                                    <td class="p-3 text-right">$0.1M</td>
-                                    <td class="p-3 text-right">$0.6M</td>
-                                    <td class="p-3 text-right">$1.2M</td>
-                                    <td class="p-3 text-right">$1.8M</td>
-                                    <td class="p-3 text-right">$2.4M</td>
-                                    <td class="p-3 text-right font-bold text-green-400">$6.1M</td>
-                                </tr>
-                                <tr class="bg-gradient-to-r from-green-500/20 to-cyan-500/20 font-bold">
-                                    <td class="p-3 text-xl">🚀 TOTAL</td>
-                                    <td class="p-3 text-right text-cyan-300">$1.2M</td>
-                                    <td class="p-3 text-right text-cyan-300">$6.6M</td>
-                                    <td class="p-3 text-right text-cyan-300">$16.9M</td>
-                                    <td class="p-3 text-right text-cyan-300">$30.5M</td>
-                                    <td class="p-3 text-right text-cyan-300">$48.7M</td>
-                                    <td class="p-3 text-right text-2xl text-green-400">$103.9M</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Métricas de Mercado -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                    <div class="card rounded-2xl p-6 md:p-8">
-                        <h3 class="text-xl font-bold mb-6">🌍 Análisis de Mercado (TAM/SAM/SOM)</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center p-3 bg-blue-600/20 rounded-lg">
-                                <div>
-                                    <p class="font-semibold text-blue-300">TAM - Mercado Total</p>
-                                    <p class="text-xs text-blue-200">IoT Global + Smart Cities LATAM</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-2xl font-bold text-blue-400">$1.39T</p>
-                                    <p class="text-xs text-blue-200">2026</p>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center p-3 bg-cyan-600/20 rounded-lg">
-                                <div>
-                                    <p class="font-semibold text-cyan-300">SAM - Mercado Servicible</p>
-                                    <p class="text-xs text-cyan-200">Costa Rica + Centroamérica</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-2xl font-bold text-cyan-400">$180M</p>
-                                    <p class="text-xs text-cyan-200">Objetivo</p>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center p-3 bg-green-600/20 rounded-lg">
-                                <div>
-                                    <p class="font-semibold text-green-300">SOM - Mercado Obtenible</p>
-                                    <p class="text-xs text-green-200">Meta 5 años (52% del SAM)</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-2xl font-bold text-green-400">$93M</p>
-                                    <p class="text-xs text-green-200">8-12% por vertical</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card rounded-2xl p-6 md:p-8">
-                        <h3 class="text-xl font-bold mb-6">📊 Métricas Clave de Desempeño</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="text-center p-3 bg-purple-600/20 rounded-lg">
-                                <p class="text-2xl font-bold text-purple-400">3:1</p>
-                                <p class="text-xs text-purple-200">LTV/CAC Ratio Meta</p>
-                            </div>
-                            <div class="text-center p-3 bg-orange-600/20 rounded-lg">
-                                <p class="text-2xl font-bold text-orange-400">75%+</p>
-                                <p class="text-xs text-orange-200">Gross Margin Software</p>
-                            </div>
-                            <div class="text-center p-3 bg-red-600/20 rounded-lg">
-                                <p class="text-2xl font-bold text-red-400">95%+</p>
-                                <p class="text-xs text-red-200">Customer Retention</p>
-                            </div>
-                            <div class="text-center p-3 bg-yellow-600/20 rounded-lg">
-                                <p class="text-2xl font-bold text-yellow-400">25+</p>
-                                <p class="text-xs text-yellow-200">Patents/IP Meta</p>
-                            </div>
-                            <div class="text-center p-3 bg-green-600/20 rounded-lg col-span-2">
-                                <p class="text-2xl font-bold text-green-400">18 meses</p>
-                                <p class="text-xs text-green-200">Máximo Burn Rate Runway</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Términos de Inversión -->
-                <div class="card rounded-2xl p-6 md:p-8 mb-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center">💰 Rondas de Inversión Proyectadas</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-gradient-to-br from-blue-600/20 to-blue-800/10 p-6 rounded-lg border border-blue-400/30">
-                            <h4 class="text-xl font-bold text-blue-300 mb-4">Serie Semilla</h4>
-                            <div class="space-y-2">
-                                <div class="flex justify-between">
-                                    <span class="text-blue-200">Capital:</span>
-                                    <span class="font-bold text-white">$500k</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-blue-200">Pre-money:</span>
-                                    <span class="font-bold text-white">$2M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-blue-200">Equity:</span>
-                                    <span class="font-bold text-white">20%</span>
-                                </div>
-                                <p class="text-xs text-blue-100 mt-2">Team building, MVP development, primeros clientes</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-green-600/20 to-green-800/10 p-6 rounded-lg border border-green-400/30">
-                            <h4 class="text-xl font-bold text-green-300 mb-4">Serie A</h4>
-                            <div class="space-y-2">
-                                <div class="flex justify-between">
-                                    <span class="text-green-200">Capital:</span>
-                                    <span class="font-bold text-white">$2M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-200">Pre-money:</span>
-                                    <span class="font-bold text-white">$8M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-200">Equity:</span>
-                                    <span class="font-bold text-white">20%</span>
-                                </div>
-                                <p class="text-xs text-green-100 mt-2">Product development, validación de mercado, contrataciones</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-purple-600/20 to-purple-800/10 p-6 rounded-lg border border-purple-400/30">
-                            <h4 class="text-xl font-bold text-purple-300 mb-4">Serie B</h4>
-                            <div class="space-y-2">
-                                <div class="flex justify-between">
-                                    <span class="text-purple-200">Capital:</span>
-                                    <span class="font-bold text-white">$5M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-purple-200">Pre-money:</span>
-                                    <span class="font-bold text-white">$20M</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-purple-200">Equity:</span>
-                                    <span class="font-bold text-white">20%</span>
-                                </div>
-                                <p class="text-xs text-purple-100 mt-2">Expansión regional, escalamiento de operaciones</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flujo de Caja Proyectado -->
-                <div class="card rounded-2xl p-6 md:p-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center">📈 Flujo de Caja Proyectado</h3>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="border-b border-cyan-700/50">
-                                    <th class="text-left p-3 text-cyan-300 font-bold">Métrica</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 1</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 2</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 3</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 4</th>
-                                    <th class="text-right p-3 text-cyan-300 font-bold">Año 5</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-300">
-                                <tr class="border-b border-gray-700/30">
-                                    <td class="p-3 font-semibold">Ingresos</td>
-                                    <td class="p-3 text-right">$1.2M</td>
-                                    <td class="p-3 text-right">$6.6M</td>
-                                    <td class="p-3 text-right">$16.9M</td>
-                                    <td class="p-3 text-right">$30.5M</td>
-                                    <td class="p-3 text-right">$48.7M</td>
-                                </tr>
-                                <tr class="border-b border-gray-700/30">
-                                    <td class="p-3 font-semibold">Costos Operativos</td>
-                                    <td class="p-3 text-right">$1.0M</td>
-                                    <td class="p-3 text-right">$2.1M</td>
-                                    <td class="p-3 text-right">$3.8M</td>
-                                    <td class="p-3 text-right">$5.9M</td>
-                                    <td class="p-3 text-right">$8.5M</td>
-                                </tr>
-                                <tr class="border-b border-gray-700/30 bg-green-500/10">
-                                    <td class="p-3 font-semibold text-green-300">EBITDA</td>
-                                    <td class="p-3 text-right text-green-400">$0.2M</td>
-                                    <td class="p-3 text-right text-green-400">$4.5M</td>
-                                    <td class="p-3 text-right text-green-400">$13.1M</td>
-                                    <td class="p-3 text-right text-green-400">$24.6M</td>
-                                    <td class="p-3 text-right text-green-400">$40.2M</td>
-                                </tr>
-                                <tr class="border-b border-gray-700/30">
-                                    <td class="p-3 font-semibold">Margen EBITDA</td>
-                                    <td class="p-3 text-right">17%</td>
-                                    <td class="p-3 text-right">68%</td>
-                                    <td class="p-3 text-right">78%</td>
-                                    <td class="p-3 text-right">81%</td>
-                                    <td class="p-3 text-right">83%</td>
-                                </tr>
-                                <tr class="bg-cyan-500/10 font-bold">
-                                    <td class="p-3 text-cyan-300">Flujo de Caja Libre</td>
-                                    <td class="p-3 text-right text-red-400">-$0.5M</td>
-                                    <td class="p-3 text-right text-green-400">$1.5M</td>
-                                    <td class="p-3 text-right text-green-400">$8.5M</td>
-                                    <td class="p-3 text-right text-green-400">$18.3M</td>
-                                    <td class="p-3 text-right text-green-400">$32.2M</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="mt-4 p-4 bg-gradient-to-r from-green-500/20 to-cyan-500/20 rounded-lg">
-                        <p class="text-center text-green-300 font-bold">💰 Flujo de Caja Acumulado (5 años): <span class="text-2xl">$59.8M</span></p>
-                    </div>
-                </div>
-            </section>
-
-
+    <!-- Caja Central POS Detailed Download Section -->
+    <section class="download-section" style="padding: 80px 0; background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">⬇️ Descarga Caja Central POS v2.5</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9;">
+                Instalación automática con todas las dependencias incluidas
+            </p>
             
-            <section id="roadmap" class="mb-16">
-                <h2 class="text-3xl font-bold text-center mb-12">🗺️ Hoja de Ruta Estratégica</h2>
-                
-                <!-- Roadmap Detallado -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <!-- Fase 1: Fundación -->
-                    <div class="card rounded-2xl p-6 border-l-4 border-blue-500">
-                        <div class="mb-4">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-2xl font-bold text-blue-400">Fase 1</span>
-                                <span class="text-sm text-blue-300 bg-blue-500/20 px-2 py-1 rounded">Q3-Q4 2025</span>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Fundación</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">$500k Capital Semilla</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">8-12 personas clave</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">Primeros contratos</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">MVPs funcionales</span>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-3 bg-blue-500/10 rounded-lg">
-                            <p class="text-blue-300 font-semibold text-center">185 empleos</p>
-                            <p class="text-blue-200 text-xs text-center">Meta 2025</p>
-                        </div>
-                    </div>
-
-                    <!-- Fase 2: Validación -->
-                    <div class="card rounded-2xl p-6 border-l-4 border-green-500">
-                        <div class="mb-4">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-2xl font-bold text-green-400">Fase 2</span>
-                                <span class="text-sm text-green-300 bg-green-500/20 px-2 py-1 rounded">Q1-Q2 2026</span>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Validación</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">$2M Serie A</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">25-35 personas</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">Product-market fit</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">$1M ARR</span>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-3 bg-green-500/10 rounded-lg">
-                            <p class="text-green-300 font-semibold text-center">425 empleos</p>
-                            <p class="text-green-200 text-xs text-center">Meta 2026</p>
-                        </div>
-                    </div>
-
-                    <!-- Fase 3: Escalamiento -->
-                    <div class="card rounded-2xl p-6 border-l-4 border-purple-500">
-                        <div class="mb-4">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-2xl font-bold text-purple-400">Fase 3</span>
-                                <span class="text-sm text-purple-300 bg-purple-500/20 px-2 py-1 rounded">Q3-Q4 2026</span>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Escalamiento</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">$5M Serie B</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">60-80 personas</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">Expansión regional</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">$5M ARR</span>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-3 bg-purple-500/10 rounded-lg">
-                            <p class="text-purple-300 font-semibold text-center">680 empleos</p>
-                            <p class="text-purple-200 text-xs text-center">Meta 2027</p>
-                        </div>
-                    </div>
-
-                    <!-- Fase 4: Consolidación -->
-                    <div class="card rounded-2xl p-6 border-l-4 border-orange-500">
-                        <div class="mb-4">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-2xl font-bold text-orange-400">Fase 4</span>
-                                <span class="text-sm text-orange-300 bg-orange-500/20 px-2 py-1 rounded">2027-2029</span>
-                            </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Consolidación</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">$8M Serie C</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">120+ personas</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">Liderazgo regional</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                                <span class="text-gray-300">$48.7M ARR</span>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-3 bg-orange-500/10 rounded-lg">
-                            <p class="text-orange-300 font-semibold text-center">1,850+ empleos</p>
-                            <p class="text-orange-200 text-xs text-center">Meta 2029</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Visual -->
-                <div class="card rounded-2xl p-6 md:p-8 mb-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center">📅 Cronograma de Hitos Clave</h3>
-                    <div class="relative">
-                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-purple-500"></div>
-                        <div class="space-y-8">
-                            <!-- Hito 1 -->
-                            <div class="relative flex items-start pl-12">
-                                <div class="absolute left-0 w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-sm font-bold">1</span>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="text-lg font-bold text-cyan-300">Constitución Legal & Seed Funding</h4>
-                                        <span class="text-sm text-cyan-200 bg-cyan-500/20 px-3 py-1 rounded-full">Q3 2025</span>
-                                    </div>
-                                    <p class="text-gray-300 mb-2">Formalización jurídica, obtención de capital semilla $500k, formación del equipo core.</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">Constitución</span>
-                                        <span class="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">Funding</span>
-                                        <span class="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">Team Building</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Hito 2 -->
-                            <div class="relative flex items-start pl-12">
-                                <div class="absolute left-0 w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-sm font-bold">2</span>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="text-lg font-bold text-green-300">Primeros Productos & Contratos</h4>
-                                        <span class="text-sm text-green-200 bg-green-500/20 px-3 py-1 rounded-full">Q4 2025</span>
-                                    </div>
-                                    <p class="text-gray-300 mb-2">Lanzamiento de MVPs de CounterCore HazardAV y CajaCentral POS, primeros contratos OpenChipCR.</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-red-500/20 text-red-300 px-2 py-1 rounded">CounterCore</span>
-                                        <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">CajaCentral</span>
-                                        <span class="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded">OpenChipCR</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Hito 3 -->
-                            <div class="relative flex items-start pl-12">
-                                <div class="absolute left-0 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-sm font-bold">3</span>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="text-lg font-bold text-purple-300">NexusOptimIA Launch & Serie A</h4>
-                                        <span class="text-sm text-purple-200 bg-purple-500/20 px-3 py-1 rounded-full">Q1-Q2 2026</span>
-                                    </div>
-                                    <p class="text-gray-300 mb-2">Lanzamiento del producto estrella NexusOptimIA, cierre de Serie A $2M, expansión del equipo.</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-cyan-500/20 text-cyan-300 px-2 py-1 rounded">NexusOptimIA</span>
-                                        <span class="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">Serie A</span>
-                                        <span class="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">Scaling</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Hito 4 -->
-                            <div class="relative flex items-start pl-12">
-                                <div class="absolute left-0 w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-sm font-bold">4</span>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="text-lg font-bold text-orange-300">Regional Leadership & Serie B</h4>
-                                        <span class="text-sm text-orange-200 bg-orange-500/20 px-3 py-1 rounded-full">Q3-Q4 2026</span>
-                                    </div>
-                                    <p class="text-gray-300 mb-2">Posicionamiento como líder regional, Games Lab operativo, Serie B $5M para expansión.</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">Games Lab</span>
-                                        <span class="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">Serie B</span>
-                                        <span class="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded">Regional</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Hito 5 -->
-                            <div class="relative flex items-start pl-12">
-                                <div class="absolute left-0 w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-sm font-bold">5</span>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="text-lg font-bold text-yellow-300">Madurez & Consolidación</h4>
-                                        <span class="text-sm text-yellow-200 bg-yellow-500/20 px-3 py-1 rounded-full">2027-2029</span>
-                                    </div>
-                                    <p class="text-gray-300 mb-2">$48.7M ARR, 1,850+ empleos, liderazgo tecnológico consolidado en Centroamérica.</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">$48.7M ARR</span>
-                                        <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">1,850+ jobs</span>
-                                        <span class="text-xs bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded">Market Leader</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Métricas de Seguimiento -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="card rounded-2xl p-6">
-                        <h4 class="text-lg font-bold text-cyan-300 mb-4">📊 KPIs Financieros</h4>
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">ARR Crecimiento:</span>
-                                <span class="font-bold text-green-400">450% anual</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">LTV/CAC:</span>
-                                <span class="font-bold text-cyan-400">3:1 meta</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">Burn Rate:</span>
-                                <span class="font-bold text-orange-400">18 meses runway</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card rounded-2xl p-6">
-                        <h4 class="text-lg font-bold text-purple-300 mb-4">👥 KPIs Operacionales</h4>
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">Employee NPS:</span>
-                                <span class="font-bold text-green-400">8.5+ meta</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">Customer Retention:</span>
-                                <span class="font-bold text-cyan-400">95%+ meta</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">Time to Market:</span>
-                                <span class="font-bold text-orange-400">6 meses</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card rounded-2xl p-6">
-                        <h4 class="text-lg font-bold text-green-300 mb-4">🎯 KPIs Estratégicos</h4>
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">Market Share:</span>
-                                <span class="font-bold text-green-400">8-12% vertical</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">IP Portfolio:</span>
-                                <span class="font-bold text-cyan-400">25+ patents</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-300">Geographic Reach:</span>
-                                <span class="font-bold text-orange-400">7 países LATAM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Contacto Profesional -->
-            <section id="contact" class="mb-16 card rounded-2xl p-6 md:p-8">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold brand-gradient-text mb-4">💼 Contacto Profesional</h2>
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                        ¿Interesado en invertir, colaborar o conocer más sobre OpenNexus? 
-                        Conectemos para construir juntos el futuro tecnológico de Costa Rica.
-                    </p>
+            <div class="download-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                <div class="download-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🪟</div>
+                    <h3 style="margin-bottom: 15px;">Instalador Windows</h3>
+                    <p style="margin-bottom: 20px; opacity: 0.9;">Descarga y ejecuta el archivo .bat para instalación automática</p>
+                    <a href="https://countercorehazardav.com/downloads/cajacentral/Instalar_CajaCentralPOS.bat" 
+                       class="btn" style="background: white; color: #14b8a6; text-decoration: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; display: inline-block; transition: all 0.3s ease;">
+                       ⬇️ Descargar .BAT
+                    </a>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Información de Contacto -->
-                    <div class="bg-gradient-to-br from-blue-900/20 to-cyan-900/20 rounded-xl p-6 border border-blue-400/30">
-                        <h3 class="text-xl font-bold text-cyan-300 mb-4">📧 Información de Contacto</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3">
-                                <span class="text-2xl">👤</span>
-                                <div>
-                                    <p class="font-semibold text-white">Jorge Eduardo Bravo Chaves</p>
-                                    <p class="text-sm text-gray-300">Fundador & CEO, OpenNexus</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center gap-3">
-                                <span class="text-2xl">📧</span>
-                                <div>
-                                    <a href="mailto:jorgebravo92@gmail.com" class="text-cyan-300 hover:text-cyan-100 font-semibold">
-                                        jorgebravo92@gmail.com
-                                    </a>
-                                    <p class="text-xs text-gray-400">Respuesta en 24-48 horas</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center gap-3">
-                                <span class="text-2xl">🌍</span>
-                                <div>
-                                    <p class="text-white font-semibold">Costa Rica</p>
-                                    <p class="text-sm text-gray-300">Disponible para reuniones presenciales y virtuales</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="download-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🐍</div>
+                    <h3 style="margin-bottom: 15px;">Instalador Python</h3>
+                    <p style="margin-bottom: 20px; opacity: 0.9;">Para usuarios avanzados con Python instalado</p>
+                    <a href="https://countercorehazardav.com/downloads/cajacentral/CajaCentralPOS_Installer.py" 
+                       class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; text-decoration: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; display: inline-block; transition: all 0.3s ease;">
+                       ⬇️ Descargar .PY
+                    </a>
+                </div>
+            </div>
+            
+            <div class="download-info" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+                <h3 style="margin-bottom: 15px;">📋 Información de Descarga</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left;">
+                    <div>
+                        <strong>🔢 Versión:</strong> 2.5.0<br>
+                        <strong>📅 Fecha:</strong> Agosto 2025<br>
+                        <strong>📏 Tamaño:</strong> ~50MB
                     </div>
-                    
-                    <!-- Enlaces Profesionales -->
-                    <div class="bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-xl p-6 border border-purple-400/30">
-                        <h3 class="text-xl font-bold text-purple-300 mb-4">🔗 Redes Profesionales</h3>
-                        <div class="space-y-4">
-                            <a href="https://www.linkedin.com/in/jorge-bravo-chaves-037421377/" target="_blank" 
-                               class="flex items-center gap-3 p-3 bg-blue-700/30 rounded-lg hover:bg-blue-700/50 transition-colors group">
-                                <span class="text-2xl">💼</span>
-                                <div>
-                                    <p class="font-semibold text-white group-hover:text-blue-200">LinkedIn</p>
-                                    <p class="text-sm text-gray-300">Perfil profesional y experiencia</p>
-                                </div>
-                            </a>
-                            
-                            <a href="https://github.com/JorgeBC420" target="_blank" 
-                               class="flex items-center gap-3 p-3 bg-gray-700/30 rounded-lg hover:bg-gray-700/50 transition-colors group">
-                                <span class="text-2xl">🔗</span>
-                                <div>
-                                    <p class="font-semibold text-white group-hover:text-gray-200">GitHub</p>
-                                    <p class="text-sm text-gray-300">Proyectos y código fuente</p>
-                                </div>
-                            </a>
-                            
-                            <a href="https://www.countercorehazardav.com" target="_blank" 
-                               class="flex items-center gap-3 p-3 bg-red-700/30 rounded-lg hover:bg-red-700/50 transition-colors group">
-                                <span class="text-2xl">🛡️</span>
-                                <div>
-                                    <p class="font-semibold text-white group-hover:text-red-200">CounterCore HazardAV</p>
-                                    <p class="text-sm text-gray-300">Producto antivirus en desarrollo</p>
-                                </div>
-                            </a>
-                        </div>
+                    <div>
+                        <strong>🖥️ Compatible:</strong> Windows 10/11<br>
+                        <strong>🐍 Requiere:</strong> Python 3.8+<br>
+                        <strong>🌐 Internet:</strong> Solo para instalación
                     </div>
                 </div>
-                
-                <!-- Call to Action -->
-                <div class="mt-8 text-center">
-                    <div class="bg-gradient-to-r from-cyan-600/20 to-purple-600/20 rounded-xl p-6 border border-cyan-400/30">
-                        <h3 class="text-xl font-bold text-cyan-300 mb-2">🚀 ¿Listo para ser parte de OpenNexus?</h3>
-                        <p class="text-gray-300 mb-4">
-                            Inversionistas, socios estratégicos, instituciones gubernamentales y talento técnico: 
-                            <strong>¡tu participación puede hacer la diferencia!</strong>
-                        </p>
-                        <div class="flex justify-center gap-4 flex-wrap">
-                            <a href="mailto:jorgebravo92@gmail.com?subject=Interés%20en%20OpenNexus%20-%20Inversión" 
-                               class="bg-gradient-to-r from-green-600 to-green-800 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition-transform">
-                                💰 Inversión
-                            </a>
-                            <a href="mailto:jorgebravo92@gmail.com?subject=Interés%20en%20OpenNexus%20-%20Colaboración" 
-                               class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition-transform">
-                                🤝 Colaboración
-                            </a>
-                            <a href="mailto:jorgebravo92@gmail.com?subject=Interés%20en%20OpenNexus%20-%20Talento" 
-                               class="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition-transform">
-                                👥 Unirse al Equipo
-                            </a>
-                        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tecnología de Vanguardia</h2>
+                <p>Triple motor de detección con inteligencia artificial Llama y optimización gaming</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span style="font-size: 2rem;">🦙</span>
                     </div>
+                    <h3>Llama AI Anti-Phishing</h3>
+                    <p>Modelo de lenguaje natural avanzado que detecta phishing sofisticado con 98.7% de precisión.</p>
+                    <ul>
+                        <li>Análisis de emails y sitios web</li>
+                        <li>Detección de engineering social</li>
+                        <li>Procesamiento de lenguaje natural</li>
+                        <li>Razonamiento explicable</li>
+                    </ul>
                 </div>
-            </section>
-
-            <section id="support" class="mb-16 card rounded-2xl p-6 md:p-8 text-center">
-                <h2 class="text-3xl font-bold mb-4 brand-gradient-text">🚀 Apoya la Revolución OpenNexus</h2>
-                <p class="text-gray-300 max-w-3xl mx-auto mb-6">
-                    Tu contribución es fundamental para impulsar la investigación, el desarrollo de prototipos y los gastos operativos esenciales.
-                    Juntos, podemos acelerar la creación de soluciones de hardware y software que fortalezcan la soberanía tecnológica de Costa Rica.
-                </p>
-                <div class="bg-[#003554] rounded-xl p-6 inline-block shadow-lg border border-cyan-700/50">
-                    <p class="text-xl font-bold mb-2">Envía tu donación vía SINPE Móvil:</p>
-                    <p class="text-4xl font-black text-white mb-2">+506 71880297</p> <p class="text-lg text-gray-300">A nombre de: Jorge Eduardo Bravo II Chaves</p>
-                    <p class="text-sm text-gray-400 mt-2">Puedes enviar tu donación desde tu aplicación bancaria o al *888#.</p>
-                    <p class="text-xs text-gray-500 mt-4">Nota: Estas donaciones no confieren participación en la empresa o derechos de inversión.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Gaming Intelligence</h3>
+                    <p>Optimización automática para gamers con detección inteligente de juegos y modo rendimiento.</p>
+                    <ul>
+                        <li>Detección automática de 19+ juegos populares</li>
+                        <li>Reducción de recursos hasta 70%</li>
+                        <li>Modo gaming automático</li>
+                        <li>Sin interrupciones durante partidas</li>
+                    </ul>
                 </div>
-            </section>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Modelo Freemium</h3>
+                    <p>Protección básica gratuita con opciones premium para máxima seguridad.</p>
+                    <ul>
+                        <li>Plan gratuito con funciones básicas</li>
+                        <li>Premium: Sin anuncios + Llama AI</li>
+                        <li>Enterprise: Gestión centralizada</li>
+                        <li>Monetización inteligente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <footer class="text-center mt-16 py-8 border-t border-cyan-900/50">
-                 <h2 class="text-3xl font-bold brand-gradient-text mb-4">Únase a la Revolución Tecnológica</h2>
-                 <p class="text-gray-400 max-w-3xl mx-auto mb-6">OpenNexus es más que una empresa; es un proyecto de soberanía tecnológica nacional. Invitamos a inversores, instituciones y al talento costarricense a colaborar en la construcción del nuevo mapa tecnológico de Costa Rica.</p>
-                 
-                 <!-- Información de Contacto -->
-                 <div class="mb-6">
-                     <p class="font-semibold text-lg text-white mb-4">Jorge Eduardo Bravo Chaves | Fundador, OpenNexus</p>
-                     <div class="flex justify-center items-center gap-6 flex-wrap">
-                         <a href="mailto:jorgebravo92@gmail.com" class="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
-                             <span class="text-xl">📧</span>
-                             <span>jorgebravo92@gmail.com</span>
-                         </a>
-                         <a href="https://www.linkedin.com/in/jorge-bravo-chaves-037421377/" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-900 text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
-                             <span class="text-xl">💼</span>
-                             <span>LinkedIn</span>
-                         </a>
-                         <a href="https://github.com/JorgeBC420" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-gray-700 to-gray-900 text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
-                             <span class="text-xl">🔗</span>
-                             <span>GitHub</span>
-                         </a>
-                     </div>
-                 </div>
-                 
-                 <p class="text-sm text-gray-500 mt-4">© 2025 OpenNexus. Construyendo el futuro tecnológico de Costa Rica.</p>
-            </footer>
+    <!-- Modals -->
+    <!-- CounterCore Modal -->
+    <div id="countercoreModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('countercoreModal')">&times;</span>
+            <h3><i class="fas fa-shield-alt"></i> CounterCoreHazardAV</h3>
+            <p>Antivirus de nueva generación con inteligencia artificial Llama, diseñado específicamente para gamers y empresas.</p>
+            
+            <h4 style="color: #00ff88; margin: 20px 0 10px 0;">Características Principales:</h4>
+            <ul class="modal-features">
+                <li>🦙 Llama AI Anti-Phishing con 98.7% de precisión</li>
+                <li>🎮 Gaming Intelligence - Optimización automática</li>
+                <li>🛡️ Triple motor: ClamAV + YARA + IA propia</li>
+                <li>📱 Soporte multiplataforma (Windows, Android, iOS)</li>
+                <li>💰 Modelo freemium con funciones premium</li>
+                <li>🏢 Solución empresarial con dashboard web</li>
+                <li>🔒 Compliance GDPR/SOX integrado</li>
+                <li>⚡ Instalación en segundos</li>
+            </ul>
 
-        </main>
+            <h4 style="color: #00ff88; margin: 20px 0 10px 0;">Requisitos del Sistema:</h4>
+            <ul class="modal-features">
+                <li>Windows 10 versión 1909 o superior</li>
+                <li>4 GB RAM mínimo (8 GB recomendado)</li>
+                <li>500 MB espacio libre</li>
+                <li>Conexión a internet para actualizaciones</li>
+            </ul>
+        </div>
     </div>
 
+    <!-- Caja Central Modal -->
+    <div id="cajacentralModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cajacentralModal')">&times;</span>
+            <h3><i class="fas fa-cash-register"></i> Caja Central POS</h3>
+            <p>Sistema integral de punto de venta diseñado específicamente para empresas costarricenses con cumplimiento legal garantizado.</p>
+            
+            <h4 style="color: #00ff88; margin: 20px 0 10px 0;">Módulos Incluidos:</h4>
+            <ul class="modal-features">
+                <li>🏪 Sistema Multi-tienda con inventario sincronizado</li>
+                <li>🍽️ Módulo de restaurante con gestión de mesas</li>
+                <li>🧾 Facturación electrónica CR (XML v4.4)</li>
+                <li>📊 Dashboard administrativo con métricas</li>
+                <li>🔍 Búsqueda inteligente de productos</li>
+                <li>💳 Múltiples métodos de pago</li>
+                <li>🤖 Asistente IA híbrido integrado</li>
+                <li>☁️ Sincronización automática</li>
+            </ul>
+
+            <h4 style="color: #00ff88; margin: 20px 0 10px 0;">Tecnologías:</h4>
+            <ul class="modal-features">
+                <li>🐍 Python + Tkinter (Interfaz nativa)</li>
+                <li>🗄️ SQLite (Base de datos eficiente)</li>
+                <li>📊 Matplotlib (Gráficos profesionales)</li>
+                <li>🔒 Cifrado AES-256 para seguridad</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- OpenNexus Modal -->
+    <div id="opennexusModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('opennexusModal')">&times;</span>
+            <h3><i class="fas fa-city"></i> NexusOptima - Smart Cities</h3>
+            <p>Plataforma integral para ciudades inteligentes que revoluciona la gestión urbana con tecnología de vanguardia e IoT avanzado.</p>
+            
+            <h4 style="color: #00ff88; margin: 20px 0 10px 0;">Capacidades Smart Cities:</h4>
+            <ul class="modal-features">
+                <li>🌆 Gestión integral de infraestructura urbana</li>
+                <li>🌐 Red de sensores IoT distribuidos</li>
+                <li>� Sistemas de tráfico inteligente</li>
+                <li>⚡ Optimización energética municipal</li>
+                <li>💧 Gestión de recursos hídricos</li>
+                <li>📊 Dashboard ejecutivo municipal</li>
+                <li>🤖 IA predictiva para mantenimiento</li>
+                <li>� Apps ciudadanas integradas</li>
+            </ul>
+
+            <h4 style="color: #00ff88; margin: 20px 0 10px 0;">Casos de Uso Municipales:</h4>
+            <ul class="modal-features">
+                <li>Municipalidades inteligentes</li>
+                <li>Gestión de servicios públicos</li>
+                <li>Monitoreo ambiental urbano</li>
+                <li>Planificación urbana basada en datos</li>
+                <li>Gestión de emergencias y seguridad</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CounterCoreHazardAV</h3>
+                    <p>Suite de software inteligente desarrollada desde Costa Rica 🇨🇷 para gamers, empresas y organizaciones que buscan tecnología de vanguardia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Productos</h3>
+                    <ul>
+                        <li><a href="#programas">CounterCoreHazardAV</a></li>
+                        <li><a href="#programas">Caja Central POS</a></li>
+                        <li><a href="#programas">OpenNexus</a></li>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Documentación</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Reporte de Bugs</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Términos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CounterCoreHazardAV - Desarrollado por Jorge Bravo, Costa Rica 🇨🇷</p>
+                <p>Suite de Software Inteligente | Llama AI | Gaming Optimizado | Soluciones Empresariales</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            const tooltipTitleCallback = (tooltipItems) => {
-                const item = tooltipItems[0];
-                let label = item.chart.data.labels[item.dataIndex];
-                if (Array.isArray(label)) {
-                    return label.join(' ');
-                }
-                return label;
-            };
-
-            const commonOptions = {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#E0E0E0',
-                            font: {
-                                size: 14
-                            }
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: tooltipTitleCallback
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        ticks: { color: '#9CA3AF' },
-                        grid: { color: 'rgba(156, 163, 175, 0.1)' }
-                    },
-                    x: {
-                        ticks: { color: '#9CA3AF' },
-                        grid: { color: 'rgba(156, 163, 175, 0.1)' }
-                    }
-                }
-            };
-            
-            function wrapLabel(label, maxWidth) {
-                const words = label.split(' ');
-                let lines = [];
-                let currentLine = '';
-                for (let i = 0; i < words.length; i++) {
-                    const word = words[i];
-                    const width = currentLine.length + word.length;
-                    if (width < maxWidth) {
-                        currentLine += (currentLine.length > 0 ? ' ' : '') + word;
-                    } else {
-                        lines.push(currentLine);
-                        currentLine = word;
-                    }
-                }
-                lines.push(currentLine);
-                return lines;
-            }
-
-            function createInvestmentChart() {
-                const ctx = document.getElementById('investmentChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Inversión Total', 'Retorno Proyectado'],
-                        datasets: [{
-                            label: 'Millones de USD',
-                            data: [12.3, 93],
-                            backgroundColor: ['#00A6FB', '#00F5D4'],
-                            borderColor: ['#0582CA', '#00B3A3'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: { ...commonOptions }
-                });
-            }
-
-            function createDistributionChart() {
-                const ctx = document.getElementById('distributionChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [
-                            wrapLabel('Semiconductores', 16), 
-                            wrapLabel('Edge AI & IoT', 16),
-                            wrapLabel('Ciberseguridad', 16),
-                            wrapLabel('Fintech & POS', 16),
-                            'Otros'
-                        ],
-                        datasets: [{
-                            label: 'Distribución de Inversión',
-                            data: [28.5, 16.3, 12.2, 6.5, 36.5],
-                            backgroundColor: [
-                                '#003554',
-                                '#006494',
-                                '#0582CA',
-                                '#00A6FB',
-                                '#00F5D4'
-                            ],
-                            hoverOffset: 4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'bottom',
-                                labels: {
-                                    color: '#E0E0E0',
-                                    font: { size: 12 }
-                                }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    title: tooltipTitleCallback
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-
-            createInvestmentChart();
-            createDistributionChart();
-
-            window.openNexusOptimIA = function() {
-                const nexusSection = document.getElementById('nexusoptim-details');
-                nexusSection.classList.remove('hidden');
-                nexusSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            };
-
-            window.hideNexusOptimIA = function() {
-                const nexusSection = document.getElementById('nexusoptim-details');
-                nexusSection.classList.add('hidden');
-                
-                // Scroll back to the ecosystem section
-                const ecosystemSection = document.getElementById('solution');
-                ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            };
-
-            window.openGamesLab = function() {
-                console.log('🎮 Intentando abrir Games Lab...');
-                const gamesLabSection = document.getElementById('gameslab-details');
-                
-                if (!gamesLabSection) {
-                    console.error('❌ No se encontró la sección gameslab-details');
-                    alert('Error: Sección Games Lab no encontrada');
-                    return;
-                }
-                
-                console.log('✅ Sección encontrada, removiendo clase hidden...');
-                gamesLabSection.classList.remove('hidden');
-                
-                console.log('📍 Haciendo scroll a la sección...');
-                gamesLabSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                console.log('🎮 Games Lab abierto exitosamente');
-            };
-
-            window.hideGamesLab = function() {
-                console.log('🔙 Cerrando Games Lab...');
-                const gamesLabSection = document.getElementById('gameslab-details');
-                
-                if (gamesLabSection) {
-                    gamesLabSection.classList.add('hidden');
-                }
-                
-                // Scroll back to the games lab section in main page
-                const gamesLabMainSection = document.getElementById('games-lab');
-                if (gamesLabMainSection) {
-                    gamesLabMainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                console.log('✅ Games Lab cerrado');
-            };
-
-            // OpenChipCR Navigation Functions
-            window.openOpenChipCR = function() {
-                console.log('⚙️ Abriendo OpenChipCR...');
-                const openChipSection = document.getElementById('openchip-details');
-                
-                if (openChipSection) {
-                    openChipSection.classList.remove('hidden');
-                    openChipSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                console.log('✅ OpenChipCR abierto');
-            };
-
-            window.hideOpenChipCR = function() {
-                console.log('🔙 Cerrando OpenChipCR...');
-                const openChipSection = document.getElementById('openchip-details');
-                
-                if (openChipSection) {
-                    openChipSection.classList.add('hidden');
-                }
-                
-                // Scroll back to the ecosystem section
-                const ecosystemSection = document.getElementById('solution');
-                if (ecosystemSection) {
-                    ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                console.log('✅ OpenChipCR cerrado');
-            };
-
-            // Event listener para mensajes de iframes
-            window.addEventListener('message', function(event) {
-                if (event.data === 'hideCajaCentral') {
-                    console.log('🏪 Cerrando CajaCentral POS desde iframe...');
-                    const cajacentralSection = document.getElementById('cajacentral-details');
-                    if (cajacentralSection) {
-                        cajacentralSection.classList.add('hidden');
-                    }
-                    // Scroll back to ecosystem section
-                    const ecosystemSection = document.getElementById('solution');
-                    if (ecosystemSection) {
-                        ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                    console.log('✅ CajaCentral POS cerrado');
-                } else if (event.data === 'hideCounterCore') {
-                    console.log('🛡️ Cerrando CounterCore HazardAV desde iframe...');
-                    const countercoreSection = document.getElementById('countercore-details');
-                    if (countercoreSection) {
-                        countercoreSection.classList.add('hidden');
-                    }
-                    // Scroll back to ecosystem section
-                    const ecosystemSection = document.getElementById('solution');
-                    if (ecosystemSection) {
-                        ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                    console.log('✅ CounterCore HazardAV cerrado');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.feature-card, .program-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Download function with tracking
+        function downloadProgram(program) {
+            // Track download attempt
+            console.log(`Download initiated for: ${program}`);
+            
+            // Show download alert
+            const programNames = {
+                'countercore': 'CounterCoreHazardAV',
+                'cajacentral': 'Caja Central POS',
+                'opennexus': 'OpenNexus'
+            };
+            
+            alert(`¡Iniciando descarga de ${programNames[program]}!\n\nLa descarga comenzará en unos segundos...`);
+            
+            // Here you would implement the actual download logic
+            // For now, we'll simulate it
+            setTimeout(() => {
+                console.log(`${programNames[program]} download started`);
+            }, 1000);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('CounterCoreHazardAV Suite Website Loaded');
+            console.log('🦙 Llama AI: Ready');
+            console.log('🎮 Gaming Mode: Standby');
+            console.log('💰 Freemium Model: Active');
+            console.log('🏪 POS System: Available');
+            console.log('🖥️ OpenNexus: Available');
+            
+            // Add loading animation to hero
+            const heroText = document.querySelector('.hero-text');
+            if (heroText) {
+                heroText.style.opacity = '0';
+                heroText.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    heroText.style.transition = 'all 0.8s ease-out';
+                    heroText.style.opacity = '1';
+                    heroText.style.transform = 'translateY(0)';
+                }, 300);
+            }
+        });
+
+        // Escape key to close modals
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
         });
     </script>
 </body>

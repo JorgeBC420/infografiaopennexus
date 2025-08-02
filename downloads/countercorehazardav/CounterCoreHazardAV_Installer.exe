@@ -1,0 +1,12 @@
+# CounterCoreHazardAV Installer v2.5.0
+# Este sería el archivo ejecutable real compilado con PyInstaller
+# Incluye: Llama AI, Gaming Intelligence, Interfaz moderna
+# Tamaño: ~16.6 MB
+# Autor: Jorge Bravo - Costa Rica 🇨🇷
+
+echo "Instalando CounterCoreHazardAV v2.5.0..."
+echo "✅ Antivirus con Llama AI"
+echo "✅ Gaming Intelligence"
+echo "✅ Interfaz adaptable"
+echo "✅ Cifrado AES-256"
+echo "Instalación completada."

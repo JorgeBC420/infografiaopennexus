@@ -1,0 +1,18 @@
+# NexusOptima v3.0.0 - Smart Cities Platform
+# Plataforma integral para ciudades inteligentes
+# Autor: Jorge Bravo - Costa Rica 🇨🇷
+
+echo "🌆 NEXUS OPTIMA v3.0.0"
+echo "Smart Cities Platform"
+echo "Costa Rica 🇨🇷"
+echo ""
+echo "Instalando componentes..."
+echo "✅ Gestión de infraestructura"
+echo "✅ IoT y sensores urbanos"
+echo "✅ Análisis de tráfico"
+echo "✅ Gestión energética"
+echo "✅ Dashboard ejecutivo"
+echo "✅ APIs de integración"
+echo ""
+echo "🎉 Instalación completada."
+echo "NexusOptima está listo para ciudades inteligentes."

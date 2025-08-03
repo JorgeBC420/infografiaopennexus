@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CounterCoreHazardAV - Antivirus Freemium con Llama AI + Gaming Intelligence</title>
-    <meta name="description" content="Antivirus inteligente con IA Llama, optimizado para gamers y empresas. Modelo freemium con detección avanzada de phishing y malware.">
-    <meta name="keywords" content="antivirus, llama ai, gaming, freemium, phishing, malware, costa rica">
+    <title>CounterCoreHazardAV - Antivirus Freemium con Múltiples IA + Gaming Intelligence</title>
+    <meta name="description" content="Antivirus inteligente con múltiples modelos de IA (Llama, TensorFlow, YARA), optimizado para gamers y empresas. Modelo freemium con detección avanzada de phishing y malware.">
+    <meta name="keywords" content="antivirus, multiple ai, llama ai, tensorflow, yara, gaming, freemium, phishing, malware, costa rica">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CounterCoreHazardAV",
+        "description": "Antivirus inteligente con múltiples modelos de IA (Llama, TensorFlow, YARA), optimizado para gamers y empresas",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Windows",
+        "offers": [
+            {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Versión gratuita con funciones básicas"
+            },
+            {
+                "@type": "Offer",
+                "price": "4.99",
+                "priceCurrency": "USD",
+                "description": "Premium con múltiples IA"
+            }
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "OpenNexus Hardware and Software",
+            "url": "https://opennexus.cr"
+        },
+        "video": {
+            "@type": "VideoObject",
+            "name": "CounterCoreHazardAV Gaming Edition Demo",
+            "description": "Demostración en vivo del antivirus Gaming Edition con Quick Scan y detección automática de juegos",
+            "embedUrl": "https://www.youtube.com/embed/3LTAlrV1j5E"
+        }
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -497,6 +535,118 @@
             position: relative;
         }
 
+        /* Video Demo Section */
+        .video-demo-section {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+
+        .video-demo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #00ff88, #667eea, #764ba2);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .video-features h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .demo-features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .demo-feature {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-feature:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .demo-feature i {
+            font-size: 2rem;
+            color: #00ff88;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.1), rgba(102, 126, 234, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .demo-feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .demo-feature p {
+            color: #7f8c8d;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .video-demo-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .demo-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .gaming-section::before {
             content: '';
             position: absolute;
@@ -684,6 +834,280 @@
             text-align: center;
         }
 
+        /* Founder Section */
+        .founder-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .founder-section .section-header h2,
+        .founder-section .section-header p {
+            color: white;
+        }
+
+        .founder-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .founder-story {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .founder-profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .founder-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 3px solid rgba(0, 255, 136, 0.5);
+        }
+
+        .founder-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .founder-info h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .founder-title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .founder-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .badge.technical {
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+        }
+
+        .badge.autodidact {
+            background: rgba(0, 255, 136, 0.8);
+            color: white;
+        }
+
+        .founder-journey {
+            text-align: left;
+        }
+
+        .founder-journey h4 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #00ff88;
+        }
+
+        .founder-journey h5 {
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            color: #00ff88;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .founder-journey p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .ecosystem-highlight {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #00ff88;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .ecosystem-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .ecosystem-item i {
+            color: #00ff88;
+            font-size: 1.2rem;
+            width: 20px;
+            flex-shrink: 0;
+        }
+
+        .vision-statement {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            text-align: center;
+        }
+
+        .vision-statement p {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .cta-link {
+            margin-top: 25px;
+        }
+
+        .experience-highlight {
+            background: rgba(255, 165, 0, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #ffa500;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .experience-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .experience-item i {
+            color: #ffa500;
+            font-size: 1.2rem;
+            width: 20px;
+            flex-shrink: 0;
+        }
+
+        .vision-highlight {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #00ff88;
+        }
+
+        .achievements {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .achievements ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .achievements ul li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .achievements ul li::before {
+            content: '🚀';
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .mission-statement {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            text-align: center;
+        }
+
+        .mission-statement p {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .founder-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .founder-story {
+                padding: 30px 20px;
+            }
+
+            .founder-info h3 {
+                font-size: 1.6rem;
+            }
+
+            .founder-badges {
+                justify-content: center;
+            }
+        }
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -864,39 +1288,40 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="llama-badge">
-                        <span>🦙</span> Powered by Llama AI
+                        <span>�</span> Powered by Multiple AI
                     </div>
                     <h1>CounterCoreHazardAV</h1>
                     <p class="hero-subtitle">Antivirus Inteligente de Nueva Generación</p>
                     <p class="hero-description">
-                        El primer antivirus <strong>freemium</strong> con inteligencia artificial Llama, optimizado para 
-                        <strong>gamers</strong> y <strong>empresas</strong>. Protección avanzada contra phishing, malware y amenazas zero-day.
+                        El primer antivirus <strong>Gaming Edition</strong> con múltiples modelos de inteligencia artificial, <strong>Quick Scan</strong> ultrarrápido y detección automática de 19+ juegos. 
+                        Protección avanzada con <strong>consenso multicapa</strong> que reduce consumo a solo 33% durante gaming.
                     </p>
                     <div class="hero-features">
                         <div class="feature-badge">
                             <i class="fas fa-brain"></i>
-                            <span>🦙 Llama AI</span>
+                            <span>� Múltiples IA</span>
                         </div>
                         <div class="feature-badge">
                             <i class="fas fa-gamepad"></i>
-                            <span>Gaming Mode</span>
+                            <span>Gaming Edition</span>
                         </div>
                         <div class="feature-badge">
-                            <i class="fas fa-building"></i>
-                            <span>Enterprise Ready</span>
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Quick Scan</span>
                         </div>
                         <div class="feature-badge">
-                            <span class="freemium-highlight">Freemium</span>
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Real Time Protection</span>
                         </div>
                     </div>
                     <div class="hero-buttons">
-                        <a href="#descarga" class="btn btn-primary">
-                            <i class="fas fa-download"></i>
-                            Descargar Gratis
+                        <a href="#demo" class="btn btn-primary">
+                            <i class="fas fa-play"></i>
+                            Ver Demo en Vivo
                         </a>
-                        <a href="#caracteristicas" class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                            Ver Características
+                        <a href="#fundador" class="btn btn-secondary">
+                            <i class="fas fa-user"></i>
+                            Sobre el Fundador
                         </a>
                     </div>
                 </div>
@@ -921,85 +1346,91 @@
         <div class="container">
             <div class="section-header">
                 <h2>Tecnología de Vanguardia</h2>
-                <p>Triple motor de detección con inteligencia artificial Llama y optimización gaming</p>
+                <p>Gaming Edition con consenso multicapa de múltiples IA y Quick Scan ultrarrápido</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <span style="font-size: 2rem;">🦙</span>
+                        <span style="font-size: 2rem;">�</span>
                     </div>
-                    <h3>Llama AI Anti-Phishing</h3>
-                    <p>Modelo de lenguaje natural avanzado que detecta phishing sofisticado con 98.7% de precisión.</p>
+                    <h3>Múltiples Modelos de IA</h3>
+                    <p>Arquitectura híbrida que combina Llama AI para procesamiento de lenguaje natural, TensorFlow para análisis heurístico y YARA para detección de patrones avanzados.</p>
                     <ul>
-                        <li>Análisis de emails y sitios web</li>
-                        <li>Detección de engineering social</li>
-                        <li>Procesamiento de lenguaje natural</li>
-                        <li>Razonamiento explicable</li>
+                        <li>🦙 Llama AI: Análisis contextual de phishing</li>
+                        <li>🧠 TensorFlow: Detección heurística avanzada</li>
+                        <li>⚡ YARA: 170+ reglas de patrón compiladas</li>
+                        <li>🔍 ClamAV: Base de firmas actualizada</li>
+                        <li>🤝 Consenso inteligente multicapa</li>
                     </ul>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-gamepad"></i>
                     </div>
-                    <h3>Gaming Intelligence</h3>
-                    <p>Optimización automática para gamers con detección inteligente de juegos y modo rendimiento.</p>
+                    <h3>Gaming Edition</h3>
+                    <p>Detección automática de 19+ juegos populares que activa modo de bajo consumo, reduciendo recursos del sistema a solo 33% de su uso habitual para máximo rendimiento.</p>
                     <ul>
-                        <li>Detección automática de 19+ juegos populares</li>
-                        <li>Reducción de recursos hasta 70%</li>
-                        <li>Modo gaming automático</li>
-                        <li>Sin interrupciones durante partidas</li>
+                        <li>Detección automática de VALORANT, Fortnite, CS:GO, LOL</li>
+                        <li>Reducción automática a 33% de consumo de recursos</li>
+                        <li>Modo transparente sin interrupciones</li>
+                        <li>Optimización inteligente para gaming</li>
+                        <li>Activación automática sin intervención del usuario</li>
                     </ul>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Modelo Freemium</h3>
-                    <p>Protección básica gratuita con opciones premium para máxima seguridad.</p>
+                    <h3>Quick Scan Ultrarrápido</h3>
+                    <p>Sistema de escaneo optimizado que completa análisis completos en pocos segundos, sin sacrificar efectividad. Interfaz moderna con tema oscuro profesional.</p>
                     <ul>
-                        <li>Plan gratuito con funciones básicas</li>
-                        <li>Premium: Sin anuncios + Llama AI</li>
-                        <li>Enterprise: Gestión centralizada</li>
-                        <li>Monetización inteligente</li>
+                        <li>Quick Scan: Análisis completo en segundos</li>
+                        <li>Interfaz moderna con tema oscuro futurista</li>
+                        <li>Iconografía hexagonal y código binario</li>
+                        <li>Colores azul y verde integrados</li>
+                        <li>Experiencia de usuario clara y enfocada</li>
                     </ul>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3>Triple Motor YARA + IA</h3>
-                    <p>Combinación de ClamAV, YARA y nuestro motor de IA para detección multicapa.</p>
+                    <h3>Motor Híbrido Multicapa</h3>
+                    <p>Integración completa de múltiples tecnologías de IA: ClamAV signatures, YARA rules personalizadas, TensorFlow ML y Llama AI NLP trabajando en conjunto.</p>
                     <ul>
-                        <li>150+ reglas YARA compiladas</li>
-                        <li>28 características de IA</li>
-                        <li>Análisis heurístico avanzado</li>
-                        <li>Consenso multi-motor</li>
+                        <li>ClamAV: Base de firmas tradicionales confiables</li>
+                        <li>YARA: 170+ reglas personalizadas optimizadas</li>
+                        <li>TensorFlow: 32 características ML para heurísticas</li>
+                        <li>Llama AI: Procesamiento de lenguaje natural</li>
+                        <li>Consenso: Decisión inteligente multicapa</li>
                     </ul>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Protección Móvil</h3>
-                    <p>TensorFlow Lite optimizado para Android e iOS con análisis edge computing.</p>
+                    <h3>Gestión Inteligente de Amenazas</h3>
+                    <p>Sistema avanzado de gestión que permite al usuario controlar completamente las amenazas detectadas con opciones claras y precisas.</p>
                     <ul>
-                        <li>Análisis offline en el dispositivo</li>
-                        <li>84.6% de compresión del modelo</li>
-                        <li>Optimización de batería</li>
-                        <li>Híbrido cloud + edge</li>
+                        <li>Cuarentena: Aislamiento seguro de amenazas</li>
+                        <li>Ignorar: Whitelist inteligente personalizable</li>
+                        <li>Eliminar: Eliminación completa y segura</li>
+                        <li>Real Time Protection ON/OFF configurable</li>
+                        <li>Interfaz clara con botones intuitivos</li>
                     </ul>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h3>Interfaz Adaptable</h3>
-                    <p>Temas corporativos y gaming con efectos Matrix y detección automática de contexto.</p>
+                    <h3>Interfaz Inteligente</h3>
+                    <p>UI adaptiva con múltiples temas y efectos visuales que cambia automáticamente según el contexto de uso detectado.</p>
                     <ul>
-                        <li>Tema corporativo profesional</li>
-                        <li>Tema gaming con efectos RGB</li>
-                        <li>Efectos Matrix con 0s y 1s</li>
-                        <li>UI adaptable por contexto</li>
+                        <li>Tema corporativo limpio y profesional</li>
+                        <li>Tema gaming con efectos RGB y Matrix</li>
+                        <li>Detección automática de contexto de trabajo</li>
+                        <li>Animaciones fluidas y responsivas</li>
+                        <li>Dashboard personalizable por usuario</li>
                     </ul>
                 </div>
             </div>
@@ -1020,36 +1451,38 @@
                         <div class="price">$0<span>/mes</span></div>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> 5 escaneos por día</li>
-                        <li><i class="fas fa-check"></i> Detección básica con ClamAV</li>
+                        <li><i class="fas fa-check"></i> 3 escaneos diarios programados</li>
+                        <li><i class="fas fa-check"></i> Detección básica con ClamAV + YARA</li>
                         <li><i class="fas fa-check"></i> Gaming Intelligence básico</li>
-                        <li><i class="fas fa-check"></i> Actualizaciones automáticas</li>
-                        <li><i class="fas fa-times"></i> Llama AI Anti-Phishing</li>
+                        <li><i class="fas fa-check"></i> Actualizaciones automáticas de firmas</li>
+                        <li><i class="fas fa-check"></i> Interfaz básica con tema claro</li>
+                        <li><i class="fas fa-times"></i> Múltiples IA (Llama + TensorFlow)</li>
                         <li><i class="fas fa-times"></i> Protección en tiempo real</li>
-                        <li><i class="fas fa-times"></i> Soporte técnico</li>
-                        <li><i class="fas fa-ad"></i> Incluye publicidad contextual</li>
+                        <li><i class="fas fa-times"></i> Soporte técnico prioritario</li>
+                        <li><i class="fas fa-ad"></i> Incluye anuncios contextuales optimizados</li>
                     </ul>
                     <div class="plan-ads">
                         <p><i class="fas fa-info-circle"></i> Monetizado con anuncios de patrocinadores</p>
                     </div>
-                    <a href="#descarga" class="btn btn-outline">Descargar Gratis</a>
+                    <a href="#planes" class="btn btn-outline">Descargar Gratis</a>
                 </div>
 
                 <div class="pricing-card premium">
                     <div class="popular-badge">Más Popular</div>
                     <div class="plan-header">
-                        <h3>Premium + Llama AI</h3>
+                        <h3>Premium + Múltiples IA</h3>
                         <div class="price">$4.99<span>/mes</span></div>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Escaneos ilimitados</li>
-                        <li><i class="fas fa-check"></i> 🦙 Llama AI Anti-Phishing completo</li>
-                        <li><i class="fas fa-check"></i> Sin anuncios</li>
-                        <li><i class="fas fa-check"></i> Gaming Mode avanzado</li>
-                        <li><i class="fas fa-check"></i> Protección en tiempo real</li>
-                        <li><i class="fas fa-check"></i> Threat Intelligence premium</li>
-                        <li><i class="fas fa-check"></i> Soporte prioritario 24/7</li>
-                        <li><i class="fas fa-check"></i> Análisis de red móvil</li>
+                        <li><i class="fas fa-check"></i> Escaneos ilimitados on-demand</li>
+                        <li><i class="fas fa-check"></i> � Múltiples IA completo (Llama + TensorFlow)</li>
+                        <li><i class="fas fa-check"></i> Experiencia libre de anuncios</li>
+                        <li><i class="fas fa-check"></i> Gaming Mode Pro con optimización avanzada</li>
+                        <li><i class="fas fa-check"></i> Protección en tiempo real multicapa</li>
+                        <li><i class="fas fa-check"></i> Threat Intelligence premium actualizada</li>
+                        <li><i class="fas fa-check"></i> Soporte prioritario 24/7 con técnicos</li>
+                        <li><i class="fas fa-check"></i> Análisis de red móvil y WiFi</li>
+                        <li><i class="fas fa-check"></i> Dashboard personalizable avanzado</li>
                     </ul>
                     <a href="#" class="btn btn-primary">Obtener Premium</a>
                 </div>
@@ -1116,18 +1549,18 @@
                 <div class="gaming-features">
                     <div class="gaming-feature">
                         <i class="fas fa-rocket"></i>
-                        <h3>Optimización Automática</h3>
-                        <p>Detecta automáticamente cuando juegas VALORANT, Fortnite, CS:GO, League of Legends y 15+ juegos más. Reduce el uso de CPU hasta 70% y RAM hasta 60% para máximo rendimiento.</p>
+                        <h3>Detección Automática de 19+ Juegos</h3>
+                        <p>El sistema reconoce automáticamente cuando ejecutas juegos populares como VALORANT, Fortnite, CS:GO, League of Legends, y activa instantáneamente el modo de bajo consumo, reduciendo el uso de recursos a solo 33% de su consumo habitual para garantizar fluidez total.</p>
                     </div>
                     <div class="gaming-feature">
                         <i class="fas fa-shield-alt"></i>
-                        <h3>Protección Sin Interrupciones</h3>
-                        <p>Análisis inteligente en segundo plano que no afecta el framerate. Suspende notificaciones durante partidas competitivas y prioriza el rendimiento del juego.</p>
+                        <h3>Optimización Inteligente y Automática</h3>
+                        <p>No requiere intervención del usuario. El antivirus toma decisiones inteligentes automáticamente, optimizando recursos sin sacrificar seguridad. Sistema completamente transparente que mejora la experiencia de juego.</p>
                     </div>
                     <div class="gaming-feature">
                         <i class="fas fa-brain"></i>
-                        <h3>IA Gaming Intelligence</h3>
-                        <p>Reconoce la diferencia entre cracks de juegos y malware real. Ofrece contexto inteligente sobre archivos relacionados con gaming sin falsos positivos.</p>
+                        <h3>Gaming Edition Especializada</h3>
+                        <p>Versión específicamente diseñada para gamers exigentes que necesitan máximo rendimiento. Resuelve el conflicto entre seguridad y performance, proporcionando protección completa sin impacto en FPS.</p>
                     </div>
                     <div class="gaming-feature">
                         <i class="fas fa-users"></i>
@@ -1136,13 +1569,147 @@
                     </div>
                     <div class="gaming-feature">
                         <i class="fas fa-tachometer-alt"></i>
-                        <h3>Monitoreo de Rendimiento</h3>
-                        <p>Dashboard en tiempo real que muestra el impacto en recursos del sistema. Métricas de CPU, RAM y red optimizadas para sesiones de gaming.</p>
+                        <h3>Performance sin Compromisos</h3>
+                        <p>La reducción al 33% del consumo de recursos elimina completamente ralentizaciones, drops de FPS y lag durante partidas. Diseñado específicamente para el público gamer más exigente con el rendimiento.</p>
                     </div>
                     <div class="gaming-feature">
                         <i class="fas fa-palette"></i>
-                        <h3>Interfaz Gaming</h3>
-                        <p>Tema dark optimizado con efectos RGB y animaciones Matrix. Interfaz que se adapta automáticamente al detectar entorno gaming.</p>
+                        <h3>Estética Gaming Profesional</h3>
+                        <p>Interfaz con tema oscuro moderno, iconografía hexagonal que evoca ciberseguridad, colores azul y verde integrados, y diseño futurista que refleja la sofisticación tecnológica del producto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section id="demo" class="video-demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Demostración en Vivo</h2>
+                <p>Mira CounterCoreHazardAV Gaming Edition en acción real</p>
+            </div>
+            <div class="video-demo-content">
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/3LTAlrV1j5E?si=HY3VzvoOkmy5Ra2A" 
+                            title="CounterCoreHazardAV Gaming Edition Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="video-features">
+                    <h3>Características Demostradas</h3>
+                    <div class="demo-features-grid">
+                        <div class="demo-feature">
+                            <i class="fas fa-gamepad"></i>
+                            <h4>Gaming Edition</h4>
+                            <p>Detección automática de 19+ juegos con optimización instantánea</p>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Quick Scan</h4>
+                            <p>Escaneo ultrarrápido completado en segundos</p>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Real Time Protection</h4>
+                            <p>Control ON/OFF configurable desde interfaz moderna</p>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h4>33% Optimización</h4>
+                            <p>Reducción real de consumo de recursos durante gaming</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="fundador" class="founder-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sobre el Fundador</h2>
+                <p>Creador de CounterCoreHazardAV y el ecosistema OpenNexus</p>
+            </div>
+            <div class="founder-content">
+                <div class="founder-story">
+                    <div class="founder-profile">
+                        <div class="founder-avatar">
+                            <img src="C:\Users\bjorg\OneDrive\Imágenes\Screenshots\Imagen de WhatsApp 2025-07-28 a las 10.07.10_331d4406.jpg" 
+                                 alt="Jorge Eduardo Bravo Chaves - Fundador" 
+                                 class="founder-photo">
+                        </div>
+                        <div class="founder-info">
+                            <h3>Jorge Eduardo Bravo Chaves</h3>
+                            <p class="founder-title">Fundador & CEO • Costa Rica 🇨🇷</p>
+                            <div class="founder-badges">
+                                <span class="badge technical">Informática Empresarial</span>
+                                <span class="badge technical">Electricidad Industrial</span>
+                                <span class="badge autodidact">Autodidacta</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="founder-journey">
+                        <h4>🚀 Creador del Ecosistema OpenNexus</h4>
+                        <p>
+                            CounterCoreHazardAV es parte de <strong>OpenNexus</strong>, un ecosistema tecnológico completo 
+                            que incluye soluciones <strong>B2B, B2C y B2G</strong> diseñadas para la reconstrucción 
+                            económica de Costa Rica y la creación de empleo de calidad.
+                        </p>
+                        
+                        <div class="ecosystem-highlight">
+                            <h5>🌐 Ecosistema OpenNexus Completo</h5>
+                            <div class="ecosystem-grid">
+                                <div class="ecosystem-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <strong>CounterCoreHazardAV:</strong> Antivirus Gaming Edition con múltiples IA
+                                </div>
+                                <div class="ecosystem-item">
+                                    <i class="fas fa-microchip"></i>
+                                    <strong>OpenChipCR:</strong> Hardware y sistemas embebidos
+                                </div>
+                                <div class="ecosystem-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <strong>GamesLab:</strong> Desarrollo de videojuegos
+                                </div>
+                                <div class="ecosystem-item">
+                                    <i class="fas fa-cash-register"></i>
+                                    <strong>CajaCentralPOS:</strong> Sistemas punto de venta
+                                </div>
+                                <div class="ecosystem-item">
+                                    <i class="fas fa-brain"></i>
+                                    <strong>NexusOptim IA:</strong> Inteligencia artificial empresarial
+                                </div>
+                                <div class="ecosystem-item">
+                                    <i class="fas fa-building"></i>
+                                    <strong>Servicios B2G:</strong> Soluciones gubernamentales
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="vision-statement">
+                            <h5>🎯 Visión</h5>
+                            <p>
+                                "Crear un ecosistema tecnológico que transforme los desafíos económicos de Costa Rica 
+                                en oportunidades de innovación, generando empleo de calidad y posicionando al país 
+                                como líder tecnológico en América Latina."
+                            </p>
+                            <div class="cta-link">
+                                <a href="../index.html" class="btn btn-primary">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Ver Ecosistema Completo OpenNexus
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1191,99 +1758,18 @@
         </div>
     </section>
 
-    <!-- Download Section -->
+    <!-- Download Section - Removed: Downloads should be in individual pages accessed via icons -->
+    <!--
     <section id="descarga" class="download-section">
         <div class="container">
             <div class="section-header">
                 <h2>Descargar CounterCoreHazardAV</h2>
                 <p>Protección inteligente disponible para todas las plataformas</p>
             </div>
-            <div class="download-options">
-                <div class="download-card">
-                    <i class="fab fa-windows"></i>
-                    <h3>Windows - Installer Professional</h3>
-                    <p>Instalador profesional compilado con PyInstaller. Incluye todas las dependencias, cifrado AES-256 y validación de licencias.</p>
-                    <a href="/downloads/countercorehazardav/CounterCoreHazardAV_Installer.exe" class="btn btn-primary" download>
-                        <i class="fas fa-download"></i>
-                        Descargar Instalador (16.6 MB)
-                    </a>
-                    <div class="installer-features" style="margin-top: 15px; font-size: 0.8rem; opacity: 0.9;">
-                        <small>
-                            ✅ Ejecutable compilado PyInstaller &nbsp;
-                            ✅ Todas las dependencias incluidas &nbsp;
-                            ✅ Cifrado AES-256 integrado &nbsp;
-                            ✅ Validación licencias tiempo real &nbsp;
-                            ✅ GUI moderna profesional &nbsp;
-                            ✅ Instalación automática completa
-                        </small>
-                    </div>
-                </div>
-                <div class="download-card">
-                    <i class="fab fa-android"></i>
-                    <h3>Android</h3>
-                    <p>Versión móvil con TensorFlow Lite y Llama AI optimizado para dispositivos móviles.</p>
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-download"></i>
-                        Descargar para Android
-                    </a>
-                </div>
-                <div class="download-card">
-                    <i class="fab fa-apple"></i>
-                    <h3>iOS</h3>
-                    <p>Próximamente disponible en App Store con funciones de análisis y protección web.</p>
-                    <a href="#" class="btn btn-outline">
-                        <i class="fas fa-clock"></i>
-                        Próximamente
-                    </a>
-                </div>
-                <div class="download-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Web Dashboard</h3>
-                    <p>Panel de control web para gestión empresarial y análisis de amenazas en tiempo real.</p>
-                    <a href="#" class="btn btn-secondary">
-                        <i class="fas fa-external-link-alt"></i>
-                        Acceder al Dashboard
-                    </a>
-                </div>
-            </div>
-
-            <div class="system-requirements">
-                <h3>Requisitos del Sistema</h3>
-                <div class="requirements-grid">
-                    <div class="requirement-category">
-                        <h4>Windows</h4>
-                        <ul>
-                            <li>Windows 10 versión 1909 o superior</li>
-                            <li>4 GB RAM mínimo (8 GB recomendado)</li>
-                            <li>500 MB espacio libre</li>
-                            <li>Conexión a internet para actualizaciones</li>
-                            <li>DirectX 11+ para efectos visuales</li>
-                        </ul>
-                    </div>
-                    <div class="requirement-category">
-                        <h4>Android</h4>
-                        <ul>
-                            <li>Android 8.0 (API level 26) o superior</li>
-                            <li>2 GB RAM mínimo</li>
-                            <li>100 MB espacio libre</li>
-                            <li>Permisos de administrador del dispositivo</li>
-                            <li>TensorFlow Lite compatible</li>
-                        </ul>
-                    </div>
-                    <div class="requirement-category">
-                        <h4>Hardware Gaming</h4>
-                        <ul>
-                            <li>CPU: Intel i5-4460 / AMD FX-6300 o superior</li>
-                            <li>GPU: DirectX 11 compatible</li>
-                            <li>8 GB RAM para gaming óptimo</li>
-                            <li>SSD recomendado para mejor rendimiento</li>
-                            <li>Red estable para Gaming Intelligence</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            ... Download content moved to dedicated access pages ...
         </div>
     </section>
+    -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -1291,7 +1777,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>CounterCoreHazardAV</h3>
-                    <p>Antivirus inteligente de nueva generación con Llama AI, diseñado para gamers y empresas desde Costa Rica 🇨🇷</p>
+                    <p>Antivirus inteligente de nueva generación con múltiples modelos de IA (Llama, TensorFlow, YARA), diseñado para gamers y empresas desde Costa Rica 🇨🇷</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1304,6 +1790,7 @@
                     <ul>
                         <li><a href="#caracteristicas">Características</a></li>
                         <li><a href="#planes">Precios</a></li>
+                        <li><a href="#fundador">Sobre el Fundador</a></li>
                         <li><a href="#descarga">Descargas</a></li>
                         <li><a href="#">API Documentation</a></li>
                         <li><a href="#">Roadmap</a></li>
@@ -1331,8 +1818,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 CounterCoreHazardAV - Desarrollado por Jorge Bravo, Costa Rica 🇨🇷</p>
-                <p>Antivirus Inteligente con Llama AI | Gaming Optimizado | Modelo Freemium</p>
+                <p>&copy; 2025 CounterCoreHazardAV - Desarrollado por <a href="index.html#biografia" style="color: #00ff88; text-decoration: none; font-weight: 600;">Jorge Eduardo Bravo Chaves</a>, Costa Rica 🇨🇷</p>
+                <p>Antivirus Inteligente con Múltiples IA | Gaming Optimizado | Modelo Freemium</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                    <a href="index.html#biografia" style="color: #00ff88; text-decoration: none;">
+                        <i class="fas fa-user-circle"></i> Conoce la historia del fundador
+                    </a>
+                </p>
             </div>
         </div>
     </footer>
@@ -1367,7 +1859,7 @@
         }, observerOptions);
 
         // Observe all feature cards and sections
-        document.querySelectorAll('.feature-card, .pricing-card, .gaming-feature, .enterprise-feature').forEach(el => {
+        document.querySelectorAll('.feature-card, .pricing-card, .gaming-feature, .enterprise-feature, .demo-feature').forEach(el => {
             observer.observe(el);
         });
 
@@ -1412,9 +1904,9 @@
             if (indicator) {
                 indicator.style.animation = 'pulse 1s ease-in-out 3';
                 
-                // Simulate gaming optimization
+                // Simulate real gaming optimization like in the video
                 setTimeout(() => {
-                    console.log('Gaming Mode: VALORANT detected - CPU usage reduced by 70%');
+                    console.log('Gaming Edition: VALORANT detected - Reducing to 33% resource consumption');
                 }, 1000);
             }
         }
@@ -1448,10 +1940,12 @@
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('CounterCoreHazardAV Website Loaded');
-            console.log('🦙 Llama AI: Ready');
-            console.log('🎮 Gaming Mode: Standby');
-            console.log('💰 Freemium Model: Active');
+            console.log('CounterCoreHazardAV Website Loaded - v2.1.0');
+            console.log('� Múltiples IA (Llama + TensorFlow + YARA): Ready');
+            console.log('🎮 Gaming Intelligence: Standby');
+            console.log('🔍 Motor Híbrido Multicapa: Active');
+            console.log('💰 Freemium Model: Operational');
+            console.log('🛡️ Protección Tiempo Real: Enabled');
             
             // Add loading animation to hero
             const heroText = document.querySelector('.hero-text');
@@ -1465,6 +1959,11 @@
                     heroText.style.transform = 'translateY(0)';
                 }, 300);
             }
+            
+            // Simulate real application statistics
+            setInterval(() => {
+                console.log('📊 Gaming Edition Stats: 33% resource mode, Quick Scan ready, 19+ games detected');
+            }, 15000);
         });
     </script>
 </body>

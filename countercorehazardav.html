@@ -784,6 +784,66 @@
             margin-bottom: 30px;
         }
 
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-links {
+            margin-top: 25px;
+        }
+
+        .download-info {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .download-info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-card h4 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            padding: 5px 0;
+            opacity: 0.9;
+        }
+
         .system-requirements {
             text-align: left;
             margin-top: 60px;
@@ -1676,18 +1736,95 @@
         </div>
     </section>
 
-    <!-- Download Section - Removed: Downloads should be in individual pages accessed via icons -->
-    <!--
+    <!-- Download Section -->
     <section id="descarga" class="download-section">
         <div class="container">
             <div class="section-header">
                 <h2>Descargar CounterCoreHazardAV</h2>
                 <p>Protección inteligente disponible para todas las plataformas</p>
             </div>
-            ... Download content moved to dedicated access pages ...
+            <div class="download-options">
+                <!-- Antivirus Principal -->
+                <div class="download-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>CounterCoreHazardAV</h3>
+                    <p>Antivirus inteligente con IA Llama, optimizado para gamers y empresas.</p>
+                    <div class="features-list">
+                        <div class="feature-item">🤖 Llama AI Anti-Phishing</div>
+                        <div class="feature-item">🎮 Gaming Intelligence</div>
+                        <div class="feature-item">🛡️ Triple Motor de Detección</div>
+                        <div class="feature-item">🌐 Multiplataforma</div>
+                        <div class="feature-item">💎 Modelo Freemium</div>
+                    </div>
+                    <div class="download-links">
+                        <a href="https://github.com/JorgeBC420/CounterCoreHazardAV/releases/download/v1.0.0/CounterCoreHazardAV-Setup.exe" 
+                           class="btn btn-primary" download>
+                            <i class="fas fa-download"></i> Descargar Antivirus (16.6 MB)
+                        </a>
+                        <p class="download-info">
+                            <i class="fas fa-info-circle"></i> 
+                            Compatible con Windows 10/11 | Versión 1.0.0
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Caja Central POS -->
+                <div class="download-card">
+                    <i class="fas fa-cash-register"></i>
+                    <h3>Caja Central POS v2.5</h3>
+                    <p>Sistema integral de punto de venta para empresas costarricenses con instalación automática.</p>
+                    <div class="features-list">
+                        <div class="feature-item">🏪 Multi-tienda conectada</div>
+                        <div class="feature-item">🍽️ Sistema de restaurante</div>
+                        <div class="feature-item">📊 Facturación electrónica CR</div>
+                        <div class="feature-item">☁️ Sincronización en tiempo real</div>
+                        <div class="feature-item">📱 App móvil incluida</div>
+                    </div>
+                    <div class="download-links">
+                        <a href="https://github.com/JorgeBC420/CajaCentralPOS/releases/download/v2.5.0/CajaCentralPOS-Setup.exe" 
+                           class="btn btn-success" download>
+                            <i class="fas fa-download"></i> Descargar POS (45.2 MB)
+                        </a>
+                        <p class="download-info">
+                            <i class="fas fa-info-circle"></i> 
+                            Incluye instalación automática y configuración
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Información adicional -->
+            <div class="download-info-section">
+                <div class="info-card">
+                    <h4><i class="fas fa-question-circle"></i> Instalación</h4>
+                    <ul>
+                        <li>Ejecutar como administrador</li>
+                        <li>Permitir instalación de fuentes externas</li>
+                        <li>Seguir el asistente de instalación</li>
+                        <li>Reiniciar el sistema al finalizar</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-headset"></i> Soporte</h4>
+                    <ul>
+                        <li>📧 Email: jorgebravo92@gmail.com</li>
+                        <li>📱 WhatsApp: +506 7188-0297</li>
+                        <li>💬 Telegram: @jorgebravo92</li>
+                        <li>📞 Soporte telefónico disponible</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-code"></i> Código Abierto</h4>
+                    <ul>
+                        <li>🔍 Código completamente transparente</li>
+                        <li>🛡️ Sin backdoors ni malware</li>
+                        <li>⚡ Optimizado para rendimiento</li>
+                        <li>🇨🇷 Desarrollado en Costa Rica</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
-    -->
 
     <!-- Footer -->
     <footer class="footer">

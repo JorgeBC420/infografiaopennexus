@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar Caja Central POS - Sistema Integral Costa Rica</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        }
+        .download-container {
+            background: rgba(255,255,255,0.95); color: #333; border-radius: 20px;
+            padding: 40px; max-width: 700px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .logo { font-size: 3em; margin-bottom: 20px; }
+        .download-buttons { margin: 30px 0; }
+        .download-btn {
+            display: inline-block; background: #667eea; color: white;
+            padding: 15px 30px; margin: 10px; border-radius: 10px;
+            text-decoration: none; font-weight: bold; transition: all 0.3s ease;
+            border: none; cursor: pointer; font-size: 1.1em;
+        }
+        .download-btn:hover { background: #5a6fd8; transform: translateY(-2px); }
+        .download-btn.primary { background: #28a745; font-size: 1.2em; padding: 18px 35px; }
+        .download-btn.primary:hover { background: #218838; }
+        .download-btn.windows { background: #0078d4; }
+        .download-btn.linux { background: #ff6b35; }
+        .download-btn.source { background: #6f42c1; }
+        .system-info {
+            background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;
+            font-size: 0.9em; color: #666;
+        }
+        .instructions {
+            text-align: left; background: #e9ecef; padding: 20px; border-radius: 10px; margin: 20px 0;
+        }
+        .instructions h3 { color: #667eea; margin-bottom: 10px; }
+        .instructions ol { margin-left: 20px; }
+        .instructions li { margin: 5px 0; }
+        .features { text-align: left; margin: 20px 0; }
+        .features ul { list-style: none; padding: 0; }
+        .features li { margin: 8px 0; }
+        .features li::before { content: "✅ "; color: #28a745; font-weight: bold; }
+        
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .back-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .version-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+        
+        .version-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .version-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        // Detect user's operating system
+        function detectOS() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.includes('win')) return 'windows';
+            if (userAgent.includes('mac')) return 'macos';
+            if (userAgent.includes('linux')) return 'linux';
+            return 'unknown';
+        }
+        
+        // Update page based on detected OS
+        function updateForOS() {
+            const os = detectOS();
+            const osInfo = document.getElementById('os-info');
+            const recommendedBtn = document.getElementById('recommended-btn');
+            
+            let osName = 'Desconocido';
+            let downloadUrl = '#';
+            let instructions = '';
+            
+            switch(os) {
+                case 'windows':
+                    osName = 'Windows';
+                    downloadUrl = 'https://cajacentral.cr/downloads/CajaCentralPOS_Setup.exe';
+                    instructions = `
+                        <h3>📥 Instrucciones para Windows:</h3>
+                        <ol>
+                            <li>Descargar <strong>CajaCentralPOS_Setup.exe</strong></li>
+                            <li>Ejecutar como Administrador (clic derecho → "Ejecutar como administrador")</li>
+                            <li>Seguir el asistente de instalación</li>
+                            <li>Usar acceso directo del Escritorio para iniciar</li>
+                            <li>Primera ejecución: configurar empresa y usuarios</li>
+                        </ol>
+                        <p><strong>Instalación silenciosa:</strong><br>
+                        <code>CajaCentralPOS_Setup.exe /S</code></p>
+                    `;
+                    break;
+                case 'macos':
+                    osName = 'macOS';
+                    downloadUrl = 'https://cajacentral.cr/downloads/install_macos.sh';
+                    instructions = `
+                        <h3>📥 Instrucciones para macOS:</h3>
+                        <ol>
+                            <li>Abrir Terminal</li>
+                            <li>Ejecutar: <code>curl -sSL https://cajacentral.cr/downloads/install_macos.sh | bash</code></li>
+                            <li>Permitir permisos cuando se solicite</li>
+                            <li>Iniciar desde Aplicaciones o Launchpad</li>
+                        </ol>
+                    `;
+                    break;
+                case 'linux':
+                    osName = 'Linux';
+                    downloadUrl = 'https://cajacentral.cr/downloads/install_linux.sh';
+                    instructions = `
+                        <h3>📥 Instrucciones para Linux:</h3>
+                        <ol>
+                            <li>Abrir terminal</li>
+                            <li>Ejecutar: <code>curl -sSL https://cajacentral.cr/downloads/install_linux.sh | bash</code></li>
+                            <li>O instalar .deb: <code>sudo dpkg -i cajacentral-pos.deb</code></li>
+                            <li>Iniciar desde menú de aplicaciones</li>
+                        </ol>
+                    `;
+                    break;
+                default:
+                    osName = 'Desconocido - Por favor seleccione manualmente';
+                    instructions = `
+                        <h3>📥 Sistema no detectado:</h3>
+                        <p>Por favor seleccione su plataforma manualmente usando los botones de abajo.</p>
+                        <p><strong>Enlaces directos:</strong><br>
+                        • Windows: <a href="https://cajacentral.cr/downloads/CajaCentralPOS_Setup.exe">Setup.exe</a><br>
+                        • Linux: <a href="https://cajacentral.cr/downloads/cajacentral-pos.deb">Package .deb</a><br>
+                        • Código fuente: <a href="https://github.com/CajaCentralCR/pos-system">GitHub</a></p>
+                    `;
+            }
+            
+            osInfo.innerHTML = `<strong>Sistema detectado:</strong> ${osName}`;
+            if (downloadUrl !== '#') {
+                recommendedBtn.href = downloadUrl;
+                recommendedBtn.style.display = 'inline-block';
+            }
+            
+            document.getElementById('instructions').innerHTML = instructions;
+        }
+        
+        // Download tracking
+        function trackDownload(platform) {
+            console.log(`Download initiated for: ${platform}`);
+            // Here you could send analytics data
+        }
+        
+        function goBack() {
+            // Check if we came from the ecosystem
+            if (document.referrer.includes('cajacentral_pos_combined_new.html') || document.referrer.includes('index.html')) {
+                window.history.back();
+            } else {
+                // Default fallback
+                window.location.href = 'cajacentral_pos_combined_new.html';
+            }
+        }
+        
+        window.onload = updateForOS;
+    </script>
+</head>
+<body>
+    <a href="javascript:goBack()" class="back-button">⬅️ Volver</a>
+    
+    <div class="download-container">
+        <div class="logo">🏪 Caja Central POS</div>
+        <h1>Descargar Sistema Completo</h1>
+        <p><strong>v2.5.0 - Última versión con IA integrada</strong></p>
+        <p style="margin-top: 10px; color: #666;">Sistema Integral de Punto de Venta para Costa Rica</p>
+        
+        <div class="system-info" id="os-info">
+            Detectando sistema operativo...
+        </div>
+        
+        <div class="download-buttons">
+            <a href="https://cajacentral.cr/downloads/CajaCentralPOS_Setup.exe" id="recommended-btn" class="download-btn primary" 
+               onclick="trackDownload('recommended')" style="display: none;">
+                🚀 Descarga Recomendada
+            </a>
+            
+            <br><br>
+            
+            <a href="https://cajacentral.cr/downloads/CajaCentralPOS_Setup.exe" class="download-btn windows" 
+               onclick="trackDownload('windows')">
+                🖥️ Windows (.exe)
+            </a>
+            
+            <a href="https://cajacentral.cr/downloads/cajacentral-pos.deb" class="download-btn linux" 
+               onclick="trackDownload('linux')">
+                🐧 Linux (.deb)
+            </a>
+            
+            <a href="https://cajacentral.cr/downloads/install_macos.sh" class="download-btn" 
+               onclick="trackDownload('macos')" style="background: #000;">
+                🍎 macOS (.sh)
+            </a>
+            
+            <br><br>
+            
+            <a href="https://github.com/CajaCentralCR/pos-system" class="download-btn source" 
+               onclick="trackDownload('source')" target="_blank">
+                📦 Código Fuente (GitHub)
+            </a>
+        </div>
+        
+        <!-- Version Options -->
+        <div class="version-grid">
+            <div class="version-card">
+                <h4>💼 Versión Empresarial</h4>
+                <p style="font-size: 0.9em; color: #666;">Multi-tienda, reportes avanzados, soporte prioritario</p>
+                <strong>$299/año</strong>
+            </div>
+            
+            <div class="version-card">
+                <h4>🏪 Versión PyME</h4>
+                <p style="font-size: 0.9em; color: #666;">Para pequeñas y medianas empresas, funciones completas</p>
+                <strong>$99/año</strong>
+            </div>
+            
+            <div class="version-card">
+                <h4>🆓 Versión Básica</h4>
+                <p style="font-size: 0.9em; color: #666;">Gratis para 1 caja, funciones esenciales</p>
+                <strong>Gratis</strong>
+            </div>
+        </div>
+        
+        <div class="instructions" id="instructions">
+            <!-- Instrucciones se llenan dinámicamente -->
+        </div>
+        
+        <div class="features">
+            <h3 style="color: #667eea; text-align: center;">🚀 ¿Qué incluye el instalador?</h3>
+            <ul>
+                <li><strong>Sistema POS Completo:</strong> Todos los módulos de venta, inventario, reportes</li>
+                <li><strong>Facturación Electrónica:</strong> XML v4.4 para Hacienda Costa Rica</li>
+                <li><strong>Base de Datos:</strong> SQLite integrada con datos de ejemplo</li>
+                <li><strong>Interfaz Mejorada:</strong> Nueva UI con esquemas azul rey y verde turquesa</li>
+                <li><strong>Asistente IA:</strong> Chatbot inteligente para ayuda contextual</li>
+                <li><strong>Sistema Restaurante:</strong> Gestión de mesas y órdenes de cocina</li>
+                <li><strong>Multi-tienda:</strong> Sincronización entre sucursales</li>
+                <li><strong>Reportes Avanzados:</strong> Excel, PDF, gráficos profesionales</li>
+                <li><strong>Códigos de Barras:</strong> Lector integrado y generación automática</li>
+                <li><strong>Métodos de Pago:</strong> Efectivo, tarjetas, transferencias</li>
+                <li><strong>Respaldos Automáticos:</strong> Datos siempre seguros</li>
+                <li><strong>Modo Offline:</strong> Funciona sin internet</li>
+            </ul>
+        </div>
+        
+        <div style="background: #fff3cd; color: #856404; padding: 15px; border-radius: 10px; margin: 20px 0;">
+            <strong>⚠️ Requisitos del Sistema:</strong><br>
+            • Windows 10+ (recomendado), Linux Ubuntu 18.04+, macOS 10.14+<br>
+            • 2GB RAM mínimo, 4GB recomendado<br>
+            • 500MB espacio libre en disco<br>
+            • Conexión a internet (solo para activación y facturación electrónica)<br>
+            • Impresora térmica o láser (opcional)
+        </div>
+        
+        <div style="background: #d1ecf1; color: #0c5460; padding: 15px; border-radius: 10px; margin: 20px 0;">
+            <strong>🇨🇷 Especializado para Costa Rica:</strong><br>
+            • Configurado para moneda colones (₡)<br>
+            • Cumplimiento con Hacienda (XML v4.4)<br>
+            • Códigos de actividad económica incluidos<br>
+            • Interfaz completamente en español<br>
+            • Soporte técnico local
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+            <p><strong>Caja Central POS v2.5.0</strong> - Sistema Integral Costa Rica</p>
+            <p>🇨🇷 Desarrollado para PyMEs costarricenses</p>
+            <p>📧 Soporte: <a href="mailto:soporte@cajacentral.cr" style="color: #667eea;">soporte@cajacentral.cr</a></p>
+            <p>📞 WhatsApp: <a href="https://wa.me/50688888888" style="color: #25d366;">+506 8888-8888</a></p>
+        </div>
+    </div>
+</body>
+</html>

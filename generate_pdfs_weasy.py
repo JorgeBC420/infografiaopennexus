@@ -167,17 +167,6 @@ def markdown_to_html_pdf(md_file, title):
     """
     return styled_html
 
-def create_protected_zip(pdf_file, output_name):
-    """Crea un ZIP protegido con contraseña"""
-    password = generate_dynamic_password()
-    
-    with zipfile.ZipFile(f"{output_name}.zip", 'w') as zipf:
-        zipf.write(pdf_file, os.path.basename(pdf_file))
-        zipf.setpassword(password.encode())
-    
-    print(f"✅ Archivo creado: {output_name}.zip")
-    print(f"🔑 Contraseña: {password}")
-    return f"{output_name}.zip"
 
 def main():
     try:
@@ -196,7 +185,7 @@ def main():
         
         # Crear PDF con WeasyPrint
         HTML(string=html_content).write_pdf('OpenNexus_PitchDeck_2025.pdf')
-        create_protected_zip('OpenNexus_PitchDeck_2025.pdf', 'OpenNexus_PitchDeck_2025_PDF')
+        # ZIP protegido eliminado
         print("✅ Pitch Deck PDF generado exitosamente")
     
     # Generar Business Plan
@@ -206,7 +195,7 @@ def main():
         
         # Crear PDF con WeasyPrint
         HTML(string=html_content).write_pdf('OpenNexus_BusinessPlan_2025.pdf')
-        create_protected_zip('OpenNexus_BusinessPlan_2025.pdf', 'OpenNexus_BusinessPlan_2025_PDF')
+        # ZIP protegido eliminado
         print("✅ Business Plan PDF generado exitosamente")
     
     # Generar Propuesta Schneider Electric
@@ -216,7 +205,7 @@ def main():
         
         # Crear PDF con WeasyPrint
         HTML(string=html_content).write_pdf('OpenNexus_SchneiderPartnership_2025.pdf')
-        create_protected_zip('OpenNexus_SchneiderPartnership_2025.pdf', 'OpenNexus_SchneiderPartnership_2025_PDF')
+        # ZIP protegido eliminado
         print("✅ Propuesta Schneider Electric PDF generada exitosamente")
     
     print(f"\n🔑 Contraseña dinámica actual: {generate_dynamic_password()}")

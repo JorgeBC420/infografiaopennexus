@@ -451,15 +451,15 @@
             <div class="particle" style="bottom: 30%; right: 30%; animation-delay: 3s;"></div>
 
             <!-- Company Icons -->
-            <a href="javascript:void(0)" onclick="openCompany('openchip')" class="company-icon openchip" 
-               onmouseenter="showInfo('OpenChipCR', 'Desarrollo de hardware y componentes electrónicos especializados')"
+            <a href="openchip.html" class="company-icon openchip" 
+               onmouseenter="showInfo('OpenChipCR', 'Creadores del hardware para NexusOptim IA - Sensores IoT especializados para Smart Cities')"
                onmouseleave="hideInfo()">
                 <i class="fas fa-microchip"></i>
                 <h3>OpenChipCR</h3>
                 <p>Hardware</p>
             </a>
 
-            <a href="javascript:void(0)" onclick="openCompany('gameslab')" class="company-icon gameslab"
+            <a href="games_lab_page.html" class="company-icon gameslab"
                onmouseenter="showInfo('GamesLab', 'Estudio de desarrollo de videojuegos y entretenimiento digital')"
                onmouseleave="hideInfo()">
                 <i class="fas fa-gamepad"></i>
@@ -517,14 +517,14 @@
             info.classList.remove('show');
         }
 
-        // Open company pages
+        // Open company pages (legacy function - now direct links)
         function openCompany(company) {
             switch(company) {
                 case 'openchip':
-                    alert('OpenChipCR - Página en desarrollo\n\nDesarrollo de hardware y componentes electrónicos especializados para el mercado costarricense.');
+                    window.location.href = 'openchip.html';
                     break;
                 case 'gameslab':
-                    alert('GamesLab - Página en desarrollo\n\nEstudio de desarrollo de videojuegos y entretenimiento digital con tecnología de vanguardia.');
+                    window.location.href = 'games_lab_page.html';
                     break;
                 default:
                     console.log('Empresa:', company);
@@ -598,842 +598,6 @@
     </script>
 </body>
 </html>
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #00ff88, #00cc6a);
-            color: white;
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .protection-shield {
-            position: relative;
-            width: 300px;
-            height: 300px;
-        }
-
-        .shield-core {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(45deg, #00ff88, #00cc6a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.05); }
-        }
-
-        .scanning-rings {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .ring {
-            position: absolute;
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 50%;
-            border-top-color: #00ff88;
-            animation: rotate 3s linear infinite;
-        }
-
-        .ring-1 {
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-        }
-
-        .ring-2 {
-            top: 40px;
-            left: 40px;
-            right: 40px;
-            bottom: 40px;
-            animation-delay: -1s;
-        }
-
-        .ring-3 {
-            top: 60px;
-            left: 60px;
-            right: 60px;
-            bottom: 60px;
-            animation-delay: -2s;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Programs Download Section */
-        .programs-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            position: relative;
-        }
-
-        .programs-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="rgba(0,255,136,0.05)"/></svg>');
-            opacity: 0.1;
-        }
-
-        .programs-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .programs-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .programs-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .programs-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .program-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #00ff88, #00cc6a);
-        }
-
-        .program-card:hover {
-            border-color: #00ff88;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
-        }
-
-        .program-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #00ff88, #00cc6a);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-        }
-
-        .program-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        .program-card p {
-            opacity: 0.8;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .program-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .program-features li {
-            padding: 5px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .program-features li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: #00ff88;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .download-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .btn-download {
-            background: linear-gradient(45deg, #00ff88, #00cc6a);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-        }
-
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
-        }
-
-        .btn-info {
-            background: transparent;
-            color: white;
-            padding: 10px 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-
-        .btn-info:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            color: white;
-            position: relative;
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close:hover {
-            color: #00ff88;
-        }
-
-        .modal h3 {
-            color: #00ff88;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .modal-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .modal-features li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .modal-features li:last-child {
-            border-bottom: none;
-        }
-
-        .modal-features li::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: #00ff88;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        /* Sections (keeping original styles) */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Features Section */
-        .features {
-            background: #f8f9fa;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 30px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .feature-card p {
-            color: #7f8c8d;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .feature-card ul {
-            list-style: none;
-        }
-
-        .feature-card ul li {
-            padding: 8px 0;
-            color: #555;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feature-card ul li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: #00ff88;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        /* Footer */
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 25px;
-            color: #00ff88;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            padding: 8px 0;
-        }
-
-        .footer-section ul li a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #00ff88;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 30px 0;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: #00ff88;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
-            color: #bdc3c7;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-features {
-                justify-content: center;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .protection-shield {
-                width: 250px;
-                height: 250px;
-            }
-
-            .shield-core {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-
-            .programs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .section-header h2,
-            .programs-header h2 {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .modal-content {
-                margin: 10% auto;
-                padding: 30px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Support Section Styles - RESTORED ORIGINAL */
-        .support-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .support-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(0,255,136,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(0,255,136,0.1)"/><circle cx="40" cy="60" r="1.5" fill="rgba(0,255,136,0.1)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .support-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-            margin-top: 60px;
-        }
-
-        .donation-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            text-align: center;
-        }
-
-        .donation-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #00ff88;
-        }
-
-        .phone-number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #00ff88;
-            margin: 20px 0;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-        }
-
-        .recipient-name {
-            font-size: 1.2rem;
-            color: #bdc3c7;
-            margin-bottom: 15px;
-        }
-
-        .donation-instructions {
-            color: #ecf0f1;
-            margin-bottom: 25px;
-        }
-
-        .donation-disclaimer {
-            background: rgba(255, 165, 0, 0.1);
-            border: 1px solid rgba(255, 165, 0, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .donation-disclaimer p {
-            margin-bottom: 15px;
-            color: #ffa500;
-        }
-
-        .donation-disclaimer ul {
-            list-style: none;
-            margin-left: 20px;
-        }
-
-        .donation-disclaimer ul li {
-            padding: 5px 0;
-            color: #ecf0f1;
-        }
-
-        .personal-story {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .personal-story h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #00ff88;
-        }
-
-        .personal-story p {
-            margin-bottom: 20px;
-            line-height: 1.7;
-            color: #ecf0f1;
-        }
-
-        .contact-info {
-            background: rgba(0, 255, 136, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-
-        .contact-info h4 {
-            color: #00ff88;
-            margin-bottom: 15px;
-        }
-
-        .contact-info p {
-            margin-bottom: 8px;
-            color: #ecf0f1;
-        }
-
-        .contact-info a {
-            color: #00ff88;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .support-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .phone-number {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Contact Links Hover Effects */
-        .contact-info a[href*="wa.me"]:hover {
-            background: #1da851 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .contact-info a[href*="t.me"]:hover {
-            background: #0077b3 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
-        }
-
-        .contact-info a[href*="tel:"]:hover {
-            background: #00cc6a !important;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
-        }
-
-        /* Donation card contact links */
-        .donation-card a[href*="wa.me"]:hover {
-            background: #1da851 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        .donation-card a[href*="t.me"]:hover {
-            background: #0077b3 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
-        }
-
-        /* Footer contact links */
-        .bg-dark a[href*="wa.me"]:hover,
-        .bg-dark a[href*="t.me"]:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
-
-        /* Llama AI Badge */
-        .llama-badge {
-            background: linear-gradient(45deg, #fc466b, #3f5efb);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .freemium-highlight {
-            background: linear-gradient(45deg, #f093fb, #f5576c);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
     </style>
 </head>
 <body>
@@ -2006,13 +1170,69 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-light py-5">
+    <!-- Founder Section in Footer -->
+    <section id="fundador" class="bg-dark text-light py-5" style="border-top: 1px solid #333;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-4">
+                        <h3 style="color: #00ff88;"><i class="fas fa-user-tie"></i> Sobre el Fundador</h3>
+                        <p>Creador del ecosistema OpenNexus</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4">
+                    <div style="display: inline-block; border: 3px solid #00ff88; border-radius: 50%; padding: 10px; background: #1a1a1a;">
+                        <i class="fas fa-user-circle" style="font-size: 80px; color: #00ff88;"></i>
+                    </div>
+                    <h4 class="mt-3" style="color: #00ff88;">Jorge Eduardo Bravo Chaves</h4>
+                    <p><strong>Fundador & CEO • Costa Rica 🇨🇷</strong></p>
+                    <div class="mb-3">
+                        <span class="badge bg-primary me-2">Informática Empresarial</span>
+                        <span class="badge bg-warning me-2">Electricidad Industrial</span>
+                        <span class="badge bg-success">Autodidacta</span>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h5><i class="fas fa-rocket"></i> Creador del Ecosistema OpenNexus</h5>
+                    <p>
+                        OpenNexus es un ecosistema tecnológico completo que incluye soluciones 
+                        <strong>B2B, B2C y B2G</strong> diseñadas para la reconstrucción 
+                        económica de Costa Rica y la creación de empleo de calidad.
+                    </p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-globe"></i> Ecosistema Completo</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-shield-alt text-primary"></i> <strong>CounterCoreHazardAV:</strong> Antivirus Gaming Edition</li>
+                                <li><i class="fas fa-microchip text-warning"></i> <strong>OpenChip:</strong> Hardware para sensores NexusOptim IA</li>
+                                <li><i class="fas fa-gamepad text-success"></i> <strong>GamesLab:</strong> Desarrollo de videojuegos</li>
+                                <li><i class="fas fa-cash-register text-info"></i> <strong>CajaCentralPOS:</strong> Sistemas punto de venta</li>
+                                <li><i class="fas fa-brain text-danger"></i> <strong>NexusOptim IA:</strong> Inteligencia artificial</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-target"></i> Visión</h6>
+                            <p style="font-style: italic;">
+                                "Crear un ecosistema tecnológico que transforme los desafíos económicos de Costa Rica 
+                                en oportunidades de innovación, generando empleo de calidad y posicionando al país 
+                                como líder tecnológico en América Latina."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4" style="border-top: 1px solid #444;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>OpenNexus</h5>
+                    <h5 style="color: #00ff88;">OpenNexus</h5>
                     <p>Suite de Software Inteligente | Llama AI | Gaming Optimizado | Soluciones Empresariales</p>
-                    <p><strong>Fundador:</strong> Jorge Eduardo Bravo Chaves</p>
                     <p><strong>Email:</strong> <a href="mailto:jorgebravo92@gmail.com" style="color: #00ff88;">jorgebravo92@gmail.com</a></p>
                     <p><strong>Teléfono/SINPE:</strong> <a href="tel:+50671880297" style="color: #00ff88;">+506 7188-0297</a></p>
                     

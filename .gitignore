@@ -38,6 +38,9 @@ __pycache__/
 *$py.class
 *.so
 .Python
+downloads/countercorehazardav/
+downloads/cajacentral/
+downloads/nexusoptima/
 env/
 venv/
 .venv/

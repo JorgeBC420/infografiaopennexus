@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script para generar documentos HTML y ZIP protegidos para OpenNexus
+Script para generar documentos HTML y ZIP protegidos para OPNeXOX
 Requiere: pip install markdown
 """
 
@@ -14,7 +14,7 @@ def generate_dynamic_password():
     """Genera la contraseña dinámica basada en la fecha actual"""
     today = datetime.now()
     date_string = today.strftime('%Y-%m-%d')
-    seed = f"OpenNexus{date_string}2025"
+    seed = f"OPNeXOX{date_string}2025"
     
     # Crear hash simple basado en la fecha
     hash_obj = hashlib.md5(seed.encode())
@@ -187,7 +187,7 @@ def markdown_to_html(md_file, title):
     </head>
     <body>
         <div class="password-info">
-            <strong>🔒 Documento Confidencial - OpenNexus 2025</strong><br>
+            <strong>🔒 Documento Confidencial - OPNeXOX 2025</strong><br>
             Generado el: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}<br>
             Contraseña del archivo: <strong>{generate_dynamic_password()}</strong>
         </div>
@@ -199,7 +199,7 @@ def markdown_to_html(md_file, title):
         {html_content}
         
         <div class="footer">
-            <h3>OpenNexus - Transformando una Amenaza Nacional en una Oportunidad Global</h3>
+            <h3>OPNeXOX - Transformando una Amenaza Nacional en una Oportunidad Global</h3>
             <p><strong>Jorge Eduardo Bravo Chaves | Fundador</strong><br>
             SINPE Móvil: +506 71880297<br>
             GitHub: github.com/JorgeBC420<br>
@@ -226,54 +226,54 @@ def create_protected_zip(html_file, output_name):
     return f"{output_name}.zip"
 
 def main():
-    print("🚀 Generando documentos HTML de OpenNexus...")
+    print("🚀 Generando documentos HTML de OPNeXOX...")
     
     # Generar Pitch Deck
-    if os.path.exists('OpenNexus_PitchDeck_2025.md'):
+    if os.path.exists('OPNeXOX_PitchDeck_2025.md'):
         print("📊 Generando Pitch Deck...")
-        html_content = markdown_to_html('OpenNexus_PitchDeck_2025.md', 'OpenNexus Pitch Deck 2025')
+        html_content = markdown_to_html('OPNeXOX_PitchDeck_2025.md', 'OPNeXOX Pitch Deck 2025')
         
-        html_filename = 'OpenNexus_PitchDeck_2025.html'
+        html_filename = 'OPNeXOX_PitchDeck_2025.html'
         with open(html_filename, 'w', encoding='utf-8') as f:
             f.write(html_content)
         
-        create_protected_zip(html_filename, 'OpenNexus_PitchDeck_2025')
+        create_protected_zip(html_filename, 'OPNeXOX_PitchDeck_2025')
         print("✅ Pitch Deck HTML generado exitosamente")
     
     # Generar Business Plan
-    if os.path.exists('OpenNexus_BusinessPlan_2025.md'):
+    if os.path.exists('OPNeXOX_BusinessPlan_2025.md'):
         print("📈 Generando Business Plan...")
-        html_content = markdown_to_html('OpenNexus_BusinessPlan_2025.md', 'OpenNexus Business Plan 2025')
+        html_content = markdown_to_html('OPNeXOX_BusinessPlan_2025.md', 'OPNeXOX Business Plan 2025')
         
-        html_filename = 'OpenNexus_BusinessPlan_2025.html'
+        html_filename = 'OPNeXOX_BusinessPlan_2025.html'
         with open(html_filename, 'w', encoding='utf-8') as f:
             f.write(html_content)
         
-        create_protected_zip(html_filename, 'OpenNexus_BusinessPlan_2025')
+        create_protected_zip(html_filename, 'OPNeXOX_BusinessPlan_2025')
         print("✅ Business Plan HTML generado exitosamente")
     
     # Generar Propuesta Schneider Electric
-    if os.path.exists('OpenNexus_SchneiderPartnership_2025.md'):
+    if os.path.exists('OPNeXOX_SchneiderPartnership_2025.md'):
         print("🏢 Generando Propuesta Schneider Electric...")
-        html_content = markdown_to_html('OpenNexus_SchneiderPartnership_2025.md', 'NexusOptim IA - Schneider Electric Partnership')
+        html_content = markdown_to_html('OPNeXOX_SchneiderPartnership_2025.md', 'NeXOptimIA - Schneider Electric Partnership')
         
-        html_filename = 'OpenNexus_SchneiderPartnership_2025.html'
+        html_filename = 'OPNeXOX_SchneiderPartnership_2025.html'
         with open(html_filename, 'w', encoding='utf-8') as f:
             f.write(html_content)
         
-        create_protected_zip(html_filename, 'OpenNexus_SchneiderPartnership_2025')
+        create_protected_zip(html_filename, 'OPNeXOX_SchneiderPartnership_2025')
         print("✅ Propuesta Schneider Electric HTML generada exitosamente")
     
     # Generar Documentación Games Lab
-    if os.path.exists('OpenNexus_GamesLab_CaminosFe.md'):
+    if os.path.exists('OPNeXOX_GamesLab_CaminosFe.md'):
         print("🎮 Generando Documentación Games Lab - Caminos de la Fe...")
-        html_content = markdown_to_html('OpenNexus_GamesLab_CaminosFe.md', 'OpenNexus Games Lab - Caminos de la Fe RPG')
+        html_content = markdown_to_html('OPNeXOX_GamesLab_CaminosFe.md', 'OPNeXOX Games Lab - Caminos de la Fe RPG')
         
-        html_filename = 'OpenNexus_GamesLab_CaminosFe.html'
+        html_filename = 'OPNeXOX_GamesLab_CaminosFe.html'
         with open(html_filename, 'w', encoding='utf-8') as f:
             f.write(html_content)
         
-        create_protected_zip(html_filename, 'OpenNexus_GamesLab_CaminosFe')
+        create_protected_zip(html_filename, 'OPNeXOX_GamesLab_CaminosFe')
         print("✅ Documentación Games Lab HTML generada exitosamente")
     
     print(f"\n🔑 Contraseña dinámica actual: {generate_dynamic_password()}")

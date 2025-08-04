@@ -1,8 +1,8 @@
-# 🚀 Infografía OpenNexus
+# 🚀 Infografía OPNeXOX
 
 ## Transformando una Amenaza Nacional en una Oportunidad Global
 
-Esta infografía presenta la propuesta estratégica de **OpenNexus**, un ecosistema tecnológico integrado diseñado para capitalizar la oportunidad única que representa la reestructuración de Intel y Qorvo en Costa Rica.
+Esta infografía presenta la propuesta estratégica de **OPNeXOX**, un ecosistema tecnológico integrado diseñado para capitalizar la oportunidad única que representa la reestructuración de Intel y Qorvo en Costa Rica.
 
 ### 🎯 Objetivo
 
@@ -10,7 +10,7 @@ Convertir la pérdida de 1,500 empleos críticos en una oportunidad para crear s
 
 ### 💡 La Propuesta
 
-OpenNexus es un ecosistema de cinco unidades de negocio sinérgicas:
+OPNeXOX es un ecosistema de cinco unidades de negocio sinérgicas:
 
 - **⚙️ OpenChip CR** - Hardware & Consultoría
 - **💡 NexusOptim IA** - Producto Estrella de Edge AI (Smart Cities)
@@ -44,7 +44,7 @@ Ya tenemos prototipos funcionales de varios componentes del ecosistema:
 
 ### 🌐 Ver la Infografía
 
-Puedes ver la infografía completa en: https://jorgebc420.github.io/infografia_OpenNexus/
+Puedes ver la infografía completa en: https://jorgebc420.github.io/infografia_OPNeXOX/
 
 ### � Generación de Documentos
 
@@ -105,9 +105,9 @@ python generate_schneider_proposal.py
 ### 👨‍💼 Contacto
 
 **Jorge Eduardo Bravo Chaves**  
-Fundador, OpenNexus  
+Fundador, OPNeXOX  
 SINPE Móvil: +506 71880297
 
 ---
 
-*OpenNexus: Más que una empresa, un proyecto de soberanía tecnológica nacional.*
+*OPNeXOX: Más que una empresa, un proyecto de soberanía tecnológica nacional.*

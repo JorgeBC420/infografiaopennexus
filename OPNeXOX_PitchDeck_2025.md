@@ -1,4 +1,4 @@
-# OpenNexus - Pitch Deck 2025
+# OPNeXOX - Pitch Deck 2025
 ## Transformando una Amenaza Nacional en una Oportunidad Global
 
 ---
@@ -29,7 +29,7 @@
 
 ---
 
-### 💡 **La Solución: Ecosistema OpenNexus**
+### 💡 **La Solución: Ecosistema OPNeXOX**
 
 #### **5 Unidades de Negocio Integradas:**
 
@@ -125,7 +125,7 @@
 
 ### 🚀 **La Oportunidad de Inversión**
 
-#### **¿Por qué OpenNexus? ¿Por qué ahora?**
+#### **¿Por qué OPNeXOX? ¿Por qué ahora?**
 
 ✅ **Ventana única** de talento disponible
 ✅ **Infraestructura ociosa** de alto valor
@@ -138,7 +138,7 @@
 ### 📞 **Contacto**
 
 **Jorge Eduardo Bravo Chaves**
-Fundador, OpenNexus
+Fundador, OPNeXOX
 
 **SINPE Móvil:** +506 71880297
 **GitHub:** github.com/JorgeBC420
@@ -156,6 +156,6 @@ Fundador, OpenNexus
 
 ---
 
-*"OpenNexus es más que una empresa; es un proyecto de soberanía tecnológica nacional."*
+*"OPNeXOX es más que una empresa; es un proyecto de soberanía tecnológica nacional."*
 
 **¿Listos para unirse a la revolución tecnológica de Costa Rica?**

@@ -261,9 +261,9 @@
             transform: translateX(-50%);
         }
 
-        /* Nuevo NeXoX RHIA Manager */
+        /* Nuevo NeXoX RHIA Manager alineado */
         .rhia-manager {
-            bottom: 18%;
+            top: 50%;
             right: 10%;
         }
 
@@ -621,11 +621,12 @@
                 <p>Academia</p>
             </a>
 
-            <!-- Nuevo: NeXoX RHIA Manager -->
-            <a href="#" class="company-icon rhia-manager" style="bottom: 18%; right: 10%;"
+            <!-- Nuevo: NeXoX RHIA Manager alineado -->
+            <a href="#" class="company-icon rhia-manager" style="top: 50%; right: 10%; transform: translateY(-50%);"
                onmouseenter="showInfo('NeXoX RHIA Manager', 'Gestor de recursos humanos con IA para empresas y organizaciones')"
                onmouseleave="hideInfo()">
-                <img src="images/rhia-manager-logo.png" alt="NeXoX RHIA Manager Logo" style="width: 60px; height: 60px; object-fit: contain;">
+                <img src="images/rhiamanager.png" alt="NeXoX RHIA Manager Logo" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;font-size:2rem;">👤</span>
                 <h3>NeXoX RHIA Manager</h3>
                 <p>Recursos Humanos</p>
             </a>
@@ -731,7 +732,7 @@
                     <p style="color: #bdc3c7;">La salida de Intel y Qorvo amenaza la capacidad productiva del país en semiconductores</p>
                 </div>
                 
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 20px; border: 2px solid rgba(0, 255, 136, 0.3); backdrop-filter: blur(10px); text-align: center;">
+                <div style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; border: 2px solid rgba(0, 255, 136, 0.3); backdrop-filter: blur(10px); text-align: center;">
                     <h3 style="color: #00ff88; font-size: 1.8rem; margin-bottom: 20px;">✅ La Oportunidad</h3>
                     <div style="font-size: 4rem; font-weight: bold, color: #00ff88; margin-bottom: 15px;">$93M+</div>
                     <p style="font-size: 1.2rem; margin-bottom: 15px;">Retorno proyectado en 5 años</p>

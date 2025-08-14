@@ -157,12 +157,6 @@
             font-size: 2.5rem;
             color: white;
             margin-bottom: 15px;
-            animation: rotate360 10s linear infinite;
-        }
-
-        @keyframes rotate360 {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .headquarters h2 {
@@ -251,6 +245,26 @@
             top: 50%;
             left: 5%;
             transform: translateY(-50%);
+        }
+
+        /* Nuevo OPNeXOX Labs */
+        .labs {
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Nuevo OPNeXOX AcademIA */
+        .academia {
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Nuevo NeXoX RHIA Manager */
+        .rhia-manager {
+            bottom: 5%;
+            right: 5%;
         }
 
         /* Connection Lines */
@@ -478,6 +492,23 @@
                 top: 50%;
                 left: 2%;
             }
+
+            .labs {
+                top: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .academia {
+                bottom: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .rhia-manager {
+                bottom: 5%;
+                right: 5%;
+            }
         }
     </style>
 </head>
@@ -539,6 +570,15 @@
                 <p>Hardware</p>
             </a>
 
+            <!-- Nuevo enlace OPNeXOX Labs -->
+            <a href="opnexox_labs.html" class="company-icon labs" style="top: 10%; left: 50%; transform: translateX(-50%);"
+               onmouseenter="showInfo('OPNeXOX Labs', 'Centro de innovación y desarrollo de software del ecosistema')"
+               onmouseleave="hideInfo()">
+                <img src="images/opnexox-logo.png" alt="OPNeXOX Labs Logo" style="width: 60px; height: 60px; object-fit: contain;">
+                <h3>OPNeXOX Labs</h3>
+                <p>Innovación</p>
+            </a>
+
             <a href="games_lab_page.html" class="company-icon gameslab"
                onmouseenter="showInfo('GamesLab', 'Estudio de desarrollo de videojuegos y entretenimiento digital')"
                onmouseleave="hideInfo()">
@@ -558,7 +598,7 @@
             <a href="nexusoptima.html" class="company-icon nexusoptim"
                onmouseenter="showInfo('NeXOptimIA', 'Plataforma Smart Cities con IA para Costa Rica (1.65M hogares)')"
                onmouseleave="hideInfo()">
-                <img src="images/nexoptimia-logo.png" alt="NeXOptimIA Logo" style="width: 60px; height: 60px; object-fit: contain;">
+                <img src="images/nexoptimia-logo.png" alt="NeXOptimIA Logo" style="width: 60px; height: 60px; object-fit: contain; border-radius: 10px;">
                 <h3>NeXOptimIA</h3>
                 <p>Smart Cities</p>
             </a>
@@ -569,6 +609,24 @@
                 <img src="images/countercorehazardav-logo.png" alt="CounterCore HazardAV Logo" style="width: 60px; height: 60px; object-fit: contain;">
                 <h3>CounterCore<br>HazardAV</h3>
                 <p>Antivirus IA</p>
+            </a>
+
+            <!-- Nuevo: OPNeXOX AcademIA -->
+            <a href="academia.html" class="company-icon academia" style="bottom: 5%; left: 50%; transform: translateX(-50%);"
+               onmouseenter="showInfo('OPNeXOX AcademIA', 'Plataforma de formación y capacitación tecnológica avanzada para el ecosistema OPNeXOX')"
+               onmouseleave="hideInfo()">
+                <img src="images/academia.png" alt="OPNeXOX AcademIA Logo" style="width: 60px; height: 60px; object-fit: contain;">
+                <h3>OPNeXOX AcademIA</h3>
+                <p>Academia</p>
+            </a>
+
+            <!-- Nuevo: NeXoX RHIA Manager -->
+            <a href="#" class="company-icon rhia-manager" style="bottom: 5%; right: 5%;"
+               onmouseenter="showInfo('NeXoX RHIA Manager', 'Gestor de recursos humanos con IA para empresas y organizaciones')"
+               onmouseleave="hideInfo()">
+                <img src="images/rhia-manager-logo.png" alt="NeXoX RHIA Manager Logo" style="width: 60px; height: 60px; object-fit: contain;">
+                <h3>NeXoX RHIA Manager</h3>
+                <p>Recursos Humanos</p>
             </a>
         </div>
     </main>
@@ -660,7 +718,7 @@
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(45deg, #00ff88, #00cc6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
                     📈 Análisis Estratégico y Proyecciones
                 </h2>
-                <p style="font-size: 1.3rem; color: #bdc3c7;">Transformando una amenaza nacional en una oportunidad global</p>
+                <p style="font-size: 1.3rem; color: #bdc3c7; margin-bottom: 40px;">Transformando una amenaza nacional en una oportunidad global</p>
             </div>
             
             <!-- Problem vs Opportunity -->
@@ -674,7 +732,7 @@
                 
                 <div style="background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 20px; border: 2px solid rgba(0, 255, 136, 0.3); backdrop-filter: blur(10px); text-align: center;">
                     <h3 style="color: #00ff88; font-size: 1.8rem; margin-bottom: 20px;">✅ La Oportunidad</h3>
-                    <div style="font-size: 4rem; font-weight: bold; color: #00ff88; margin-bottom: 15px;">$93M+</div>
+                    <div style="font-size: 4rem; font-weight: bold, color: #00ff88; margin-bottom: 15px;">$93M+</div>
                     <p style="font-size: 1.2rem; margin-bottom: 15px;">Retorno proyectado en 5 años</p>
                     <p style="color: #bdc3c7;">Capitalizando talento de élite, infraestructura ociosa y ecosistema maduro de Costa Rica</p>
                 </div>

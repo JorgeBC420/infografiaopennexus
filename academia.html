@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPNeXOX AcademIA</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: rgba(0,0,0,0.9);
+            border-bottom: 2px solid rgba(0,255,136,0.3);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .main-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: -5px;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+        .hero img {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #00ff88;
+            margin-bottom: 20px;
+        }
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main-btn {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #222;
+            font-weight: bold;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .main-btn:hover {
+            transform: scale(1.05);
+        }
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .workshop-card {
+            background: rgba(255,255,255,0.07);
+            border: 2px solid rgba(0,255,136,0.2);
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,255,136,0.07);
+        }
+        .workshop-card h3 {
+            font-size: 1.3rem;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        .workshop-card p {
+            color: #c0e0d0;
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+        .workshop-card .price {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+        .workshop-card .btn {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #222;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .workshop-card .btn:hover {
+            transform: scale(1.05);
+        }
+        .workshop-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 900px) {
+            .workshop-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .metodo-section {
+            background: rgba(0,255,136,0.07);
+            border-radius: 18px;
+            padding: 40px 24px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .metodo-title {
+            color: #00ff88;
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+        .metodo-desc {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 20px;
+        }
+        .diagram .txt {
+            background: #222;
+            color: #00ff88;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .diagram .arrow {
+            font-size: 2rem;
+            color: #00ff88;
+        }
+        .diagram .brain {
+            background: #00ff88;
+            color: #222;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .diagram .arrow2 {
+            font-size: 2rem;
+            color: #00ff88;
+        }
+        .diagram .decision {
+            background: #222;
+            color: #fff;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="main-logo">
+            <div class="logo-icon">
+                <img src="images/academia.png" alt="OPNeXOX AcademIA Logo">
+            </div>
+            <div class="logo-text">
+                <h1>OPNeXOX AcademIA</h1>
+                <p>Aprende a pensar con IA</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/academia.png" alt="Logo OPNeXOX AcademIA">
+        <div class="hero-title">OPNeXOX AcademIA</div>
+        <div class="hero-subtitle">No aprendas a usar IA. Aprende a pensar con ella.</div>
+        <div class="hero-desc">
+            "Bienvenido a la academia para la próxima generación de creadores, inventores y líderes. En OPNeXoX, no enseñamos a seguir tutoriales. Enseñamos una metodología probada para construir sistemas inteligentes, resolver problemas complejos y lanzar productos a una velocidad sin precedentes. Este es el lugar donde tu conocimiento se convierte en tu mayor activo."
+        </div>
+        <button class="main-btn" onclick="document.getElementById('cursos').scrollIntoView({behavior: 'smooth'});">Ver Cursos Disponibles</button>
+    </section>
+
+    <!-- Cursos Section -->
+    <section class="section" id="cursos">
+        <div class="section-title">Nuestro Workshop Insignia</div>
+        <div class="workshop-grid">
+            <!-- Emprendedores -->
+            <div class="workshop-card">
+                <div class="workshop-icon">??</div>
+                <h3>Curso Público: Con.txt Launchpad</h3>
+                <div style="color:#00ff88; font-size:1.1rem; margin-bottom:8px;">"De Empleado a Fundador con IA"</div>
+                <p>Un workshop intensivo de 4 horas diseñado para emprendedores, freelancers y profesionales que quieren convertir su conocimiento único en un negocio digital. Aprenderás la metodología "Con.txt" para identificar tu "isla de conocimiento", automatizarla con un equipo de IAs y lanzar un MVP en 72 horas.</p>
+                <div class="price">Precio:<br>?25,000 Presencial / ?12,500 Virtual</div>
+                <button class="btn">Inscríbete Ahora</button>
+            </div>
+            <!-- Equipos -->
+            <div class="workshop-card">
+                <div class="workshop-icon">??</div>
+                <h3>Formación Corporativa: Productivity.txt</h3>
+                <div style="color:#00ff88; font-size:1.1rem; margin-bottom:8px;">"Domina tus Flujos de Trabajo con IA"</div>
+                <p>Una formación privada y a medida para empresas y equipos que buscan multiplicar su productividad por 5. Aplicamos nuestra metodología de "islas de contexto" para identificar los cuellos de botella de tu organización, crear agentes de IA especializados y automatizar procesos internos de forma segura.</p>
+                <div class="price">Precio:<br>Gratuito y exclusivo para empleados de OPNeXOX.<br>Disponible para empresas externas bajo cotización.</div>
+                <button class="btn">Solicitar Cotización</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodología Section -->
+    <section class="section">
+        <div class="metodo-section">
+            <div class="metodo-title">El Método "Con.txt": Tu Conocimiento es el Sistema Operativo</div>
+            <div class="metodo-desc">
+                "Nuestra metodología se basa en un principio simple pero poderoso: el conocimiento humano más valioso a menudo reside en documentos desestructurados (reportes, correos, manuales... archivos .txt). Nosotros te enseñamos a convertir esas 'islas' de información en un 'archipiélago' de conocimiento conectado, que sirve como el cerebro para un equipo de agentes de IA coordinados. No necesitas ser un programador experto. Necesitas ser un experto en lo que haces. Nosotros te enseñamos el resto."
+            </div>
+            <!-- Diagrama Simple -->
+            <div class="diagram">
+                <div class="txt">.txt<br>Reportes</div>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                <div class="txt">.txt<br>Correos</div>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                <div class="txt">.txt<br>Manuales</div>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                <div class="brain"><i class="fas fa-brain"></i></div>
+                <span class="arrow2"><i class="fas fa-arrow-right"></i></span>
+                <div class="decision">Decisión Inteligente</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja Central POS - Sistema Integral de Punto de Venta Costa Rica</title>
+    <meta name="description" content="Sistema POS completo para PyMEs costarricenses. Facturación electrónica, inventario, reportes y cumplimiento tributario Hacienda CR.">
+    <meta name="keywords" content="pos costa rica, facturación electrónica, sistema punto venta, hacienda cr, inventario, pyme">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CajaCentralPOS",
+        "description": "Sistema POS completo para PyMEs costarricenses con facturación electrónica y cumplimiento tributario",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Windows",
+        "publisher": {
+            "@type": "Organization",
+            "name": "OpenNexus Hardware and Software",
+            "url": "https://opennexus.cr",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "CR",
+                "addressLocality": "Costa Rica"
+            }
+        },
+        "video": {
+            "@type": "VideoObject",
+            "name": "CajaCentralPOS Sistema POS Costa Rica Demo",
+            "description": "Demostración del sistema POS con facturación electrónica y gestión de inventario",
+            "embedUrl": "https://www.youtube.com/embed/dxQKiro5dGE"
+        },
+        "featureList": [
+            "Facturación Electrónica",
+            "Gestión de Inventario", 
+            "Reportes ATV",
+            "Cumplimiento Hacienda CR"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="rgba(255,255,255,0.05)" rx="10"/><circle cx="30" cy="30" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pos-system {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .pos-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .transaction-rings {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ring {
+            position: absolute;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            border-top-color: #00ff88;
+            animation: rotate 3s linear infinite;
+        }
+
+        .ring-1 {
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .ring-2 {
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            bottom: 40px;
+            animation-delay: -1s;
+        }
+
+        .ring-3 {
+            top: 60px;
+            left: 60px;
+            right: 60px;
+            bottom: 60px;
+            animation-delay: -2s;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #fc466b, #3f5efb);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #fc466b, #3f5efb);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .feature-card ul {
+            list-style: none;
+        }
+
+        .feature-card ul li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Video Demo Section */
+        .video-demo-section {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+
+        .video-demo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #fc466b, #3f5efb, #00ff88);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .video-features h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .demo-features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .demo-feature {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-feature:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .demo-feature i {
+            font-size: 2rem;
+            color: #fc466b;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, rgba(252, 70, 107, 0.1), rgba(63, 94, 251, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .demo-feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .demo-feature p {
+            color: #7f8c8d;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .video-demo-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .demo-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Costa Rica Section */
+        .costa-rica-section {
+            background: linear-gradient(135deg, #002b7f 0%, #ce1126 100%);
+            color: white;
+            position: relative;
+        }
+
+        .costa-rica-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 L80,50" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M50,20 L50,80" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            opacity: 0.3;
+        }
+
+        .costa-rica-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .costa-rica-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .costa-rica-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .costa-rica-feature:hover {
+            border-color: #00ff88;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .costa-rica-feature i {
+            font-size: 3rem;
+            color: #00ff88;
+            margin-bottom: 25px;
+        }
+
+        .costa-rica-feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .costa-rica-feature p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .pricing .section-header h2,
+        .pricing .section-header p {
+            color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #00ff88;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .plan-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.7;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list i.fa-check {
+            color: #00ff88;
+        }
+
+        .features-list i.fa-times {
+            color: #ff6b6b;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-card i {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .download-card p {
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 25px;
+            color: #00ff88;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 8px 0;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #00ff88;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .pos-system {
+                width: 250px;
+                height: 250px;
+            }
+
+            .pos-core {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .features-grid,
+            .pricing-grid,
+            .costa-rica-features {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Costa Rica Badge */
+        .cr-badge {
+            background: linear-gradient(45deg, #002b7f, #ce1126);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .pyme-highlight {
+            background: linear-gradient(45deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="cr-badge">
+                        <span>🇨🇷</span> Hecho en Costa Rica
+                    </div>
+                    <h1>Caja Central POS</h1>
+                    <p class="hero-subtitle">Sistema Integral de Punto de Venta</p>
+                    <p class="hero-description">
+                        El sistema POS más completo para <strong>PyMEs costarricenses</strong>. 
+                        Facturación electrónica certificada por Hacienda, inventario inteligente y reportes avanzados.
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <i class="fas fa-receipt"></i>
+                            <span>Facturación Electrónica</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-boxes"></i>
+                            <span>Inventario Completo</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Reportes Avanzados</span>
+                        </div>
+                        <div class="feature-badge">
+                            <span class="pyme-highlight">PyME Ready</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#demo" class="btn btn-primary">
+                            <i class="fas fa-play"></i>
+                            Ver Demo en Vivo
+                        </a>
+                        <a href="#caracteristicas" class="btn btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Ver Características
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="pos-system">
+                        <div class="pos-core">
+                            <i class="fas fa-cash-register"></i>
+                        </div>
+                        <div class="transaction-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Funcionalidades Completas</h2>
+                <p>Todo lo que necesita tu negocio en un solo sistema</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>Facturación Electrónica</h3>
+                    <p>Certificado por Hacienda Costa Rica para cumplir con todos los requisitos tributarios.</p>
+                    <ul>
+                        <li>Facturas electrónicas válidas</li>
+                        <li>Notas de crédito y débito</li>
+                        <li>Tiquetes electrónicos</li>
+                        <li>Reportes para Hacienda</li>
+                        <li>Integración ATV automática</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Gestión de Inventario</h3>
+                    <p>Control total de productos, existencias y movimientos con alertas inteligentes.</p>
+                    <ul>
+                        <li>Control de existencias en tiempo real</li>
+                        <li>Códigos de barras automáticos</li>
+                        <li>Alertas de stock mínimo</li>
+                        <li>Categorización de productos</li>
+                        <li>Historial de movimientos</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Gestión de Clientes</h3>
+                    <p>Sistema completo de CRM con programas de fidelización y análisis de comportamiento.</p>
+                    <ul>
+                        <li>Base de datos de clientes</li>
+                        <li>Programa de puntos y descuentos</li>
+                        <li>Historial de compras</li>
+                        <li>Segmentación automática</li>
+                        <li>Marketing personalizado</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Reportes y Analytics</h3>
+                    <p>Análisis profundo del negocio con métricas clave y reportes personalizados.</p>
+                    <ul>
+                        <li>Dashboard ejecutivo en tiempo real</li>
+                        <li>Reportes de ventas por período</li>
+                        <li>Análisis de productos más vendidos</li>
+                        <li>Métricas de rentabilidad</li>
+                        <li>Exportación a Excel/PDF</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Métodos de Pago</h3>
+                    <p>Integración con todos los métodos de pago populares en Costa Rica.</p>
+                    <ul>
+                        <li>Efectivo con cálculo de vuelto</li>
+                        <li>Tarjetas débito y crédito</li>
+                        <li>SINPE Móvil integrado</li>
+                        <li>Pagos mixtos y parciales</li>
+                        <li>Conciliación bancaria</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <h3>Multi-Sucursal</h3>
+                    <p>Gestión centralizada para múltiples puntos de venta desde una sola plataforma.</p>
+                    <ul>
+                        <li>Control de múltiples tiendas</li>
+                        <li>Inventario sincronizado</li>
+                        <li>Reportes consolidados</li>
+                        <li>Usuarios por sucursal</li>
+                        <li>Transferencias entre tiendas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section id="demo" class="video-demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Demostración en Vivo</h2>
+                <p>Mira CajaCentralPOS en acción real con todas sus funcionalidades</p>
+            </div>
+            <div class="video-demo-content">
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/dxQKiro5dGE?si=LBOUjUw8JGLeQ7-T" 
+                            title="CajaCentralPOS Sistema POS Costa Rica Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="video-features">
+                    <h3>Características Demostradas</h3>
+                    <div class="demo-features-grid">
+                        <div class="demo-feature">
+                            <i class="fas fa-receipt"></i>
+                            <h4>Facturación Electrónica</h4>
+                            <p>Cumplimiento completo con Hacienda Costa Rica en tiempo real</p>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-box"></i>
+                            <h4>Gestión de Inventario</h4>
+                            <p>Control total de stock, productos y movimientos automatizados</p>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Reportes ATV</h4>
+                            <p>Reportes automáticos para cumplimiento tributario</p>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Interfaz Moderna</h4>
+                            <p>Sistema intuitivo y fácil de usar para cualquier negocio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Costa Rica Section -->
+    <section class="costa-rica-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Diseñado para Costa Rica</h2>
+                <p>Cumplimiento total con regulaciones costarricenses y necesidades locales</p>
+            </div>
+            <div class="costa-rica-content">
+                <div class="costa-rica-features">
+                    <div class="costa-rica-feature">
+                        <i class="fas fa-landmark"></i>
+                        <h3>Cumplimiento Hacienda</h3>
+                        <p>100% compatible con todas las regulaciones del Ministerio de Hacienda de Costa Rica. Facturación electrónica certificada y reportes ATV automáticos.</p>
+                    </div>
+                    <div class="costa-rica-feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>SINPE Móvil Integrado</h3>
+                        <p>Primera solución POS con integración nativa de SINPE Móvil, permitiendo cobros instantáneos y automáticos desde el sistema.</p>
+                    </div>
+                    <div class="costa-rica-feature">
+                        <i class="fas fa-building"></i>
+                        <h3>Para PyMEs Ticas</h3>
+                        <p>Diseñado específicamente para pequeñas y medianas empresas costarricenses, con precios accesibles y funcionalidades adaptadas al mercado local.</p>
+                    </div>
+                    <div class="costa-rica-feature">
+                        <i class="fas fa-headset"></i>
+                        <h3>Soporte Local</h3>
+                        <p>Equipo de soporte técnico en Costa Rica que entiende las necesidades y desafíos específicos del empresariado nacional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Planes Accesibles para PyMEs</h2>
+                <p>Precios diseñados para el mercado costarricense</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Básico</h3>
+                        <div class="price">₡15,000<span>/mes</span></div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Hasta 1000 productos</li>
+                        <li><i class="fas fa-check"></i> Facturación electrónica</li>
+                        <li><i class="fas fa-check"></i> 1 punto de venta</li>
+                        <li><i class="fas fa-check"></i> Reportes básicos</li>
+                        <li><i class="fas fa-check"></i> Soporte por email</li>
+                        <li><i class="fas fa-times"></i> Multi-sucursal</li>
+                        <li><i class="fas fa-times"></i> API avanzada</li>
+                    </ul>
+                    <a href="#descarga" class="btn btn-secondary">Comenzar Gratis</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Más Popular</div>
+                    <div class="plan-header">
+                        <h3>Profesional</h3>
+                        <div class="price">₡35,000<span>/mes</span></div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Productos ilimitados</li>
+                        <li><i class="fas fa-check"></i> Facturación electrónica completa</li>
+                        <li><i class="fas fa-check"></i> Hasta 3 puntos de venta</li>
+                        <li><i class="fas fa-check"></i> Reportes avanzados y analytics</li>
+                        <li><i class="fas fa-check"></i> CRM de clientes</li>
+                        <li><i class="fas fa-check"></i> SINPE Móvil integrado</li>
+                        <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Obtener Profesional</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Empresarial</h3>
+                        <div class="price">₡75,000<span>/mes</span></div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Todo lo del plan Profesional</li>
+                        <li><i class="fas fa-check"></i> Puntos de venta ilimitados</li>
+                        <li><i class="fas fa-check"></i> Multi-sucursal completo</li>
+                        <li><i class="fas fa-check"></i> API completa para integraciones</li>
+                        <li><i class="fas fa-check"></i> Dashboard ejecutivo avanzado</li>
+                        <li><i class="fas fa-check"></i> Capacitación personalizada</li>
+                        <li><i class="fas fa-check"></i> Soporte dedicado 24/7</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Contactar Ventas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="descarga" class="download-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Descargar Caja Central POS</h2>
+                <p>Instala el sistema más completo para tu negocio</p>
+            </div>
+            <div class="download-options">
+                <div class="download-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Instalador Automático</h3>
+                    <p>Descarga el instalador .bat que configura automáticamente todo el sistema en tu computadora.</p>
+                    <a href="/downloads/cajacentral/Instalar_CajaCentralPOS.bat" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i>
+                        Descargar .BAT
+                    </a>
+                </div>
+                <div class="download-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Código Fuente Python</h3>
+                    <p>Para desarrolladores: código fuente completo del sistema desarrollado en Python con interfaz moderna.</p>
+                    <a href="/downloads/cajacentral/CajaCentralPOS_Installer.py" class="btn btn-secondary" download>
+                        <i class="fas fa-code"></i>
+                        Descargar .PY
+                    </a>
+                </div>
+                <div class="download-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Versión Web</h3>
+                    <p>Próximamente: versión completamente web para acceder desde cualquier dispositivo sin instalación.</p>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-clock"></i>
+                        Próximamente
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Caja Central POS</h3>
+                    <p>El sistema de punto de venta más completo para PyMEs costarricenses. Desarrollado en Costa Rica con tecnología de vanguardia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Producto</h3>
+                    <ul>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#descarga">Descargas</a></li>
+                        <li><a href="#">Documentación</a></li>
+                        <li><a href="#">Actualizaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Tutoriales</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Capacitación</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Testimonios</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Términos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caja Central POS - Desarrollado por <a href="index.html#biografia" style="color: #00ff88; text-decoration: none; font-weight: 600;">Jorge Eduardo Bravo Chaves</a>, Costa Rica 🇨🇷</p>
+                <p>Sistema Integral para PyMEs | Facturación Electrónica Certificada | Made with ❤️ in Costa Rica</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                    <a href="index.html#biografia" style="color: #00ff88; text-decoration: none;">
+                        <i class="fas fa-user-circle"></i> Conoce la historia del fundador - Pasión por la electricidad, computación, programación, su hija, poesía y el fútbol
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and sections
+        document.querySelectorAll('.feature-card, .pricing-card, .costa-rica-feature, .demo-feature').forEach(el => {
+            observer.observe(el);
+        });
+
+        // POS system animation
+        function demoTransaction() {
+            const posCore = document.querySelector('.pos-core');
+            if (posCore) {
+                posCore.style.animation = 'pulse 0.5s ease-in-out 3';
+                
+                setTimeout(() => {
+                    console.log('Transacción procesada: Factura #' + Math.floor(Math.random() * 10000));
+                }, 500);
+            }
+        }
+
+        // Auto-demo transactions every 8 seconds
+        setInterval(demoTransaction, 8000);
+
+        // Simulate real-time stats
+        function updatePOSStats() {
+            const stats = [
+                'Factura electrónica generada',
+                'Producto agregado al inventario',
+                'Cliente registrado en CRM',
+                'Reporte de ventas actualizado'
+            ];
+            
+            const randomStat = stats[Math.floor(Math.random() * stats.length)];
+            console.log('POS Update:', randomStat);
+        }
+
+        // Update stats every 15 seconds
+        setInterval(updatePOSStats, 15000);
+
+        // Costa Rica badge animation
+        const crBadge = document.querySelector('.cr-badge');
+        if (crBadge) {
+            setInterval(() => {
+                crBadge.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    crBadge.style.transform = 'scale(1)';
+                }, 200);
+            }, 6000);
+        }
+
+        // Download tracking
+        document.querySelectorAll('.btn[href*="download"], .btn[href*="/downloads/"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.href === '#') {
+                    e.preventDefault();
+                    alert('¡Gracias por tu interés! La descarga comenzará pronto...');
+                }
+                
+                // Track download attempt
+                console.log('Descarga iniciada:', this.textContent.trim());
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Caja Central POS Website Loaded');
+            console.log('🏪 POS System: Ready');
+            console.log('🇨🇷 Costa Rica Integration: Active');
+            console.log('📄 Facturación Electrónica: Certified');
+            
+            // Add loading animation to hero
+            const heroText = document.querySelector('.hero-text');
+            if (heroText) {
+                heroText.style.opacity = '0';
+                heroText.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    heroText.style.transition = 'all 0.8s ease-out';
+                    heroText.style.opacity = '1';
+                    heroText.style.transform = 'translateY(0)';
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "infografia-opennexus",
+  "version": "1.0.0",
+  "description": "Infografía OpenNexus - Ecosistema Tecnológico Costa Rica",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Sitio estático - no requiere build' && exit 0",
+    "start": "echo 'Usar index.html directamente' && exit 0",
+    "dev": "echo 'Abrir index.html en navegador' && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JorgeBC420/infografiaopennexus.git"
+  },
+  "keywords": [
+    "opennexus",
+    "costa-rica",
+    "tecnologia",
+    "smart-cities",
+    "infografia",
+    "html",
+    "static-site"
+  ],
+  "author": "Jorge Eduardo Bravo Chaves",
+  "license": "MIT",
+  "homepage": "https://jorgebc420.github.io/infografiaopennexus/"
+}

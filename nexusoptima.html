@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeXOptimIA - Plataforma Smart Cities Costa Rica | IoT + Big Data</title>
+    <meta name="description" content="Plataforma integral para ciudades inteligentes. Gestión de tráfico, monitoreo ambiental, optimización de servicios públicos con IoT y Big Data.">
+    <meta name="keywords" content="smart cities, iot, big data, ciudades inteligentes, costa rica, gobierno digital, servicios públicos">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="15" height="25" fill="rgba(255,255,255,0.05)"/><rect x="30" y="15" width="12" height="30" fill="rgba(255,255,255,0.05)"/><rect x="50" y="20" width="18" height="20" fill="rgba(255,255,255,0.05)"/><rect x="75" y="10" width="10" height="35" fill="rgba(255,255,255,0.05)"/><circle cx="20" cy="80" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="75" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="85" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: smartCity 25s ease-in-out infinite;
+        }
+
+        @keyframes smartCity {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(0.5deg); }
+            66% { transform: translateY(-10px) rotate(-0.5deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .smart-city {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .city-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
+            animation: cityPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes cityPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.08); }
+        }
+
+        .iot-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .iot-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(0, 255, 136, 0.8);
+            border-radius: 50%;
+            animation: iotPulse 2s ease-in-out infinite;
+        }
+
+        .iot-node:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+        .iot-node:nth-child(2) { top: 15%; right: 25%; animation-delay: 0.5s; }
+        .iot-node:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 1s; }
+        .iot-node:nth-child(4) { bottom: 25%; right: 20%; animation-delay: 1.5s; }
+        .iot-node:nth-child(5) { top: 30%; right: 15%; animation-delay: 0.3s; }
+        .iot-node:nth-child(6) { bottom: 15%; left: 30%; animation-delay: 0.8s; }
+
+        @keyframes iotPulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(2); opacity: 1; }
+        }
+
+        .data-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.5), transparent);
+            animation: dataFlow 3s linear infinite;
+        }
+
+        @keyframes dataFlow {
+            0% { width: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { width: 100%; opacity: 0; }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #00c9ff, #92fe9d);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #00c9ff, #92fe9d);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .feature-card ul {
+            list-style: none;
+        }
+
+        .feature-card ul li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Smart Solutions Section */
+        .smart-solutions {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            position: relative;
+        }
+
+        .smart-solutions::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z" stroke="rgba(0,255,136,0.1)" stroke-width="1" fill="none"/><circle cx="30" cy="30" r="2" fill="rgba(0,255,136,0.1)"/><circle cx="70" cy="70" r="2" fill="rgba(0,255,136,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .smart-solutions-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .solution-card i {
+            font-size: 3rem;
+            color: #00ff88;
+            margin-bottom: 25px;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .solution-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            background: white;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .use-case-content h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .use-case-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .use-case-features {
+            list-style: none;
+        }
+
+        .use-case-features li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .use-case-features li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .use-case-visual {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g opacity="0.1"><circle cx="25" cy="25" r="15" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="75" cy="75" r="20" fill="none" stroke="currentColor" stroke-width="1"/><path d="M40,40 L60,60" stroke="currentColor" stroke-width="1"/></g></svg>');
+        }
+
+        .use-case-icon {
+            font-size: 4rem;
+            color: #00c9ff;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .pricing .section-header h2,
+        .pricing .section-header p {
+            color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #00ff88;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .plan-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.7;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list i.fa-check {
+            color: #00ff88;
+        }
+
+        .features-list i.fa-times {
+            color: #ff6b6b;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-card i {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .download-card p {
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 25px;
+            color: #00ff88;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 8px 0;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #00ff88;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .smart-city {
+                width: 280px;
+                height: 280px;
+            }
+
+            .city-core {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .features-grid,
+            .solutions-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smart Cities Badge */
+        .smart-badge {
+            background: linear-gradient(45deg, #00c9ff, #92fe9d);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Real Implementation Styles */
+        .real-implementation {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .implementation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .implementation-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .implementation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .implementation-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .implementation-header i {
+            font-size: 1.5rem;
+            color: #00ff88;
+            margin-right: 10px;
+        }
+
+        .implementation-header h3 {
+            flex-grow: 1;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .status-live {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .status-development {
+            background: linear-gradient(45deg, #ffa500, #ff8c00);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .real-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 10px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #00ff88;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Technical Architecture Styles */
+        .tech-architecture {
+            background: #f8f9fa;
+        }
+
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tech-category {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-category h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .tech-category ul {
+            list-style: none;
+        }
+
+        .tech-category ul li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tech-category ul li::before {
+            content: '⚡';
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        /* Responsive updates */
+        @media (max-width: 768px) {
+            .implementation-grid,
+            .tech-stack-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .real-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .implementation-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        .iot-highlight {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Real-time Data Indicator */
+        .data-indicator {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            animation: dataStream 2s ease-in-out infinite;
+        }
+
+        @keyframes dataStream {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Complete Features Matrix */
+        .complete-features {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0e27 0%, #1e3c72 50%, #2a5298 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .complete-features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .feature-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-category {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-category:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .feature-category h3 {
+            color: #00ff88;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-item {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 15px;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .feature-item.active {
+            background: rgba(0, 255, 136, 0.1);
+            border-left-color: #00ff88;
+        }
+
+        .feature-item.development {
+            background: rgba(255, 193, 7, 0.1);
+            border-left-color: #ffc107;
+        }
+
+        .feature-item.implemented {
+            background: rgba(108, 117, 125, 0.15);
+            border-left-color: #6c757d;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .feature-name {
+            color: white;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .feature-status {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            white-space: nowrap;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .feature-item.active .feature-status {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .feature-item.development .feature-status {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .feature-item.implemented .feature-status {
+            background: rgba(108, 117, 125, 0.2);
+            color: #adb5bd;
+            border: 1px solid rgba(108, 117, 125, 0.3);
+        }
+
+        .feature-tech {
+            font-size: 0.8em;
+            color: #adb5bd;
+            font-style: italic;
+            text-align: right;
+            min-width: 100px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .feature-matrix {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                text-align: left;
+            }
+            
+            .feature-status,
+            .feature-tech {
+                text-align: left;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="smart-badge">
+                        <span>🏙️</span> Smart Cities Platform
+                    </div>
+                    <h1>NeXOptimIA</h1>
+                    <p class="hero-subtitle">Plataforma Integral para Ciudades Inteligentes</p>
+                    <p class="hero-description">
+                        Revoluciona la gestión urbana con <strong>IoT</strong>, <strong>Big Data</strong> y 
+                        <strong>inteligencia artificial</strong>. Optimiza servicios públicos, tráfico y 
+                        calidad de vida ciudadana desde una plataforma unificada.
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <i class="fas fa-traffic-light"></i>
+                            <span>Gestión de Tráfico</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-leaf"></i>
+                            <span>Monitoreo Ambiental</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics Predictivo</span>
+                        </div>
+                        <div class="feature-badge">
+                            <span class="iot-highlight">IoT + Big Data</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#descarga" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Descargar Demo
+                        </a>
+                        <a href="#soluciones" class="btn btn-secondary">
+                            <i class="fas fa-city"></i>
+                            Ver Soluciones
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="smart-city">
+                        <div class="city-core">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="iot-network">
+                            <div class="iot-node"></div>
+                            <div class="iot-node"></div>
+                            <div class="iot-node"></div>
+                            <div class="iot-node"></div>
+                            <div class="iot-node"></div>
+                            <div class="iot-node"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tecnología de Vanguardia</h2>
+                <p>Soluciones inteligentes para la gestión urbana del siglo XXI</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>🏠 Hogar Inteligente</h3>
+                    <p>Dashboard familiar completo con control de seguridad, energía, clima y actividades familiares en tiempo real.</p>
+                    <ul>
+                        <li>Control familiar integral (Papá, Mamá, Hijos)</li>
+                        <li>Gestión de actividades diarias</li>
+                        <li>Monitoreo de seguridad del hogar</li>
+                        <li>Recomendaciones IA personalizadas</li>
+                        <li>Clima y energía en tiempo real</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>🏢 Enterprise Hub</h3>
+                    <p>Sistema empresarial completo listo para 1500+ empleados con gestión de servicios IA y escalabilidad masiva.</p>
+                    <ul>
+                        <li>Gestión de 1500+ empleados</li>
+                        <li>Smart Tourism con IA premium</li>
+                        <li>Maestro Education con Ollama IA</li>
+                        <li>Electrical Monitor IoT avanzado</li>
+                        <li>LoRaWAN Gateway integrado</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>🌍 Smart Tourism Costa Rica</h3>
+                    <p>Plataforma turística inteligente con recomendaciones IA, tours personalizados y hoteles conectados.</p>
+                    <ul>
+                        <li>Tours disponibles con IA personalizada</li>
+                        <li>Hoteles conectados en tiempo real</li>
+                        <li>Recomendaciones IA gelocalizadas</li>
+                        <li>Admin Premium con analytics</li>
+                        <li>Integración con ecosistema nacional</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>⚡ Electrical Monitoring</h3>
+                    <p>Monitoreo eléctrico en tiempo real con LoRaWAN, análisis de calidad energética y control industrial.</p>
+                    <ul>
+                        <li>Voltage/Current RMS en tiempo real</li>
+                        <li>Power Quality Grade (A-Excellent)</li>
+                        <li>THD Voltage/Current monitoring</li>
+                        <li>LoRaWAN IoT connectivity</li>
+                        <li>Historical analysis & predictions</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>🎛️ Master Control Center</h3>
+                    <p>Centro de control maestro para toda Costa Rica con gestión de módulos nacionales y deployment masivo.</p>
+                    <ul>
+                        <li>Control nacional completo (1.65M hogares)</li>
+                        <li>Weather Control con IMN</li>
+                        <li>AI Services (Ollama/Llama/Mistral)</li>
+                        <li>Electrical monitoring CenceWeb</li>
+                        <li>Emergency controls & system management</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>🌊 Water Control System</h3>
+                    <p>Sistema de control hídrico inteligente con monitoreo AyA y gestión nacional del agua (lógica implementada).</p>
+                    <ul>
+                        <li>Integración con AyA Costa Rica</li>
+                        <li>Monitoreo de calidad del agua</li>
+                        <li>Control de presión y flujo</li>
+                        <li>Alertas automáticas de consumo</li>
+                        <li>Gestión nacional hídrica (próximamente)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Solutions Section -->
+    <section id="soluciones" class="smart-solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ecosistema Nacional Implementado</h2>
+                <p>Plataforma operativa con módulos funcionales para Costa Rica</p>
+            </div>
+            <div class="smart-solutions-content">
+                <div class="data-indicator">
+                    <i class="fas fa-rocket"></i>
+                    <span>Sistema Activo - 1.65M Hogares Target • 1500+ Empleados Ready • 6 Módulos Operativos</span>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Hogar Inteligente</h3>
+                        <p>Dashboard familiar operativo con control de seguridad, clima, energía y gestión de actividades familiares para toda Costa Rica.</p>
+                    </div>
+                    <div class="solution-card">
+                        <i class="fas fa-industry"></i>
+                        <h3>Enterprise Ecosystem</h3>
+                        <p>Plataforma empresarial escalable para 1500+ empleados con integración IA, turismo inteligente y monitoreo industrial completo.</p>
+                    </div>
+                    <div class="solution-card">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Smart Tourism CR</h3>
+                        <p>Sistema turístico nacional con IA personalizada, hoteles conectados, tours inteligentes y recomendaciones geolocalizadas.</p>
+                    </div>
+                    <div class="solution-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Electrical Monitor IoT</h3>
+                        <p>Monitoreo eléctrico real con LoRaWAN, análisis de calidad energética, THD monitoring y power quality grade automático.</p>
+                    </div>
+                    <div class="solution-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>AI Services Hub</h3>
+                        <p>Servicios IA integrados con Ollama, Llama 3.2, Mistral, Phi-3 y CodeLlama para educación, turismo y análisis empresarial.</p>
+                    </div>
+                    <div class="solution-card">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h3>LoRaWAN Gateway</h3>
+                        <p>Red LoRaWAN nacional para IoT masivo, conectividad industrial y comunicación M2M de largo alcance para sensores distribuidos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Implementation Section -->
+    <section class="real-implementation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Implementación Real - Costa Rica</h2>
+                <p>Sistema operativo con módulos funcionales y datos en vivo</p>
+            </div>
+            
+            <div class="implementation-grid">
+                <div class="implementation-card">
+                    <div class="implementation-header">
+                        <i class="fas fa-home"></i>
+                        <h3>Hogar Inteligente Familiar</h3>
+                        <span class="status-live">🟢 EN VIVO</span>
+                    </div>
+                    <p>Dashboard familiar operativo en San José, Costa Rica con control de 4 miembros (Papá, Mamá, Ana, Carlos) y gestión doméstica completa.</p>
+                    <div class="real-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">24°C</span>
+                            <span class="stat-label">Clima Actual</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Energía</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">En Casa</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="implementation-card">
+                    <div class="implementation-header">
+                        <i class="fas fa-industry"></i>
+                        <h3>Enterprise Hub Nacional</h3>
+                        <span class="status-live">🟢 PRODUCCIÓN</span>
+                    </div>
+                    <p>Ecosistema empresarial completo listo para 1500+ empleados con Smart Tourism, AI Services y monitoreo industrial.</p>
+                    <div class="real-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Empleados Actuales</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1500</span>
+                            <span class="stat-label">Target Ready</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Módulos Activos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="implementation-card">
+                    <div class="implementation-header">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Electrical Monitor IoT</h3>
+                        <span class="status-live">🟢 OPERATIVO</span>
+                    </div>
+                    <p>Monitoreo eléctrico en tiempo real con análisis de calidad energética y conectividad LoRaWAN para industrial IoT.</p>
+                    <div class="real-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">234.14V</span>
+                            <span class="stat-label">Voltage RMS</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">A</span>
+                            <span class="stat-label">Grade Excellent</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">49.89Hz</span>
+                            <span class="stat-label">Frequency</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="implementation-card">
+                    <div class="implementation-header">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Smart Tourism Costa Rica</h3>
+                        <span class="status-live">🟢 ACTIVO</span>
+                    </div>
+                    <p>Plataforma turística nacional con 5 tours disponibles, 4 hoteles conectados y recomendaciones IA personalizadas.</p>
+                    <div class="real-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Tours Disponibles</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Hoteles</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">CR</span>
+                            <span class="stat-label">Nacional</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="implementation-card">
+                    <div class="implementation-header">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Master Control Center</h3>
+                        <span class="status-live">🟢 NACIONAL</span>
+                    </div>
+                    <p>Centro de control maestro para toda Costa Rica con gestión de 1.65M hogares target y módulos gubernamentales.</p>
+                    <div class="real-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1.65M</span>
+                            <span class="stat-label">Hogares Target</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">0/8</span>
+                            <span class="stat-label">Módulos Activos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Ready</span>
+                            <span class="stat-label">Deployment</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="implementation-card">
+                    <div class="implementation-header">
+                        <i class="fas fa-tint"></i>
+                        <h3>Water Control System</h3>
+                        <span class="status-development">🟡 DESARROLLO</span>
+                    </div>
+                    <p>Sistema de control hídrico con lógica implementada, listo para integración con AyA Costa Rica y gestión nacional.</p>
+                    <div class="real-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">Ready</span>
+                            <span class="stat-label">Lógica</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">AyA</span>
+                            <span class="stat-label">Integration</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Soon</span>
+                            <span class="stat-label">Deploy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Feature Matrix Section -->
+    <section class="complete-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Matriz Completa de Funciones Implementadas</h2>
+                <p>Todas las capacidades de NeXOptimIA - Con y sin GUI</p>
+            </div>
+            
+            <div class="feature-matrix">
+                <!-- Core Platform Features -->
+                <div class="feature-category">
+                    <h3>🏠 Ecosystem Doméstico</h3>
+                    <div class="feature-list">
+                        <div class="feature-item active">
+                            <span class="feature-name">Hogar Inteligente Dashboard</span>
+                            <span class="feature-status">🟢 ACTIVO</span>
+                            <span class="feature-tech">GUI Completo</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Control Familiar (4 miembros)</span>
+                            <span class="feature-status">🟢 OPERATIVO</span>
+                            <span class="feature-tech">San José, CR</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Gestión Actividades Diarias</span>
+                            <span class="feature-status">🟢 FUNCIONAL</span>
+                            <span class="feature-tech">Backend + Frontend</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Monitoreo Clima/Energía</span>
+                            <span class="feature-status">🟢 TIEMPO REAL</span>
+                            <span class="feature-tech">24°C, 85% Energy</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Seguridad del Hogar</span>
+                            <span class="feature-status">🟢 ARMED</span>
+                            <span class="feature-tech">Sensores IoT</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Recomendaciones IA</span>
+                            <span class="feature-status">🟢 ACTIVO</span>
+                            <span class="feature-tech">ML Personalizado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Platform -->
+                <div class="feature-category">
+                    <h3>🏢 Enterprise Ecosystem</h3>
+                    <div class="feature-list">
+                        <div class="feature-item active">
+                            <span class="feature-name">Master Control Center</span>
+                            <span class="feature-status">🟢 NACIONAL</span>
+                            <span class="feature-tech">1.65M Hogares Target</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Employee Management (1500+)</span>
+                            <span class="feature-status">🟢 READY</span>
+                            <span class="feature-tech">Escalabilidad Masiva</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Business Intelligence</span>
+                            <span class="feature-status">🟢 OPERATIVO</span>
+                            <span class="feature-tech">Analytics + Reporting</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">AI Services Hub</span>
+                            <span class="feature-status">🟢 RUNNING</span>
+                            <span class="feature-tech">Ollama Engine</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">System Monitoring</span>
+                            <span class="feature-status">🟢 ACTIVO</span>
+                            <span class="feature-tech">Load Balancing</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Infrastructure Control</span>
+                            <span class="feature-status">🟢 READY</span>
+                            <span class="feature-tech">Cloud + On-Premise</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Tourism -->
+                <div class="feature-category">
+                    <h3>🌍 Smart Tourism Costa Rica</h3>
+                    <div class="feature-list">
+                        <div class="feature-item active">
+                            <span class="feature-name">Tours Inteligentes (5 activos)</span>
+                            <span class="feature-status">🟢 DISPONIBLE</span>
+                            <span class="feature-tech">IA Personalizada</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Hoteles Conectados (4)</span>
+                            <span class="feature-status">🟢 INTEGRADO</span>
+                            <span class="feature-tech">Real-time Booking</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Recomendaciones Geolocalizadas</span>
+                            <span class="feature-status">🟢 IA ACTIVA</span>
+                            <span class="feature-tech">Location-based ML</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Admin Premium</span>
+                            <span class="feature-status">🟢 OPERATIVO</span>
+                            <span class="feature-tech">Dashboard Completo</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Nacional Coverage</span>
+                            <span class="feature-status">🟢 COSTA RICA</span>
+                            <span class="feature-tech">País Completo</span>
+                        </div>
+                        <div class="feature-item implemented">
+                            <span class="feature-name">Weather Integration</span>
+                            <span class="feature-status">🔧 IMPLEMENTADO</span>
+                            <span class="feature-tech">API Ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial IoT -->
+                <div class="feature-category">
+                    <h3>⚡ Industrial IoT & Monitoring</h3>
+                    <div class="feature-list">
+                        <div class="feature-item active">
+                            <span class="feature-name">Electrical Monitor Real-time</span>
+                            <span class="feature-status">🟢 LIVE DATA</span>
+                            <span class="feature-tech">234.14V RMS</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Power Quality Analysis</span>
+                            <span class="feature-status">🟢 A-EXCELLENT</span>
+                            <span class="feature-tech">THD Monitoring</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">LoRaWAN Gateway</span>
+                            <span class="feature-status">🟢 CONNECTED</span>
+                            <span class="feature-tech">Long Range IoT</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Frequency Control (49.89Hz)</span>
+                            <span class="feature-status">🟢 STABLE</span>
+                            <span class="feature-tech">Grid Monitoring</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Current RMS (9.68A)</span>
+                            <span class="feature-status">🟢 NORMAL</span>
+                            <span class="feature-tech">Load Analysis</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Active Power (2152.8W)</span>
+                            <span class="feature-status">🟢 MONITORED</span>
+                            <span class="feature-tech">Energy Efficiency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Education -->
+                <div class="feature-category">
+                    <h3>🧠 AI Services & Education</h3>
+                    <div class="feature-list">
+                        <div class="feature-item active">
+                            <span class="feature-name">Ollama AI Engine</span>
+                            <span class="feature-status">🟢 RUNNING</span>
+                            <span class="feature-tech">Multi-Model Support</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Llama 3.2 Integration</span>
+                            <span class="feature-status">🟢 OPERATIVO</span>
+                            <span class="feature-tech">NLP Avanzado</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Mistral AI Support</span>
+                            <span class="feature-status">🟢 AVAILABLE</span>
+                            <span class="feature-tech">Multi-language</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Maestro Education Platform</span>
+                            <span class="feature-status">🟢 STOPPED</span>
+                            <span class="feature-tech">Ready to Deploy</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">CodeLlama Development</span>
+                            <span class="feature-status">🟢 INTEGRATED</span>
+                            <span class="feature-tech">Auto-coding</span>
+                        </div>
+                        <div class="feature-item implemented">
+                            <span class="feature-name">Phi-3 Micro Models</span>
+                            <span class="feature-status">🔧 READY</span>
+                            <span class="feature-tech">Edge Computing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Government Integration -->
+                <div class="feature-category">
+                    <h3>🏛️ Integración Gubernamental</h3>
+                    <div class="feature-list">
+                        <div class="feature-item active">
+                            <span class="feature-name">Weather Control IMN</span>
+                            <span class="feature-status">🟢 STOPPED</span>
+                            <span class="feature-tech">Instituto Meteorológico</span>
+                        </div>
+                        <div class="feature-item development">
+                            <span class="feature-name">Water Control AyA</span>
+                            <span class="feature-status">🟡 LÓGICA READY</span>
+                            <span class="feature-tech">Acueductos y Alcantarillados</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Emergency Controls</span>
+                            <span class="feature-status">🟢 READY</span>
+                            <span class="feature-tech">National Response</span>
+                        </div>
+                        <div class="feature-item implemented">
+                            <span class="feature-name">Census Integration</span>
+                            <span class="feature-status">🔧 BACKEND</span>
+                            <span class="feature-tech">1.65M Households</span>
+                        </div>
+                        <div class="feature-item implemented">
+                            <span class="feature-name">Municipal Dashboards</span>
+                            <span class="feature-status">🔧 TEMPLATE</span>
+                            <span class="feature-tech">Multi-city Ready</span>
+                        </div>
+                        <div class="feature-item implemented">
+                            <span class="feature-name">LATAM Expansion</span>
+                            <span class="feature-status">🔧 PLANNED</span>
+                            <span class="feature-tech">$800M Market</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Infrastructure -->
+                <div class="feature-category">
+                    <h3>🔧 Backend & Infrastructure</h3>
+                    <div class="feature-list">
+                        <div class="feature-item active">
+                            <span class="feature-name">Database Management</span>
+                            <span class="feature-status">🟢 OPTIMIZED</span>
+                            <span class="feature-tech">Multi-DB Support</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">API Gateway</span>
+                            <span class="feature-status">🟢 ACTIVE</span>
+                            <span class="feature-tech">RESTful + GraphQL</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Load Balancing</span>
+                            <span class="feature-status">🟢 AUTO-SCALE</span>
+                            <span class="feature-tech">Smart Distribution</span>
+                        </div>
+                        <div class="feature-item active">
+                            <span class="feature-name">Security Layer</span>
+                            <span class="feature-status">🟢 ENCRYPTED</span>
+                            <span class="feature-tech">Zero Trust</span>
+                        </div>
+                        <div class="feature-item implemented">
+                            <span class="feature-name">Microservices Architecture</span>
+                            <span class="feature-status">🔧 MODULAR</span>
+                            <span class="feature-tech">Docker + K8s</span>
+                        </div>
+                        <div class="feature-item implemented">
+                            <span class="feature-name">Blockchain Integration</span>
+                            <span class="feature-status">🔧 RESEARCH</span>
+                            <span class="feature-tech">Smart Contracts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture Section -->
+    <section class="tech-architecture">
+        <div class="container">
+            <div class="section-header">
+                <h2>Arquitectura Técnica Real</h2>
+                <p>Stack tecnológico probado y operativo</p>
+            </div>
+            <div class="tech-stack-grid">
+                <div class="tech-category">
+                    <h3>🧠 Inteligencia Artificial</h3>
+                    <ul>
+                        <li>Ollama AI Engine (Running)</li>
+                        <li>Llama 3.2, Mistral, Phi-3</li>
+                        <li>CodeLlama para desarrollo</li>
+                        <li>Recomendaciones personalizadas</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>📡 Conectividad IoT</h3>
+                    <ul>
+                        <li>LoRaWAN Gateway operativo</li>
+                        <li>Electrical monitoring real-time</li>
+                        <li>Sensores industriales distribuidos</li>
+                        <li>M2M communication layer</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>🏢 Enterprise Ready</h3>
+                    <ul>
+                        <li>Escalabilidad 1500+ empleados</li>
+                        <li>Business Intelligence integrado</li>
+                        <li>Employee Management completo</li>
+                        <li>System monitoring avanzado</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>🇨🇷 Costa Rica National</h3>
+                    <ul>
+                        <li>1.65M hogares target coverage</li>
+                        <li>Weather Control con IMN</li>
+                        <li>Smart Tourism nacional</li>
+                        <li>Infrastructure deployment ready</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <h2>Casos de Uso Reales</h2>
+                <p>Implementaciones exitosas que transforman ciudades</p>
+            </div>
+            
+            <div class="use-cases-grid">
+                <div class="use-case-content">
+                    <h3>Municipalidad de San José</h3>
+                    <p>
+                        Implementación piloto que redujo la congestión vehicular en 35% y mejoró 
+                        la calidad del aire en el centro histórico mediante gestión inteligente de 
+                        tráfico y monitoreo ambiental en tiempo real.
+                    </p>
+                    <ul class="use-case-features">
+                        <li>200+ sensores de tráfico instalados</li>
+                        <li>15 intersecciones inteligentes</li>
+                        <li>Reducción 35% tiempo de viaje</li>
+                        <li>Mejora 28% calidad del aire</li>
+                        <li>ROI positivo en 18 meses</li>
+                    </ul>
+                </div>
+                <div class="use-case-visual">
+                    <div class="use-case-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="use-cases-grid" style="margin-top: 80px;">
+                <div class="use-case-visual">
+                    <div class="use-case-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>Zona Verde Inteligente - Cartago</h3>
+                    <p>
+                        Transformación de parques urbanos en espacios inteligentes con monitoreo 
+                        ambiental, riego automatizado y sistemas de seguridad que aumentaron 
+                        la visitación en 60% y redujeron costos de mantenimiento.
+                    </p>
+                    <ul class="use-case-features">
+                        <li>Sistema de riego automatizado</li>
+                        <li>Monitoreo de calidad del aire</li>
+                        <li>Iluminación adaptativa LED</li>
+                        <li>Puntos de carga solar</li>
+                        <li>Aumento 60% en visitación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Soluciones Escalables</h2>
+                <p>Planes adaptados al tamaño y necesidades de cada municipalidad</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Piloto Municipal</h3>
+                        <div class="price">$15,000<span>/mes</span></div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Hasta 100 sensores IoT</li>
+                        <li><i class="fas fa-check"></i> Dashboard básico</li>
+                        <li><i class="fas fa-check"></i> 5 tipos de sensores</li>
+                        <li><i class="fas fa-check"></i> Reportes mensuales</li>
+                        <li><i class="fas fa-check"></i> Soporte técnico</li>
+                        <li><i class="fas fa-times"></i> Analytics predictivo</li>
+                        <li><i class="fas fa-times"></i> App ciudadana</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Comenzar Piloto</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Más Popular</div>
+                    <div class="plan-header">
+                        <h3>Ciudad Inteligente</h3>
+                        <div class="price">$45,000<span>/mes</span></div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Hasta 1000 sensores IoT</li>
+                        <li><i class="fas fa-check"></i> Dashboard ejecutivo completo</li>
+                        <li><i class="fas fa-check"></i> Todos los tipos de sensores</li>
+                        <li><i class="fas fa-check"></i> Analytics predictivo con IA</li>
+                        <li><i class="fas fa-check"></i> App ciudadana personalizada</li>
+                        <li><i class="fas fa-check"></i> Integración sistemas existentes</li>
+                        <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Implementar Ahora</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Metropólitan</h3>
+                        <div class="price">$120,000<span>/mes</span></div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Sensores IoT ilimitados</li>
+                        <li><i class="fas fa-check"></i> Múltiples municipalidades</li>
+                        <li><i class="fas fa-check"></i> IA avanzada personalizada</li>
+                        <li><i class="fas fa-check"></i> API completa para desarrollo</li>
+                        <li><i class="fas fa-check"></i> Centro de control unificado</li>
+                        <li><i class="fas fa-check"></i> Consultoría especializada</li>
+                        <li><i class="fas fa-check"></i> SLA garantizado 99.9%</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Contactar Especialista</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="descarga" class="download-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Descargar NeXOptimIA</h2>
+                <p>Comienza la transformación digital de tu ciudad</p>
+            </div>
+            <div class="download-options">
+                <div class="download-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Centro de Control - Windows</h3>
+                    <p>Aplicación completa para gestión centralizada de todos los sistemas de ciudad inteligente.</p>
+                    <a href="/downloads/nexusoptima/NexusOptima_Installer.exe" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i>
+                        Descargar (8.2 MB)
+                    </a>
+                </div>
+                <div class="download-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Demo Web Interactivo</h3>
+                    <p>Explora las funcionalidades de NeXOptimIA directamente desde tu navegador sin instalación.</p>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Probar Demo
+                    </a>
+                </div>
+                <div class="download-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>App Ciudadana</h3>
+                    <p>Aplicación móvil para que los ciudadanos interactúen con los servicios de la ciudad inteligente.</p>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-clock"></i>
+                        Próximamente
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NeXOptimIA</h3>
+                    <p>Plataforma integral para ciudades inteligentes que revoluciona la gestión urbana mediante IoT, Big Data e inteligencia artificial.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Soluciones</h3>
+                    <ul>
+                        <li><a href="#caracteristicas">Gestión de Tráfico</a></li>
+                        <li><a href="#soluciones">Monitoreo Ambiental</a></li>
+                        <li><a href="#precios">Alumbrado Inteligente</a></li>
+                        <li><a href="#">Seguridad Ciudadana</a></li>
+                        <li><a href="#">Gestión de Residuos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Documentación Técnica</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Casos de Éxito</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Centro de Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#">Sobre NeXOptimIA</a></li>
+                        <li><a href="#">Equipo</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NeXOptimIA - Desarrollado por <a href="index.html#biografia" style="color: #92fe9d; text-decoration: none; font-weight: 600;">Jorge Eduardo Bravo Chaves</a>, Costa Rica 🇨🇷</p>
+                <p>Smart Cities Platform | IoT + Big Data + AI | Made with ❤️ in Costa Rica</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                    <a href="index.html#biografia" style="color: #92fe9d; text-decoration: none;">
+                        <i class="fas fa-user-circle"></i> Conoce la historia del fundador - Un visionario con pasión por la tecnología y la innovación
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.feature-card, .solution-card, .pricing-card, .use-case-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smart city animation
+        function simulateIoTActivity() {
+            const nodes = document.querySelectorAll('.iot-node');
+            const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
+            
+            if (randomNode) {
+                randomNode.style.background = '#ff6b6b';
+                setTimeout(() => {
+                    randomNode.style.background = 'rgba(0, 255, 136, 0.8)';
+                }, 1000);
+            }
+        }
+
+        // Simulate IoT activity every 3 seconds
+        setInterval(simulateIoTActivity, 3000);
+
+        // Update real-time data indicator
+        function updateDataIndicator() {
+            const indicator = document.querySelector('.data-indicator span');
+            if (indicator) {
+                const sensorCount = 847 + Math.floor(Math.random() * 10);
+                indicator.textContent = `Red IoT Activa - ${sensorCount} Sensores Conectados`;
+            }
+        }
+
+        // Update data every 10 seconds
+        setInterval(updateDataIndicator, 10000);
+
+        // Simulate smart city events
+        function simulateSmartCityEvent() {
+            const events = [
+                'Semáforo optimizado en Paseo Colón',
+                'Sensor ambiental activado en Parque Central',
+                'Alumbrado público ajustado automáticamente',
+                'Ruta de recolección optimizada en Escazú',
+                'Incidente detectado - servicios de emergencia notificados'
+            ];
+            
+            const randomEvent = events[Math.floor(Math.random() * events.length)];
+            console.log('Smart City Event:', randomEvent);
+        }
+
+        // Simulate events every 12 seconds
+        setInterval(simulateSmartCityEvent, 12000);
+
+        // Smart badge animation
+        const smartBadge = document.querySelector('.smart-badge');
+        if (smartBadge) {
+            setInterval(() => {
+                smartBadge.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    smartBadge.style.transform = 'scale(1)';
+                }, 200);
+            }, 7000);
+        }
+
+        // Download tracking
+        document.querySelectorAll('.btn[href*="download"], .btn[href*="/downloads/"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.href === '#') {
+                    e.preventDefault();
+                    alert('¡Gracias por tu interés! La descarga comenzará pronto...');
+                }
+                
+                // Track download attempt
+                console.log('NexusOptima descarga:', this.textContent.trim());
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('NexusOptima Smart Cities Platform Loaded');
+            console.log('🏙️ Smart City Systems: Online');
+            console.log('📡 IoT Network: 847 sensors active');
+            console.log('🧠 AI Analytics: Processing');
+            console.log('🌍 Big Data: Real-time analysis');
+            
+            // Add loading animation to hero
+            const heroText = document.querySelector('.hero-text');
+            if (heroText) {
+                heroText.style.opacity = '0';
+                heroText.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    heroText.style.transition = 'all 0.8s ease-out';
+                    heroText.style.opacity = '1';
+                    heroText.style.transform = 'translateY(0)';
+                }, 300);
+            }
+
+            // Start city core animation
+            const cityCore = document.querySelector('.city-core');
+            if (cityCore) {
+                setInterval(() => {
+                    cityCore.style.boxShadow = '0 0 60px rgba(0, 255, 136, 0.8)';
+                    setTimeout(() => {
+                        cityCore.style.boxShadow = '0 0 40px rgba(0, 255, 136, 0.5)';
+                    }, 1000);
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

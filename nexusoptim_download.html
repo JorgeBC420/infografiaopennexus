@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar NeXOptimIA - Instalador Oficial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        }
+        .download-container {
+            background: rgba(255,255,255,0.95); color: #333; border-radius: 20px;
+            padding: 40px; max-width: 600px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .logo { font-size: 3em; margin-bottom: 20px; }
+        .download-buttons { margin: 30px 0; }
+        .download-btn {
+            display: inline-block; background: #667eea; color: white;
+            padding: 15px 30px; margin: 10px; border-radius: 10px;
+            text-decoration: none; font-weight: bold; transition: all 0.3s ease;
+            border: none; cursor: pointer; font-size: 1.1em;
+        }
+        .download-btn:hover { background: #5a6fd8; transform: translateY(-2px); }
+        .download-btn.windows { background: #0078d4; }
+        .download-btn.linux { background: #ff6b35; }
+        .download-btn.macos { background: #000; }
+        .system-info {
+            background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;
+            font-size: 0.9em; color: #666;
+        }
+        .instructions {
+            text-align: left; background: #e9ecef; padding: 20px; border-radius: 10px; margin: 20px 0;
+        }
+        .instructions h3 { color: #667eea; margin-bottom: 10px; }
+        .instructions ol { margin-left: 20px; }
+        .instructions li { margin: 5px 0; }
+        .features { text-align: left; margin: 20px 0; }
+        .features ul { list-style: none; padding: 0; }
+        .features li { margin: 8px 0; }
+        .features li::before { content: "✅ "; color: #28a745; font-weight: bold; }
+        
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .back-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+    <script>
+        // Detect user's operating system
+        function detectOS() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.includes('win')) return 'windows';
+            if (userAgent.includes('mac')) return 'macos';
+            if (userAgent.includes('linux')) return 'linux';
+            return 'unknown';
+        }
+        
+        // Update page based on detected OS
+        function updateForOS() {
+            const os = detectOS();
+            const osInfo = document.getElementById('os-info');
+            const recommendedBtn = document.getElementById('recommended-btn');
+            
+            let osName = 'Desconocido';
+            let downloadUrl = '#';
+            let instructions = '';
+            
+            switch(os) {
+                case 'windows':
+                    osName = 'Windows';
+                    downloadUrl = 'https://countercorehazardav.com/install.bat';
+                    instructions = `
+                        <h3>📥 Instrucciones para Windows:</h3>
+                        <ol>
+                            <li>Descargar <strong>install.bat</strong></li>
+                            <li>Ejecutar como Administrador (clic derecho → "Ejecutar como administrador")</li>
+                            <li>Seguir las instrucciones en pantalla</li>
+                            <li>Usar acceso directo del Escritorio para iniciar</li>
+                        </ol>
+                        <p><strong>Comando alternativo:</strong><br>
+                        <code>curl -O https://countercorehazardav.com/install.bat && install.bat</code></p>
+                    `;
+                    break;
+                case 'macos':
+                    osName = 'macOS';
+                    downloadUrl = 'https://countercorehazardav.com/install.sh';
+                    instructions = `
+                        <h3>📥 Instrucciones para macOS:</h3>
+                        <ol>
+                            <li>Abrir Terminal</li>
+                            <li>Ejecutar: <code>curl -sSL https://countercorehazardav.com/install.sh | bash</code></li>
+                            <li>O descargar install.sh y ejecutar: <code>bash install.sh</code></li>
+                            <li>Iniciar con: <code>~/nexusoptim-ia/start_nexusoptim.sh</code></li>
+                        </ol>
+                    `;
+                    break;
+                case 'linux':
+                    osName = 'Linux';
+                    downloadUrl = 'https://countercorehazardav.com/install.sh';
+                    instructions = `
+                        <h3>📥 Instrucciones para Linux:</h3>
+                        <ol>
+                            <li>Abrir terminal</li>
+                            <li>Ejecutar: <code>curl -sSL https://countercorehazardav.com/install.sh | bash</code></li>
+                            <li>O descargar install.sh y ejecutar: <code>bash install.sh</code></li>
+                            <li>Iniciar desde aplicaciones o terminal</li>
+                        </ol>
+                    `;
+                    break;
+                default:
+                    osName = 'Desconocido - Por favor seleccione manualmente';
+                    instructions = `
+                        <h3>📥 Sistema no detectado:</h3>
+                        <p>Por favor seleccione su sistema operativo manualmente usando los botones de abajo.</p>
+                        <p><strong>Enlaces directos:</strong><br>
+                        • Windows: <a href="https://countercorehazardav.com/install.bat">install.bat</a><br>
+                        • Linux/macOS: <a href="https://countercorehazardav.com/install.sh">install.sh</a><br>
+                        • Python: <a href="https://countercorehazardav.com/nexusoptim_installer.py">nexusoptim_installer.py</a></p>
+                    `;
+            }
+            
+            osInfo.innerHTML = `<strong>Sistema detectado:</strong> ${osName}`;
+            if (downloadUrl !== '#') {
+                recommendedBtn.href = downloadUrl;
+                recommendedBtn.style.display = 'inline-block';
+            }
+            
+            document.getElementById('instructions').innerHTML = instructions;
+        }
+        
+        // Download tracking
+        function trackDownload(platform) {
+            console.log(`Download initiated for: ${platform}`);
+            // Here you could send analytics data
+        }
+        
+        function goBack() {
+            // Check if we came from the ecosystem
+            if (document.referrer.includes('index.html') || document.referrer.includes('nexusoptim')) {
+                window.history.back();
+            } else {
+                // Default fallback
+                window.location.href = 'nexusoptim_smartcities.html';
+            }
+        }
+        
+        window.onload = updateForOS;
+    </script>
+</head>
+<body>
+    <a href="javascript:goBack()" class="back-button">⬅️ Volver</a>
+    
+    <div class="download-container">
+        <div class="logo">💧⚡ NeXOptimIA</div>
+        <h1>Descargar Instalador Oficial</h1>
+        <p>Plataforma Nacional de Infraestructura Crítica - Costa Rica</p>
+        
+        <div class="system-info" id="os-info">
+            Detectando sistema operativo...
+        </div>
+        
+        <div class="download-buttons">
+            <a href="https://countercorehazardav.com/install.bat" id="recommended-btn" class="download-btn" 
+               onclick="trackDownload('recommended')" style="display: none;">
+                🚀 Descarga Recomendada
+            </a>
+            
+            <br><br>
+            
+            <a href="https://countercorehazardav.com/install.bat" class="download-btn windows" 
+               onclick="trackDownload('windows')">
+                🖥️ Windows (.bat)
+            </a>
+            
+            <a href="https://countercorehazardav.com/install.sh" class="download-btn linux" 
+               onclick="trackDownload('linux')">
+                🐧 Linux (.sh)
+            </a>
+            
+            <a href="https://countercorehazardav.com/install.sh" class="download-btn macos" 
+               onclick="trackDownload('macos')">
+                🍎 macOS (.sh)
+            </a>
+            
+            <br><br>
+            
+            <a href="https://countercorehazardav.com/nexusoptim_installer.py" class="download-btn" 
+               onclick="trackDownload('manual')">
+                🐍 Instalador Manual (Python)
+            </a>
+        </div>
+        
+        <div class="instructions" id="instructions">
+            <!-- Instrucciones se llenan dinámicamente -->
+        </div>
+        
+        <div class="features">
+            <h3 style="color: #667eea; text-align: center;">🚀 ¿Qué se instalará?</h3>
+            <ul>
+                <li><strong>Sistema Completo:</strong> Todos los módulos de NeXOptimIA</li>
+                <li><strong>Dependencias:</strong> Python, librerías científicas, IA</li>
+                <li><strong>Integración:</strong> Accesos directos, variables de entorno</li>
+                <li><strong>Protección IP:</strong> Cifrado AES-256, código obfuscado</li>
+                <li><strong>Interfaz Web:</strong> Control center en http://localhost:8080</li>
+                <li><strong>Datos Costa Rica:</strong> ICE, AyA, IMN, MOPT integrados</li>
+                <li><strong>IA Local:</strong> Ollama, modelos pre-entrenados</li>
+                <li><strong>Desinstalador:</strong> Eliminación completa incluida</li>
+            </ul>
+        </div>
+        
+        <div style="background: #fff3cd; color: #856404; padding: 15px; border-radius: 10px; margin: 20px 0;">
+            <strong>⚠️ Requisitos del Sistema:</strong><br>
+            • Python 3.8+ (se instala automáticamente si falta)<br>
+            • 1GB+ espacio libre en disco<br>
+            • Conexión a internet (solo para instalación)<br>
+            • Windows 10+, Linux Ubuntu 20.04+, macOS 10.15+
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+            <p><strong>NeXOptimIA v1.0.0</strong> - Desarrollado por OPNeXOX Labs</p>
+            <p>🇨🇷 Tecnología Soberana para Costa Rica</p>
+            <p>📧 Soporte: <a href="mailto:support@nexusoptim.cr" style="color: #667eea;">support@nexusoptim.cr</a></p>
+        </div>
+    </div>
+</body>
+</html>

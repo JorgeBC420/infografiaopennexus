@@ -1,0 +1,9 @@
+
+name = "infografia-opennexus"
+compatibility_date = "2024-07-31"
+
+[build]
+command = ""
+destination = "public"
+
+pages_build_output_dir = "public"

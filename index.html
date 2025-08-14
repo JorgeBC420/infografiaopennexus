@@ -109,21 +109,27 @@
         }
 
         .ecosystem-container {
-            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 48px;
             width: 100%;
-            max-width: 1200px;
-            height: 800px;
+            max-width: 900px;
+            height: 700px;
+            margin: 0 auto;
+            position: relative;
             z-index: 1;
         }
 
         /* Casa Matriz Central */
         .headquarters {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 280px;
-            height: 200px;
+            grid-column: 2;
+            grid-row: 2;
+            position: relative;
+            width: 220px;
+            height: 170px;
+            margin: 0 auto;
+            z-index: 2;
             background: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(102, 126, 234, 0.15) 100%);
             border: 3px solid rgba(0, 255, 136, 0.6);
             border-radius: 20px;
@@ -176,7 +182,7 @@
 
         /* Company Icons */
         .company-icon {
-            position: absolute;
+            position: relative;
             width: 140px;
             height: 140px;
             background: rgba(255, 255, 255, 0.1);
@@ -191,6 +197,7 @@
             cursor: pointer;
             text-decoration: none;
             color: white;
+            margin: 0 auto;
         }
 
         .company-icon:hover {
@@ -221,50 +228,13 @@
         }
 
         /* Positioning */
-        .openchip {
-            top: 10%;
-            left: 10%;
-        }
-
-        .gameslab {
-            top: 10%;
-            right: 10%;
-        }
-
-        .cajacentral {
-            bottom: 10%;
-            left: 10%;
-        }
-
-        .nexusoptim {
-            bottom: 5%;
-            right: 10%;
-        }
-
-        .countercore {
-            top: 50%;
-            left: 5%;
-            transform: translateY(-50%);
-        }
-
-        /* Nuevo OPNeXOX Labs */
-        .labs {
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Nuevo OPNeXOX AcademIA */
-        .academia {
-            bottom: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Nuevo NeXoX RHIA Manager alineado */
-        .rhia-manager {
-            top: 50%;
-            right: 10%;
+        .openchip, .gameslab, .cajacentral, .nexusoptim, .countercore, .labs, .academia, .rhia-manager {
+            position: static !important;
+            top: unset !important;
+            left: unset !important;
+            right: unset !important;
+            bottom: unset !important;
+            transform: none !important;
         }
 
         /* Connection Lines */
@@ -562,23 +532,21 @@
             <div class="particle" style="bottom: 30%; right: 30%; animation-delay: 3s;"></div>
 
             <!-- Company Icons -->
-            <a href="openchip.html" class="company-icon openchip" 
+            <!-- Fila 1 -->
+            <a href="openchip.html" class="company-icon openchip"
                onmouseenter="showInfo('OPNeXOX Chips', 'Creadores del hardware para NeXOptimIA - Sensores IoT especializados para Smart Cities')"
                onmouseleave="hideInfo()">
                 <img src="images/openchip-logo.png" alt="OpenChip Logo" style="width: 60px; height: 60px; object-fit: contain;">
                 <h3>OPNeXOX Chips</h3>
                 <p>Hardware</p>
             </a>
-
-            <!-- Nuevo enlace OPNeXOX Labs -->
-            <a href="opnexox_labs.html" class="company-icon labs" style="top: 10%; left: 50%; transform: translateX(-50%);"
+            <a href="opnexox_labs.html" class="company-icon labs"
                onmouseenter="showInfo('OPNeXOX Labs', 'Centro de innovación y desarrollo de software del ecosistema')"
                onmouseleave="hideInfo()">
                 <img src="images/opnexox-logo.png" alt="OPNeXOX Labs Logo" style="width: 60px; height: 60px; object-fit: contain;">
                 <h3>OPNeXOX Labs</h3>
                 <p>Innovación</p>
             </a>
-
             <a href="games_lab_page.html" class="company-icon gameslab"
                onmouseenter="showInfo('GamesLab', 'Estudio de desarrollo de videojuegos y entretenimiento digital')"
                onmouseleave="hideInfo()">
@@ -586,24 +554,7 @@
                 <h3>OPNeXOX Games Lab</h3>
                 <p>Gaming</p>
             </a>
-
-            <a href="cajacentral.html" class="company-icon cajacentral"
-               onmouseenter="showInfo('CajaCentralPOS', 'Sistema POS integral para comercios y restaurantes')"
-               onmouseleave="hideInfo()">
-                <img src="images/cajacentralpos-logo.png" alt="CajaCentral POS Logo" style="width: 60px; height: 60px; object-fit: contain;">
-                <h3>CajaCentralPOS</h3>
-                <p>Point of Sale</p>
-            </a>
-
-            <a href="nexusoptima.html" class="company-icon nexusoptim" style="bottom: 5%; right: 10%;"
-               onmouseenter="showInfo('NeXOptimIA', 'Plataforma Smart Cities con IA para Costa Rica (1.65M hogares)')"
-               onmouseleave="hideInfo()">
-                <img src="images/nexusoptim-logo.png" alt="NeXOptimIA Logo" style="width: 60px; height: 60px; object-fit: contain; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;font-size:2rem;">🏙️</span>
-                <h3>NeXOptimIA</h3>
-                <p>Smart Cities</p>
-            </a>
-
+            <!-- Fila 2 -->
             <a href="countercorehazardav.html" class="company-icon countercore"
                onmouseenter="showInfo('CounterCoreHazardAV', 'Antivirus inteligente con Llama AI y Gaming Mode')"
                onmouseleave="hideInfo()">
@@ -611,24 +562,43 @@
                 <h3>CounterCore<br>HazardAV</h3>
                 <p>Antivirus IA</p>
             </a>
-
-            <!-- Nuevo: OPNeXOX AcademIA -->
-            <a href="academia.html" class="company-icon academia" style="bottom: 5%; left: 50%; transform: translateX(-50%);"
-               onmouseenter="showInfo('OPNeXOX AcademIA', 'Plataforma de formación y capacitación tecnológica avanzada para el ecosistema OPNeXOX')"
-               onmouseleave="hideInfo()">
-                <img src="images/academia.png" alt="OPNeXOX AcademIA Logo" style="width: 60px; height: 60px; object-fit: contain;">
-                <h3>OPNeXOX AcademIA</h3>
-                <p>Academia</p>
-            </a>
-
-            <!-- Nuevo: NeXoX RHIA Manager alineado -->
-            <a href="#" class="company-icon rhia-manager" style="top: 50%; right: 10%; transform: translateY(-50%);"
+            <div class="headquarters">
+                <div class="headquarters-icon">
+                    <img src="images/opnexox-logo.png" alt="OPNeXOX Casa Matriz" style="width: 60px; height: 60px; object-fit: contain; border-radius: 10px;">
+                </div>
+                <h2>Casa Matriz</h2>
+                <p>OPNeXOX</p>
+            </div>
+            <a href="#" class="company-icon rhia-manager"
                onmouseenter="showInfo('NeXoX RHIA Manager', 'Gestor de recursos humanos con IA para empresas y organizaciones')"
                onmouseleave="hideInfo()">
                 <img src="images/rhiamanager.png" alt="NeXoX RHIA Manager Logo" style="width: 60px; height: 60px; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span style="display:none;font-size:2rem;">👤</span>
                 <h3>NeXoX RHIA Manager</h3>
                 <p>Recursos Humanos</p>
+            </a>
+            <!-- Fila 3 -->
+            <a href="cajacentral.html" class="company-icon cajacentral"
+               onmouseenter="showInfo('CajaCentralPOS', 'Sistema POS integral para comercios y restaurantes')"
+               onmouseleave="hideInfo()">
+                <img src="images/cajacentralpos-logo.png" alt="CajaCentral POS Logo" style="width: 60px; height: 60px; object-fit: contain;">
+                <h3>CajaCentralPOS</h3>
+                <p>Point of Sale</p>
+            </a>
+            <a href="academia.html" class="company-icon academia"
+               onmouseenter="showInfo('OPNeXOX AcademIA', 'Plataforma de formación y capacitación tecnológica avanzada para el ecosistema OPNeXOX')"
+               onmouseleave="hideInfo()">
+                <img src="images/academia.png" alt="OPNeXOX AcademIA Logo" style="width: 60px; height: 60px; object-fit: contain;">
+                <h3>OPNeXOX AcademIA</h3>
+                <p>Academia</p>
+            </a>
+            <a href="nexusoptima.html" class="company-icon nexusoptim"
+               onmouseenter="showInfo('NeXOptimIA', 'Plataforma Smart Cities con IA para Costa Rica (1.65M hogares)')"
+               onmouseleave="hideInfo()">
+                <img src="images/nexusoptim-logo.png" alt="NeXOptimIA Logo" style="width: 60px; height: 60px; object-fit: contain; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;font-size:2rem;">🏙️</span>
+                <h3>NeXOptimIA</h3>
+                <p>Smart Cities</p>
             </a>
         </div>
     </main>
